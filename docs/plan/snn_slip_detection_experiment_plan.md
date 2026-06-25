@@ -71,21 +71,21 @@ x: [B, T=20, C=2, H=128, W=128]
 Input:           [B, T, 2, 32, 32]
 
 Conv1:           Conv2d(2, 16, kernel=5, stride=1, padding=2, bias=False)
-Neuron1:         LIF 或 IAF, threshold=1.0, beta=0.75~0.90
+Neuron1:         LIF, threshold=1.0, beta=0.75~0.90
 Output1:         [B, T, 16, 32, 32]
 
 Conv2:           Conv2d(16, 32, kernel=3, stride=2, padding=1, bias=False)
-Neuron2:         LIF 或 IAF, threshold=1.0, beta=0.75~0.90
+Neuron2:         LIF, threshold=1.0, beta=0.75~0.90
 Output2:         [B, T, 32, 16, 16]
 
 Spatial readout: AdaptiveAvgPool2d(4x4) 或 SumPool2d(4x4)
 Flatten:         [B, T, 512]
 
 FC1:             Linear(512, 64, bias=False)
-Neuron3:         LIF 或 IAF
+Neuron3:         LIF
 
 FC2:             Linear(64, 2, bias=False)
-Output neuron:   LIF/IAF readout 或 non-spiking membrane readout
+Output neuron:   LIF readout 或 non-spiking membrane readout
 
 Decision:        对 T=20 的输出 spike count 求和，argmax 得到 no-slip/slip。
 ```
@@ -173,7 +173,15 @@ surrogate: ATan 或 sigmoid surrogate
 
 ## 6. 推理和在线检测
 
-在线输入维护一个 20 ms rolling event buffer，每 1 ms 更新一次输出。
+首版推理采用严格 sliding-window 方式：在线输入维护一个 20 ms rolling event buffer，每 1 ms 更新一次窗口，然后把最近完整 20 ms 事件重新 voxelize 后送入模型。也就是说，模型每 1 ms 输出一次判断，但每次判断都基于最近 20 ms 上下文，而不是只看新来的 1 ms event。
+
+选择 strict sliding window 的原因：
+
+- 与训练样本定义完全一致，便于先验证模型能力和标签对齐。
+- 每个窗口内部的 LIF 状态从零初始化，避免不同 sequence 或不同窗口之间的状态泄漏。
+- 代价是相邻窗口有大量重复计算，后续部署优化时再改为 stateful streaming。
+
+后续 streaming 版本的目标是：每 1 ms 只输入新到的 event bin，并保留卷积层和 LIF 神经元状态，从而复用前 19 ms 的历史状态。这个版本需要单独校准状态 reset、泄漏时间常数、输出平滑和训练/推理分布差异，因此不作为首版实验范围。
 
 单次分类：
 
@@ -208,19 +216,18 @@ smoothed_score_slip - smoothed_score_no_slip >= margin
 必须完成的主实验：
 
 1. `TacSpike-Lite-SCNN-v1`，双极性输入，4x4 pooling，surrogate BPTT。
-2. CNN baseline 复跑或重新训练，确认数据读取和标签对齐。
-3. 论文风格 baseline：正极性-only，空间下采样到 20x20，两层卷积 + 两层全连接。
+2. 论文风格 baseline：正极性-only，空间下采样到 20x20，两层卷积 + 两层全连接，神经元仍使用 LIF。
 
 建议消融：
 
 - polarity：双极性 vs 正极性-only vs 合并极性。
 - spatial pooling：2x2、4x4、8x8。
 - 时间窗：10 ms、20 ms、30 ms。
-- 神经元：IAF vs LIF。
 - readout：output spike count vs output membrane potential。
 - 平滑：N=1、3、5、10。
 - class imbalance：class weight vs balanced sampler vs focal loss。
 - 模型宽度：tiny 8/16/32 vs lite 16/32/64。
+- 推理形态：strict 20 ms sliding window 作为首版；stateful streaming 只做后续优化对照。
 
 核心评价指标：
 
@@ -236,21 +243,26 @@ smoothed_score_slip - smoothed_score_no_slip >= margin
 - 使用 `events/t,x,y,p` 和 `windows/t_start,t_end` 动态 voxelize。
 - 写一个 `inspect_sample.py`，随机画出 20 ms event raster / pooled voxel，确认标签和窗口对齐。
 
-阶段 2：训练 baseline
+阶段 2：训练主模型和核心消融
 
-- 先训练普通 CNN 或 ANN baseline，确保 pipeline 正常。
-- 再训练 `TacSpike-Lite-SCNN-v1`。
-- 每个 epoch 记录窗口级指标、类别分布、隐藏层 firing rate。
+- 训练 `TacSpike-Lite-SCNN-v1` 主模型：双极性输入、4x4 pooling、20 ms window、LIF、spike count readout。
+- 每个 epoch 记录窗口级指标、类别分布、隐藏层 firing rate、参数量和平均 spike count。
+- 完成核心消融实验：polarity、spatial pooling、时间窗、readout、平滑窗口、class imbalance 策略和模型宽度。
+- 训练论文风格 baseline：正极性-only、20x20 输入、两层卷积 + 两层全连接、LIF，用于判断 TacSpike 输入分辨率和双极性信息是否带来增益。
+- 使用 validation set 选择主模型和阈值，test set 只用于最终报告。
 
-阶段 3：sequence-level 在线评估
+近期输出物：
 
-- 对 val/test sequence 按时间顺序滑窗推理。
-- 加平滑和触发规则，输出每个 sequence 的检测时刻、延迟、误报。
-- 生成 PR 曲线，选择部署阈值。
+- 可复现实验配置文件。
+- 主模型训练日志和 checkpoint。
+- 消融实验汇总表。
+- 窗口级 test 指标和 confusion matrix。
 
-阶段 4：压缩和部署预研
+远期目标：
 
-- 在 v1 准确率足够后训练 tiny 版本。
+- 做 sequence-level 在线评估：对 val/test sequence 按时间顺序 strict sliding-window 推理，加平滑和触发规则，输出每个 sequence 的检测时刻、延迟和误报。
+- 从 strict sliding-window 推理迁移到 stateful streaming：每次只输入新 1 ms event bin，保留 LIF 状态，并和 strict sliding-window 的输出、延迟、误报率做对齐验证。
+- 在 v1 准确率足够后训练 tiny 版本，与 streaming 优化并列作为部署前轻量化方向。
 - 做 quantization-aware 或权重离散化预研。
 - 用 SpikingJelly 的算子/能耗估计先做 SynOps 统计。
 - 如果目标硬件偏 SynSense，迁移到 Sinabs/DynapCNN；如果目标偏 Loihi，再评估 Lava/NIR 路径。
@@ -263,10 +275,10 @@ smoothed_score_slip - smoothed_score_no_slip >= margin
 
 ```text
 4x4 event sum pooling
--> Conv(2,16,5) + LIF/IAF
--> Conv(16,32,3,stride=2) + LIF/IAF
+-> Conv(2,16,5) + LIF
+-> Conv(16,32,3,stride=2) + LIF
 -> AdaptivePool(4x4)
--> FC(512,64) + LIF/IAF
+-> FC(512,64) + LIF
 -> FC(64,2)
 -> 20 ms spike count readout
 -> 5 ms causal smoothing + margin/K-consecutive trigger
