@@ -7,11 +7,11 @@ __pycache__/
 .ruff_cache/
 .venv/
 venv/
-data/
-datasets/
-outputs/
-runs/
-checkpoints/
+/data/
+/datasets/
+/outputs/
+/runs/
+/checkpoints/
 *.pt
 *.pth
 *.ckpt
