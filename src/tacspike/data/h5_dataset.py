@@ -158,6 +158,74 @@ def voxelize_events(
     return voxel
 
 
+def voxelize_events_pooled(
+    events: Dict[str, np.ndarray],
+    t_start: float,
+    t_end: float,
+    bins: int,
+    height: int,
+    width: int,
+    pool: int,
+    polarity_mode: str = "both",
+    clip_max: Optional[float] = None,
+) -> np.ndarray:
+    """Voxelize events directly into pooled [T, C, H // pool, W // pool].
+
+    This avoids allocating the full 128x128 voxel tensor during training.
+    """
+
+    if pool <= 1:
+        return voxelize_events(
+            events=events,
+            t_start=t_start,
+            t_end=t_end,
+            bins=bins,
+            height=height,
+            width=width,
+            polarity_mode=polarity_mode,
+            clip_max=clip_max,
+        )
+    if height % pool != 0 or width % pool != 0:
+        raise ValueError(f"Spatial shape {(height, width)} is not divisible by pool={pool}")
+    if polarity_mode not in {"both", "positive", "negative", "sum"}:
+        raise ValueError(f"Unsupported polarity_mode={polarity_mode!r}")
+
+    pooled_h = height // pool
+    pooled_w = width // pool
+    channels = 2 if polarity_mode == "both" else 1
+    voxel = np.zeros((bins, channels, pooled_h, pooled_w), dtype=np.float32)
+    if t_end <= t_start or len(events["t"]) == 0:
+        return voxel
+
+    x = events["x"].astype(np.int64, copy=False)
+    y = events["y"].astype(np.int64, copy=False)
+    p = events["p"].astype(np.int64, copy=False)
+    t = events["t"].astype(np.float64, copy=False)
+
+    valid = (x >= 0) & (x < width) & (y >= 0) & (y < height) & ((p == 0) | (p == 1))
+    if polarity_mode == "positive":
+        valid &= p == 1
+    elif polarity_mode == "negative":
+        valid &= p == 0
+    if not bool(valid.any()):
+        return voxel
+
+    duration = t_end - t_start
+    bin_idx = np.floor((t[valid] - t_start) / duration * bins).astype(np.int64)
+    bin_idx = np.clip(bin_idx, 0, bins - 1)
+    pooled_x = x[valid] // pool
+    pooled_y = y[valid] // pool
+    if polarity_mode == "both":
+        channel_idx = p[valid]
+    else:
+        channel_idx = np.zeros_like(bin_idx)
+
+    np.add.at(voxel, (bin_idx, channel_idx, pooled_y, pooled_x), 1.0)
+    if clip_max is not None:
+        np.minimum(voxel, float(clip_max), out=voxel)
+    return voxel
+
+
 def spatial_sum_pool(voxel: np.ndarray, pool: int) -> np.ndarray:
     """Non-overlapping spatial sum pooling for [T, C, H, W]."""
 
@@ -255,7 +323,12 @@ class TacSpikeH5Dataset:
         self._open_path = path
         return self._h5
 
-    def get_sample(self, global_index: int, return_events: bool = False) -> Dict[str, Any]:
+    def get_sample(
+        self,
+        global_index: int,
+        return_events: bool = False,
+        full_voxel: bool = True,
+    ) -> Dict[str, Any]:
         _, window_index, info = self.sequence_for_index(global_index)
         h5 = self._open_h5(info.path)
 
@@ -267,17 +340,31 @@ class TacSpikeH5Dataset:
         height = int(h5.attrs["height"])
         width = int(h5.attrs["width"])
 
-        voxel = voxelize_events(
-            events,
-            t_start=t_start,
-            t_end=t_end,
-            bins=bins,
-            height=height,
-            width=width,
-            polarity_mode=self.polarity_mode,
-            clip_max=self.clip_max,
-        )
-        pooled = spatial_sum_pool(voxel, self.spatial_pool)
+        if full_voxel:
+            voxel = voxelize_events(
+                events,
+                t_start=t_start,
+                t_end=t_end,
+                bins=bins,
+                height=height,
+                width=width,
+                polarity_mode=self.polarity_mode,
+                clip_max=self.clip_max,
+            )
+            pooled = spatial_sum_pool(voxel, self.spatial_pool)
+        else:
+            voxel = None
+            pooled = voxelize_events_pooled(
+                events,
+                t_start=t_start,
+                t_end=t_end,
+                bins=bins,
+                height=height,
+                width=width,
+                pool=self.spatial_pool,
+                polarity_mode=self.polarity_mode,
+                clip_max=self.clip_max,
+            )
         label = int(h5["label/slip"][window_index])
         h5_event_count = int(h5["windows/event_count"][window_index])
 
@@ -307,7 +394,7 @@ class TacSpikeH5Dataset:
         return sample
 
     def __getitem__(self, global_index: int) -> Tuple[np.ndarray, int]:
-        sample = self.get_sample(global_index, return_events=False)
+        sample = self.get_sample(global_index, return_events=False, full_voxel=False)
         return sample["x"], sample["label"]
 
 
@@ -338,4 +425,3 @@ def sample_summary(sample: Dict[str, Any]) -> Dict[str, Any]:
         "per_time_sum_max": float(per_t.max()) if len(per_t) else 0.0,
         "per_time_sum_mean": float(per_t.mean()) if len(per_t) else 0.0,
     }
-
