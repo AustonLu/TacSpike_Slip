@@ -1,0 +1,33 @@
+{
+  "best_epoch": 5,
+  "best_val_accuracy": 0.6774,
+  "best_val_metrics": {
+    "accuracy": 0.6774,
+    "balanced_accuracy": 0.6774,
+    "f1": 0.6449091909741332,
+    "fn": 4141.0,
+    "fp": 2311.0,
+    "lif1_firing_rate": 0.1442909471690655,
+    "lif2_firing_rate": 0.4502031899988651,
+    "lif3_firing_rate": 0.5013015635311604,
+    "lif4_firing_rate": 0.5019144952297211,
+    "loss": 0.6673020690917969,
+    "num_batches": 40.0,
+    "num_samples": 20000.0,
+    "output_spike_mean": 0.0,
+    "pr_auc": 0.7465237736335716,
+    "precision": 0.7171358629130967,
+    "recall": 0.5859,
+    "roc_auc": 0.724349955,
+    "samples_per_second": 2981.57599204857,
+    "seconds": 6.70786190032959,
+    "specificity": 0.7689,
+    "tn": 7689.0,
+    "tp": 5859.0
+  },
+  "latest_epoch": 10,
+  "output_dir": "/lamport/makkapakka/jiajunlu/logs/tacspike_stage2_explore/deep_scnn_v1",
+  "parameter_count": 356866,
+  "target_accuracy": 0.94,
+  "target_met": false
+}

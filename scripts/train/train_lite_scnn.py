@@ -20,7 +20,7 @@ if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
 from tacspike.data import IndexedTacSpikeDataset, build_label_index_cache, sample_epoch_indices
-from tacspike.models import TacSpikeLiteSCNN, count_parameters
+from tacspike.models import TacSpikeDeepSCNN, TacSpikeFrameCNN, TacSpikeLiteSCNN, count_parameters
 from tacspike.training import binary_classification_metrics
 
 
@@ -69,6 +69,40 @@ def make_class_weight_tensor(args: argparse.Namespace, device: torch.device) -> 
     raise ValueError(f"Unsupported class_weight={args.class_weight!r}")
 
 
+def build_model(args: argparse.Namespace) -> nn.Module:
+    input_channels = 2 if args.polarity_mode == "both" else 1
+    if args.model == "lite_scnn":
+        return TacSpikeLiteSCNN(
+            input_channels=input_channels,
+            num_classes=2,
+            beta=args.beta,
+            threshold=args.threshold,
+            surrogate_alpha=args.surrogate_alpha,
+            readout=args.readout,
+        )
+    if args.model == "deep_scnn":
+        return TacSpikeDeepSCNN(
+            input_channels=input_channels,
+            num_classes=2,
+            beta=args.beta,
+            threshold=args.threshold,
+            surrogate_alpha=args.surrogate_alpha,
+            width=args.model_width,
+            hidden=args.hidden_dim,
+            readout=args.readout if args.readout in {"logit_mean", "logit_sum"} else "logit_mean",
+        )
+    if args.model == "frame_cnn":
+        return TacSpikeFrameCNN(
+            input_channels=input_channels,
+            time_steps=args.time_steps,
+            num_classes=2,
+            width=args.model_width,
+            temporal_mode=args.temporal_mode,
+            dropout=args.dropout,
+        )
+    raise ValueError(f"Unsupported model={args.model!r}")
+
+
 def make_loader(
     args: argparse.Namespace,
     split: str,
@@ -110,6 +144,8 @@ def run_epoch(
     criterion: nn.Module,
     device: torch.device,
     optimizer: torch.optim.Optimizer | None = None,
+    scaler: torch.cuda.amp.GradScaler | None = None,
+    amp: bool = False,
     max_batches: int | None = None,
     grad_clip: float = 1.0,
 ) -> Dict[str, Any]:
@@ -135,13 +171,22 @@ def run_epoch(
             y = y.to(device=device, non_blocking=True)
             if train:
                 optimizer.zero_grad(set_to_none=True)
-            logits, stats = model(x)
-            loss = criterion(logits, y)
+            with torch.cuda.amp.autocast(enabled=amp and device.type == "cuda"):
+                logits, stats = model(x)
+                loss = criterion(logits, y)
             if train:
-                loss.backward()
-                if grad_clip > 0:
-                    torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
-                optimizer.step()
+                if scaler is not None and amp and device.type == "cuda":
+                    scaler.scale(loss).backward()
+                    if grad_clip > 0:
+                        scaler.unscale_(optimizer)
+                        torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
+                    scaler.step(optimizer)
+                    scaler.update()
+                else:
+                    loss.backward()
+                    if grad_clip > 0:
+                        torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
+                    optimizer.step()
 
             bs = int(y.shape[0])
             total_loss += float(loss.detach().item()) * bs
@@ -191,6 +236,7 @@ def save_checkpoint(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Train TacSpike-Lite-SCNN-v1 main model.")
+    parser.add_argument("--model", choices=("lite_scnn", "deep_scnn", "frame_cnn"), default="lite_scnn")
     parser.add_argument("--data-root", required=True, type=Path)
     parser.add_argument("--output-dir", required=True, type=Path)
     parser.add_argument("--cache-dir", type=Path, default=None)
@@ -206,6 +252,11 @@ def main() -> None:
     parser.add_argument("--threshold", type=float, default=1.0)
     parser.add_argument("--surrogate-alpha", type=float, default=2.0)
     parser.add_argument("--readout", choices=("spike_count", "membrane", "logit_mean", "logit_sum"), default="spike_count")
+    parser.add_argument("--model-width", type=int, default=32)
+    parser.add_argument("--hidden-dim", type=int, default=128)
+    parser.add_argument("--temporal-mode", choices=("time_channels", "sum"), default="time_channels")
+    parser.add_argument("--time-steps", type=int, default=20)
+    parser.add_argument("--dropout", type=float, default=0.1)
     parser.add_argument("--spatial-pool", type=int, default=4)
     parser.add_argument("--clip-max", type=float, default=None)
     parser.add_argument("--input-scale", type=float, default=1.0)
@@ -215,6 +266,7 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--amp", action="store_true")
+    parser.add_argument("--scheduler", choices=("none", "cosine"), default="none")
     parser.add_argument("--max-train-batches", type=int, default=None)
     parser.add_argument("--max-val-batches", type=int, default=None)
     parser.add_argument("--target-accuracy", type=float, default=0.94)
@@ -228,15 +280,14 @@ def main() -> None:
     summary_path = args.output_dir / "summary.json"
 
     device = torch.device(args.device if torch.cuda.is_available() or args.device == "cpu" else "cpu")
-    model = TacSpikeLiteSCNN(
-        input_channels=2 if args.polarity_mode == "both" else 1,
-        num_classes=2,
-        beta=args.beta,
-        threshold=args.threshold,
-        surrogate_alpha=args.surrogate_alpha,
-        readout=args.readout,
-    ).to(device)
+    model = build_model(args).to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
+    scheduler = (
+        torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=max(args.epochs, 1), eta_min=args.lr * 0.05)
+        if args.scheduler == "cosine"
+        else None
+    )
+    scaler = torch.cuda.amp.GradScaler(enabled=args.amp and device.type == "cuda")
     weights = make_class_weight_tensor(args, device)
     criterion = nn.CrossEntropyLoss(weight=weights)
 
@@ -282,15 +333,21 @@ def main() -> None:
             criterion,
             device,
             optimizer=optimizer,
+            scaler=scaler,
+            amp=args.amp,
             max_batches=args.max_train_batches,
             grad_clip=args.grad_clip,
         )
+        if scheduler is not None:
+            scheduler.step()
         val_metrics = run_epoch(
             model,
             val_loader,
             criterion,
             device,
             optimizer=None,
+            scaler=None,
+            amp=args.amp,
             max_batches=args.max_val_batches,
             grad_clip=args.grad_clip,
         )

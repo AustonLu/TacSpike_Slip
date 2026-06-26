@@ -1,0 +1,33 @@
+{
+  "best_epoch": 15,
+  "best_val_accuracy": 0.70892,
+  "best_val_metrics": {
+    "accuracy": 0.70892,
+    "balanced_accuracy": 0.70892,
+    "f1": 0.6873469387755102,
+    "fn": 9002.0,
+    "fp": 5552.0,
+    "lif1_firing_rate": 0.0011530760672698937,
+    "lif2_firing_rate": 0.004218733507180016,
+    "lif3_firing_rate": 0.10410683514664368,
+    "loss": 0.5839111246299744,
+    "num_batches": 98.0,
+    "num_samples": 50000.0,
+    "out_firing_rate": 0.21892185182291635,
+    "output_spike_mean": 4.378436949788307,
+    "pr_auc": 0.7908521353829574,
+    "precision": 0.7423665893271462,
+    "recall": 0.63992,
+    "roc_auc": 0.7484296944,
+    "samples_per_second": 3154.1329125961825,
+    "seconds": 15.852217197418213,
+    "specificity": 0.77792,
+    "tn": 19448.0,
+    "tp": 15998.0
+  },
+  "latest_epoch": 15,
+  "output_dir": "/lamport/makkapakka/jiajunlu/logs/tacspike_stage2_explore/lite_longtrain_v1",
+  "parameter_count": 38304,
+  "target_accuracy": 0.94,
+  "target_met": false
+}

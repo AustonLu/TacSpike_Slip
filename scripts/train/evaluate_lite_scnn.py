@@ -17,9 +17,8 @@ if str(REPO_ROOT) not in sys.path:
 if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
-from scripts.train.train_lite_scnn import make_loader, order_indices_for_io
+from scripts.train.train_lite_scnn import build_model, make_loader, order_indices_for_io
 from tacspike.data import sample_epoch_indices
-from tacspike.models import TacSpikeLiteSCNN
 from tacspike.training import binary_classification_metrics
 
 
@@ -87,14 +86,19 @@ def main() -> None:
     train_args.num_workers = args.num_workers
 
     device = torch.device(args.device if torch.cuda.is_available() or args.device == "cpu" else "cpu")
-    model = TacSpikeLiteSCNN(
-        input_channels=2 if train_args.polarity_mode == "both" else 1,
-        num_classes=2,
-        beta=train_args.beta,
-        threshold=train_args.threshold,
-        surrogate_alpha=train_args.surrogate_alpha,
-        readout=getattr(train_args, "readout", "spike_count"),
-    ).to(device)
+    if not hasattr(train_args, "model"):
+        train_args.model = "lite_scnn"
+    if not hasattr(train_args, "model_width"):
+        train_args.model_width = 32
+    if not hasattr(train_args, "hidden_dim"):
+        train_args.hidden_dim = 128
+    if not hasattr(train_args, "time_steps"):
+        train_args.time_steps = 20
+    if not hasattr(train_args, "temporal_mode"):
+        train_args.temporal_mode = "time_channels"
+    if not hasattr(train_args, "dropout"):
+        train_args.dropout = 0.1
+    model = build_model(train_args).to(device)
     model.load_state_dict(ckpt["model"])
     model.eval()
 
