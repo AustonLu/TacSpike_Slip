@@ -1,0 +1,33 @@
+{
+  "best_epoch": 4,
+  "best_val_accuracy": 0.7872,
+  "best_val_metrics": {
+    "accuracy": 0.7872,
+    "balanced_accuracy": 0.7872,
+    "f1": 0.7565217391304349,
+    "fn": 847.0,
+    "fp": 217.0,
+    "lif1_firing_rate": 0.2997820694235307,
+    "lif2_firing_rate": 0.3530077783367302,
+    "lif3_firing_rate": 0.451567779236202,
+    "lif4_firing_rate": 0.45069759895529926,
+    "loss": 0.4734484085083008,
+    "num_batches": 79.0,
+    "num_samples": 5000.0,
+    "output_spike_mean": 0.0,
+    "pr_auc": 0.8752685832255431,
+    "precision": 0.8839572192513369,
+    "recall": 0.6612,
+    "roc_auc": 0.85452472,
+    "samples_per_second": 598.1710868363097,
+    "seconds": 8.3588125705719,
+    "specificity": 0.9132,
+    "tn": 2283.0,
+    "tp": 1653.0
+  },
+  "latest_epoch": 4,
+  "output_dir": "/lamport/makkapakka/jiajunlu/logs/tacspike_stage2_snn_90pct/ctx500_tb100_deep_scnn_quick_v1",
+  "parameter_count": 619522,
+  "target_accuracy": 0.94,
+  "target_met": false
+}

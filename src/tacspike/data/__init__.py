@@ -9,7 +9,7 @@ from .h5_dataset import (
     voxelize_events,
     voxelize_events_pooled,
 )
-from .torch_dataset import IndexedTacSpikeDataset, build_label_index_cache, sample_epoch_indices
+from .torch_dataset import IndexedTacSpikeDataset, build_label_index_cache, sample_epoch_indices, transition_distances
 
 __all__ = [
     "IndexedTacSpikeDataset",
@@ -20,6 +20,7 @@ __all__ = [
     "sample_epoch_indices",
     "select_events",
     "spatial_sum_pool",
+    "transition_distances",
     "voxelize_events",
     "voxelize_events_pooled",
 ]

@@ -12,12 +12,16 @@ from typing import Any, Dict, Iterable, Tuple
 import numpy as np
 import torch
 from torch import nn
+from torch.nn import functional as F
 from torch.utils.data import DataLoader
 
 REPO_ROOT = Path(__file__).absolute().parents[2]
 SRC_ROOT = REPO_ROOT / "src"
-if str(SRC_ROOT) not in sys.path:
-    sys.path.insert(0, str(SRC_ROOT))
+for path in (str(REPO_ROOT), str(SRC_ROOT)):
+    while path in sys.path:
+        sys.path.remove(path)
+sys.path.insert(0, str(SRC_ROOT))
+sys.path.insert(1, str(REPO_ROOT))
 
 from tacspike.data import IndexedTacSpikeDataset, build_label_index_cache, sample_epoch_indices
 from tacspike.models import TacSpikeDeepSCNN, TacSpikeFrameCNN, TacSpikeLiteSCNN, count_parameters
@@ -71,7 +75,7 @@ def make_class_weight_tensor(args: argparse.Namespace, device: torch.device) -> 
 
 def build_model(args: argparse.Namespace) -> nn.Module:
     input_channels = 2 if args.polarity_mode == "both" else 1
-    time_steps = args.time_steps if args.time_steps is not None else int(args.context_ms or 20)
+    time_steps = args.time_steps if args.time_steps is not None else int(args.time_bins or args.context_ms or 20)
     if args.model == "lite_scnn":
         return TacSpikeLiteSCNN(
             input_channels=input_channels,
@@ -80,6 +84,10 @@ def build_model(args: argparse.Namespace) -> nn.Module:
             threshold=args.threshold,
             surrogate_alpha=args.surrogate_alpha,
             readout=args.readout,
+            conv1_channels=args.scnn_conv1_channels,
+            conv2_channels=args.scnn_conv2_channels,
+            hidden=args.scnn_hidden_dim,
+            readout_start_frac=args.readout_start_frac,
         )
     if args.model == "deep_scnn":
         return TacSpikeDeepSCNN(
@@ -151,6 +159,9 @@ def run_epoch(
     amp: bool = False,
     max_batches: int | None = None,
     grad_clip: float = 1.0,
+    teacher_model: nn.Module | None = None,
+    distill_alpha: float = 0.0,
+    distill_temperature: float = 2.0,
 ) -> Dict[str, Any]:
     train = optimizer is not None
     model.train(train)
@@ -176,7 +187,17 @@ def run_epoch(
                 optimizer.zero_grad(set_to_none=True)
             with torch.cuda.amp.autocast(enabled=amp and device.type == "cuda"):
                 logits, stats = model(x)
-                loss = criterion(logits, y)
+                ce_loss = criterion(logits, y)
+                if teacher_model is not None and distill_alpha > 0.0:
+                    with torch.no_grad():
+                        teacher_logits, _ = teacher_model(x)
+                    temperature = float(distill_temperature)
+                    student_log_prob = F.log_softmax(logits / temperature, dim=1)
+                    teacher_prob = F.softmax(teacher_logits / temperature, dim=1)
+                    distill_loss = F.kl_div(student_log_prob, teacher_prob, reduction="batchmean") * temperature * temperature
+                    loss = (1.0 - distill_alpha) * ce_loss + distill_alpha * distill_loss
+                else:
+                    loss = ce_loss
             if train:
                 if scaler is not None and amp and device.type == "cuda":
                     scaler.scale(loss).backward()
@@ -255,6 +276,10 @@ def main() -> None:
     parser.add_argument("--threshold", type=float, default=1.0)
     parser.add_argument("--surrogate-alpha", type=float, default=2.0)
     parser.add_argument("--readout", choices=("spike_count", "membrane", "logit_mean", "logit_sum"), default="spike_count")
+    parser.add_argument("--readout-start-frac", type=float, default=0.0)
+    parser.add_argument("--scnn-conv1-channels", type=int, default=16)
+    parser.add_argument("--scnn-conv2-channels", type=int, default=32)
+    parser.add_argument("--scnn-hidden-dim", type=int, default=64)
     parser.add_argument("--model-width", type=int, default=32)
     parser.add_argument("--hidden-dim", type=int, default=128)
     parser.add_argument("--temporal-mode", choices=("time_channels", "sum"), default="time_channels")
@@ -268,6 +293,11 @@ def main() -> None:
     parser.add_argument("--polarity-mode", choices=("both", "positive", "negative", "sum"), default="both")
     parser.add_argument("--sampling", choices=("balanced", "random"), default="balanced")
     parser.add_argument("--class-weight", choices=("none", "inverse_frequency"), default="inverse_frequency")
+    parser.add_argument("--label-smoothing", type=float, default=0.0)
+    parser.add_argument("--ignore-transition-ms", type=float, default=0.0)
+    parser.add_argument("--teacher-checkpoint", type=Path, default=None)
+    parser.add_argument("--distill-alpha", type=float, default=0.0)
+    parser.add_argument("--distill-temperature", type=float, default=2.0)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--amp", action="store_true")
@@ -285,15 +315,44 @@ def main() -> None:
     summary_path = args.output_dir / "summary.json"
 
     device = torch.device(args.device if torch.cuda.is_available() or args.device == "cpu" else "cpu")
-    if args.context_ms is None and args.time_steps is None:
-        args.time_steps = 20
-    if args.time_steps is None and args.context_ms is not None:
-        args.time_steps = int(round(args.context_ms))
     if args.time_bins is None and args.context_ms is not None:
         args.time_bins = int(round(args.context_ms))
-    if args.time_bins is None and args.time_steps is not None:
+    if args.time_steps is None and args.time_bins is None:
+        args.time_steps = 20
+        args.time_bins = 20
+    elif args.time_steps is None and args.time_bins is not None:
+        args.time_steps = int(args.time_bins)
+    elif args.time_bins is None and args.time_steps is not None:
         args.time_bins = int(args.time_steps)
     model = build_model(args).to(device)
+    teacher_model = None
+    if args.teacher_checkpoint is not None and args.distill_alpha > 0.0:
+        teacher_ckpt = torch.load(args.teacher_checkpoint, map_location="cpu")
+        teacher_args = argparse.Namespace(**teacher_ckpt["args"])
+        teacher_args.data_root = args.data_root
+        teacher_args.batch_size = args.batch_size
+        teacher_args.num_workers = args.num_workers
+        for name, value in (
+            ("model", "frame_cnn"),
+            ("model_width", 32),
+            ("hidden_dim", 64),
+            ("scnn_hidden_dim", 64),
+            ("scnn_conv1_channels", 16),
+            ("scnn_conv2_channels", 32),
+            ("readout_start_frac", 0.0),
+            ("time_steps", None),
+            ("temporal_mode", "time_channels"),
+            ("dropout", 0.1),
+            ("context_ms", None),
+            ("time_bins", None),
+        ):
+            if not hasattr(teacher_args, name):
+                setattr(teacher_args, name, value)
+        teacher_model = build_model(teacher_args).to(device)
+        teacher_model.load_state_dict(teacher_ckpt["model"])
+        teacher_model.eval()
+        for parameter in teacher_model.parameters():
+            parameter.requires_grad_(False)
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
     scheduler = (
         torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=max(args.epochs, 1), eta_min=args.lr * 0.05)
@@ -302,7 +361,7 @@ def main() -> None:
     )
     scaler = torch.cuda.amp.GradScaler(enabled=args.amp and device.type == "cuda")
     weights = make_class_weight_tensor(args, device)
-    criterion = nn.CrossEntropyLoss(weight=weights)
+    criterion = nn.CrossEntropyLoss(weight=weights, label_smoothing=args.label_smoothing)
 
     config_record = {
         "event": "config",
@@ -336,6 +395,7 @@ def main() -> None:
             num_samples=args.train_samples_per_epoch,
             seed=args.seed + epoch,
             sampling=args.sampling,
+            ignore_transition_ms=args.ignore_transition_ms,
         )
         train_indices = order_indices_for_io(train_indices, args.batch_size, args.seed + epoch + 30_000)
         train_loader = make_loader(args, "train", train_indices, shuffle=False)
@@ -350,6 +410,9 @@ def main() -> None:
             amp=args.amp,
             max_batches=args.max_train_batches,
             grad_clip=args.grad_clip,
+            teacher_model=teacher_model,
+            distill_alpha=args.distill_alpha,
+            distill_temperature=args.distill_temperature,
         )
         if scheduler is not None:
             scheduler.step()

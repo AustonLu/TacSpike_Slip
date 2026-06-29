@@ -44,6 +44,23 @@ class IndexedTacSpikeDataset(Dataset):
         return torch.from_numpy(x), torch.tensor(y, dtype=torch.long)
 
 
+def transition_distances(labels: np.ndarray) -> np.ndarray:
+    """Distance in windows to the nearest binary label transition."""
+
+    labels = np.asarray(labels)
+    if labels.shape[0] == 0:
+        return np.empty((0,), dtype=np.float32)
+    transitions = np.flatnonzero(labels[1:] != labels[:-1]) + 1
+    if transitions.size == 0:
+        return np.full(labels.shape[0], np.inf, dtype=np.float32)
+    positions = np.arange(labels.shape[0], dtype=np.int64)
+    idx = np.searchsorted(transitions, positions)
+    right = np.where(idx < transitions.size, transitions[np.minimum(idx, transitions.size - 1)], np.inf)
+    left_idx = np.maximum(idx - 1, 0)
+    left = np.where(idx > 0, transitions[left_idx], -np.inf)
+    return np.minimum(np.abs(positions - left), np.abs(positions - right)).astype(np.float32)
+
+
 def build_label_index_cache(
     data_root: Path,
     split: str,
@@ -63,18 +80,35 @@ def build_label_index_cache(
     base = TacSpikeH5Dataset(data_root=data_root, split=split)
     slip_parts = []
     no_slip_parts = []
+    slip_distance_parts = []
+    no_slip_distance_parts = []
     for seq_idx, info in enumerate(base.sequences):
         offset = base.offsets[seq_idx]
         with h5py.File(info.path, "r") as h5:
             labels = h5["label/slip"][:].astype(np.int8, copy=False)
         local = np.arange(labels.shape[0], dtype=np.int64) + int(offset)
-        slip_parts.append(local[labels == 1])
-        no_slip_parts.append(local[labels == 0])
+        distances = transition_distances(labels)
+        slip_mask = labels == 1
+        no_slip_mask = labels == 0
+        slip_parts.append(local[slip_mask])
+        no_slip_parts.append(local[no_slip_mask])
+        slip_distance_parts.append(distances[slip_mask])
+        no_slip_distance_parts.append(distances[no_slip_mask])
     base.close()
 
     slip_indices = np.concatenate(slip_parts) if slip_parts else np.empty((0,), dtype=np.int64)
     no_slip_indices = np.concatenate(no_slip_parts) if no_slip_parts else np.empty((0,), dtype=np.int64)
-    np.savez_compressed(cache_path, slip=slip_indices, no_slip=no_slip_indices)
+    slip_distances = np.concatenate(slip_distance_parts) if slip_distance_parts else np.empty((0,), dtype=np.float32)
+    no_slip_distances = (
+        np.concatenate(no_slip_distance_parts) if no_slip_distance_parts else np.empty((0,), dtype=np.float32)
+    )
+    np.savez_compressed(
+        cache_path,
+        slip=slip_indices,
+        no_slip=no_slip_indices,
+        slip_transition_distance=slip_distances,
+        no_slip_transition_distance=no_slip_distances,
+    )
     return cache_path
 
 
@@ -85,6 +119,7 @@ def sample_epoch_indices(
     num_samples: int,
     seed: int,
     sampling: str = "balanced",
+    ignore_transition_ms: float = 0.0,
 ) -> np.ndarray:
     """Sample global window indices for one epoch."""
 
@@ -102,6 +137,15 @@ def sample_epoch_indices(
     with np.load(cache_path) as cache:
         slip = cache["slip"]
         no_slip = cache["no_slip"]
+        if ignore_transition_ms > 0 and "slip_transition_distance" in cache and "no_slip_transition_distance" in cache:
+            min_distance = float(ignore_transition_ms)
+            slip = slip[cache["slip_transition_distance"] >= min_distance]
+            no_slip = no_slip[cache["no_slip_transition_distance"] >= min_distance]
+            if slip.shape[0] == 0 or no_slip.shape[0] == 0:
+                raise ValueError(
+                    f"ignore_transition_ms={ignore_transition_ms} removed all samples "
+                    f"(slip={slip.shape[0]}, no_slip={no_slip.shape[0]})"
+                )
 
     n_slip = num_samples // 2
     n_no_slip = num_samples - n_slip

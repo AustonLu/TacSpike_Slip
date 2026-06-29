@@ -93,16 +93,26 @@ def main() -> None:
         train_args.model_width = 32
     if not hasattr(train_args, "hidden_dim"):
         train_args.hidden_dim = 128
+    if not hasattr(train_args, "scnn_hidden_dim"):
+        train_args.scnn_hidden_dim = 64
+    if not hasattr(train_args, "scnn_conv1_channels"):
+        train_args.scnn_conv1_channels = 16
+    if not hasattr(train_args, "scnn_conv2_channels"):
+        train_args.scnn_conv2_channels = 32
+    if not hasattr(train_args, "readout_start_frac"):
+        train_args.readout_start_frac = 0.0
     if not hasattr(train_args, "time_steps"):
         train_args.time_steps = None
+    if not hasattr(train_args, "time_bins"):
+        train_args.time_bins = None
     if not hasattr(train_args, "temporal_mode"):
         train_args.temporal_mode = "time_channels"
     if not hasattr(train_args, "dropout"):
         train_args.dropout = 0.1
     if not hasattr(train_args, "context_ms"):
         train_args.context_ms = None
-    if not hasattr(train_args, "time_bins"):
-        train_args.time_bins = None
+    if not hasattr(train_args, "label_smoothing"):
+        train_args.label_smoothing = 0.0
     model = build_model(train_args).to(device)
     model.load_state_dict(ckpt["model"])
     model.eval()

@@ -61,19 +61,26 @@ class TacSpikeLiteSCNN(nn.Module):
         threshold: float = 1.0,
         surrogate_alpha: float = 2.0,
         readout: str = "spike_count",
+        conv1_channels: int = 16,
+        conv2_channels: int = 32,
+        hidden: int = 64,
+        readout_start_frac: float = 0.0,
     ) -> None:
         super().__init__()
         if readout not in {"spike_count", "membrane", "logit_mean", "logit_sum"}:
             raise ValueError(f"Unsupported readout={readout!r}")
         self.readout = readout
-        self.conv1 = nn.Conv2d(input_channels, 16, kernel_size=5, stride=1, padding=2, bias=False)
+        self.readout_start_frac = float(readout_start_frac)
+        if not 0.0 <= self.readout_start_frac < 1.0:
+            raise ValueError(f"readout_start_frac must be in [0, 1), got {readout_start_frac}")
+        self.conv1 = nn.Conv2d(input_channels, conv1_channels, kernel_size=5, stride=1, padding=2, bias=False)
         self.lif1 = LIFCell(beta=beta, threshold=threshold, surrogate_alpha=surrogate_alpha)
-        self.conv2 = nn.Conv2d(16, 32, kernel_size=3, stride=2, padding=1, bias=False)
+        self.conv2 = nn.Conv2d(conv1_channels, conv2_channels, kernel_size=3, stride=2, padding=1, bias=False)
         self.lif2 = LIFCell(beta=beta, threshold=threshold, surrogate_alpha=surrogate_alpha)
         self.pool = nn.AdaptiveAvgPool2d((4, 4))
-        self.fc1 = nn.Linear(32 * 4 * 4, 64, bias=False)
+        self.fc1 = nn.Linear(conv2_channels * 4 * 4, hidden, bias=False)
         self.lif3 = LIFCell(beta=beta, threshold=threshold, surrogate_alpha=surrogate_alpha)
-        self.fc2 = nn.Linear(64, num_classes, bias=False)
+        self.fc2 = nn.Linear(hidden, num_classes, bias=False)
         self.out_lif = LIFCell(beta=beta, threshold=threshold, surrogate_alpha=surrogate_alpha)
 
     def forward(self, x: torch.Tensor) -> Tuple[torch.Tensor, Dict[str, torch.Tensor]]:
@@ -121,14 +128,19 @@ class TacSpikeLiteSCNN(nn.Module):
             firing_counts["out"] += sout.numel()
 
         spike_seq = torch.stack(out_spikes, dim=1)
-        spike_count = spike_seq.sum(dim=1)
         raw_logit_seq = torch.stack(raw_logits, dim=1)
+        out_mem_seq = torch.stack(out_mems, dim=1)
+        readout_start = int(steps * self.readout_start_frac)
+        spike_readout = spike_seq[:, readout_start:]
+        raw_logit_readout = raw_logit_seq[:, readout_start:]
+        out_mem_readout = out_mem_seq[:, readout_start:]
+        spike_count = spike_readout.sum(dim=1)
         if self.readout == "membrane":
-            logits = torch.stack(out_mems, dim=1).mean(dim=1)
+            logits = out_mem_readout.mean(dim=1)
         elif self.readout == "logit_mean":
-            logits = raw_logit_seq.mean(dim=1)
+            logits = raw_logit_readout.mean(dim=1)
         elif self.readout == "logit_sum":
-            logits = raw_logit_seq.sum(dim=1)
+            logits = raw_logit_readout.sum(dim=1)
         else:
             logits = spike_count
         stats = {
