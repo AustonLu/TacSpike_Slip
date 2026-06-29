@@ -21,6 +21,8 @@ class IndexedTacSpikeDataset(Dataset):
         polarity_mode: str = "both",
         clip_max: Optional[float] = 1.0,
         spatial_pool: int = 4,
+        context_ms: Optional[float] = None,
+        time_bins: Optional[int] = None,
     ) -> None:
         self.base = TacSpikeH5Dataset(
             data_root=data_root,
@@ -28,6 +30,8 @@ class IndexedTacSpikeDataset(Dataset):
             polarity_mode=polarity_mode,
             clip_max=clip_max,
             spatial_pool=spatial_pool,
+            context_ms=context_ms,
+            time_bins=time_bins,
         )
         self.indices = np.asarray(indices, dtype=np.int64)
 
@@ -106,4 +110,3 @@ def sample_epoch_indices(
     indices = np.concatenate([sampled_slip, sampled_no_slip]).astype(np.int64, copy=False)
     rng.shuffle(indices)
     return indices
-

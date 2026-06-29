@@ -1,0 +1,30 @@
+{
+  "best_epoch": 6,
+  "best_val_accuracy": 0.8427,
+  "best_val_metrics": {
+    "accuracy": 0.8427,
+    "balanced_accuracy": 0.8427,
+    "f1": 0.8282563598646141,
+    "feature_abs_mean": 0.18121337890625,
+    "feature_nonzero_frac": 0.6043710316930498,
+    "fn": 2414.0,
+    "fp": 732.0,
+    "loss": 0.3827812007665634,
+    "num_batches": 105.0,
+    "num_samples": 20000.0,
+    "pr_auc": 0.9131707983015959,
+    "precision": 0.9119980764606876,
+    "recall": 0.7586,
+    "roc_auc": 0.90862749,
+    "samples_per_second": 877.7823267027447,
+    "seconds": 22.78469204902649,
+    "specificity": 0.9268,
+    "tn": 9268.0,
+    "tp": 7586.0
+  },
+  "latest_epoch": 6,
+  "output_dir": "/lamport/makkapakka/jiajunlu/logs/tacspike_stage2_temporal_streaming/ctx300_frame_cnn_v1",
+  "parameter_count": 675650,
+  "target_accuracy": 0.94,
+  "target_met": false
+}

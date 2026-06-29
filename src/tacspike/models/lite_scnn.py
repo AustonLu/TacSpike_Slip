@@ -139,5 +139,71 @@ class TacSpikeLiteSCNN(nn.Module):
         return logits, stats
 
 
+class TacSpikeStreamingLiteSCNN(nn.Module):
+    """Stateful Lite-SCNN that emits one logit per input millisecond."""
+
+    def __init__(
+        self,
+        input_channels: int = 2,
+        num_classes: int = 2,
+        beta: float = 0.85,
+        threshold: float = 0.1,
+        surrogate_alpha: float = 2.0,
+        hidden: int = 64,
+    ) -> None:
+        super().__init__()
+        self.conv1 = nn.Conv2d(input_channels, 16, kernel_size=5, stride=1, padding=2, bias=False)
+        self.lif1 = LIFCell(beta=beta, threshold=threshold, surrogate_alpha=surrogate_alpha)
+        self.conv2 = nn.Conv2d(16, 32, kernel_size=3, stride=2, padding=1, bias=False)
+        self.lif2 = LIFCell(beta=beta, threshold=threshold, surrogate_alpha=surrogate_alpha)
+        self.pool = nn.AdaptiveAvgPool2d((4, 4))
+        self.fc1 = nn.Linear(32 * 4 * 4, hidden, bias=False)
+        self.lif3 = LIFCell(beta=beta, threshold=threshold, surrogate_alpha=surrogate_alpha)
+        self.fc2 = nn.Linear(hidden, num_classes)
+
+    def step(
+        self,
+        x_t: torch.Tensor,
+        state: Tuple[LIFState | None, LIFState | None, LIFState | None] | None = None,
+    ) -> Tuple[torch.Tensor, Tuple[LIFState, LIFState, LIFState], Dict[str, torch.Tensor]]:
+        if state is None:
+            state1 = state2 = state3 = None
+        else:
+            state1, state2, state3 = state
+        z = self.conv1(x_t)
+        s1, state1 = self.lif1(z, state1)
+        z = self.conv2(s1)
+        s2, state2 = self.lif2(z, state2)
+        z = self.pool(s2).flatten(1)
+        z = self.fc1(z)
+        s3, state3 = self.lif3(z, state3)
+        logits = self.fc2(s3)
+        stats = {
+            "lif1_firing_rate": s1.detach().mean(),
+            "lif2_firing_rate": s2.detach().mean(),
+            "lif3_firing_rate": s3.detach().mean(),
+        }
+        return logits, (state1, state2, state3), stats
+
+    def forward(self, x: torch.Tensor) -> Tuple[torch.Tensor, Dict[str, torch.Tensor]]:
+        if x.ndim != 5:
+            raise ValueError(f"Expected x shape [B, T, C, H, W], got {tuple(x.shape)}")
+        state = None
+        logits = []
+        firing_totals = {
+            "lif1_firing_rate": x.new_tensor(0.0),
+            "lif2_firing_rate": x.new_tensor(0.0),
+            "lif3_firing_rate": x.new_tensor(0.0),
+        }
+        for t in range(x.shape[1]):
+            logit_t, state, stats = self.step(x[:, t], state)
+            logits.append(logit_t)
+            for key, value in stats.items():
+                firing_totals[key] = firing_totals[key] + value
+        logit_seq = torch.stack(logits, dim=1)
+        stats = {key: value / max(x.shape[1], 1) for key, value in firing_totals.items()}
+        return logit_seq, stats
+
+
 def count_parameters(model: nn.Module) -> int:
     return sum(p.numel() for p in model.parameters() if p.requires_grad)

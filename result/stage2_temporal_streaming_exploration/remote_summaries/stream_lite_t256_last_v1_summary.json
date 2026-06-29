@@ -1,0 +1,31 @@
+{
+  "best_epoch": 6,
+  "best_val_accuracy": 0.726565234375,
+  "best_val_metrics": {
+    "accuracy": 0.726565234375,
+    "balanced_accuracy": 0.7240558050547132,
+    "f1": 0.6917648882350326,
+    "fn": 460143.0,
+    "fp": 239850.0,
+    "lif1_firing_rate": 0.0055567268989508665,
+    "lif2_firing_rate": 0.0339048128527931,
+    "lif3_firing_rate": 0.2472877804237076,
+    "loss": 0.5407994750976562,
+    "num_batches": 79.0,
+    "num_samples": 2560000.0,
+    "pr_auc": 0.799925061192632,
+    "precision": 0.7660773656322446,
+    "recall": 0.6305947502954323,
+    "roc_auc": 0.7786779031433462,
+    "samples_per_second": 155242.99512609188,
+    "seconds": 16.49027705192566,
+    "specificity": 0.8175168598139942,
+    "tn": 1074518.0,
+    "tp": 785489.0
+  },
+  "latest_epoch": 6,
+  "output_dir": "/lamport/makkapakka/jiajunlu/logs/tacspike_stage2_temporal_streaming/stream_lite_t256_last_v1",
+  "parameter_count": 38306,
+  "target_accuracy": 0.9,
+  "target_met": false
+}

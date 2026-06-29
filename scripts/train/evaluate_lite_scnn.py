@@ -12,10 +12,11 @@ from torch import nn
 
 REPO_ROOT = Path(__file__).absolute().parents[2]
 SRC_ROOT = REPO_ROOT / "src"
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
-if str(SRC_ROOT) not in sys.path:
-    sys.path.insert(0, str(SRC_ROOT))
+for path in (str(REPO_ROOT), str(SRC_ROOT)):
+    while path in sys.path:
+        sys.path.remove(path)
+sys.path.insert(0, str(SRC_ROOT))
+sys.path.insert(1, str(REPO_ROOT))
 
 from scripts.train.train_lite_scnn import build_model, make_loader, order_indices_for_io
 from tacspike.data import sample_epoch_indices
@@ -93,11 +94,15 @@ def main() -> None:
     if not hasattr(train_args, "hidden_dim"):
         train_args.hidden_dim = 128
     if not hasattr(train_args, "time_steps"):
-        train_args.time_steps = 20
+        train_args.time_steps = None
     if not hasattr(train_args, "temporal_mode"):
         train_args.temporal_mode = "time_channels"
     if not hasattr(train_args, "dropout"):
         train_args.dropout = 0.1
+    if not hasattr(train_args, "context_ms"):
+        train_args.context_ms = None
+    if not hasattr(train_args, "time_bins"):
+        train_args.time_bins = None
     model = build_model(train_args).to(device)
     model.load_state_dict(ckpt["model"])
     model.eval()

@@ -90,15 +90,21 @@ def load_manifest(data_root: Path, split: str) -> List[SequenceInfo]:
     return sequence_infos
 
 
-def select_events(h5: Any, window_index: int) -> Dict[str, np.ndarray]:
-    """Select events within one window using the release's inclusive t_end convention."""
+def select_events_between(h5: Any, t_start: float, t_end: float) -> Dict[str, np.ndarray]:
+    """Select events in [t_start, t_end] using the release's inclusive t_end convention."""
 
     t_dataset = h5["events/t"]
-    t_start = float(h5["windows/t_start"][window_index])
-    t_end = float(h5["windows/t_end"][window_index])
     left = int(np.searchsorted(t_dataset, t_start, side="left"))
     right = int(np.searchsorted(t_dataset, t_end, side="right"))
     return {key: h5[f"events/{key}"][left:right] for key in ("t", "x", "y", "p")}
+
+
+def select_events(h5: Any, window_index: int) -> Dict[str, np.ndarray]:
+    """Select events within one stored window."""
+
+    t_start = float(h5["windows/t_start"][window_index])
+    t_end = float(h5["windows/t_end"][window_index])
+    return select_events_between(h5, t_start, t_end)
 
 
 def voxelize_events(
@@ -253,12 +259,16 @@ class TacSpikeH5Dataset:
         polarity_mode: str = "both",
         clip_max: Optional[float] = 1.0,
         spatial_pool: int = 4,
+        context_ms: Optional[float] = None,
+        time_bins: Optional[int] = None,
     ) -> None:
         self.data_root = Path(data_root)
         self.split = split
         self.polarity_mode = polarity_mode
         self.clip_max = clip_max
         self.spatial_pool = spatial_pool
+        self.context_ms = context_ms
+        self.time_bins = time_bins
         self.sequences = load_manifest(self.data_root, split)
         self.offsets = self._build_offsets(self.sequences)
         self._open_path: Optional[Path] = None
@@ -332,13 +342,18 @@ class TacSpikeH5Dataset:
         _, window_index, info = self.sequence_for_index(global_index)
         h5 = self._open_h5(info.path)
 
-        events = select_events(h5, window_index)
-        t_start = float(h5["windows/t_start"][window_index])
-        t_end = float(h5["windows/t_end"][window_index])
         t_label = float(h5["windows/t_label"][window_index])
-        bins = int(h5.attrs["bins"])
+        if self.context_ms is None:
+            t_start = float(h5["windows/t_start"][window_index])
+            t_end = float(h5["windows/t_end"][window_index])
+            bins = int(h5.attrs["bins"])
+        else:
+            t_end = t_label
+            t_start = t_end - float(self.context_ms) / 1000.0
+            bins = int(self.time_bins or round(float(self.context_ms)))
         height = int(h5.attrs["height"])
         width = int(h5.attrs["width"])
+        events = select_events_between(h5, t_start, t_end)
 
         if full_voxel:
             voxel = voxelize_events(
@@ -388,6 +403,7 @@ class TacSpikeH5Dataset:
             "polarity_mode": self.polarity_mode,
             "clip_max": self.clip_max,
             "spatial_pool": self.spatial_pool,
+            "context_ms": None if self.context_ms is None else float(self.context_ms),
         }
         if return_events:
             sample["events"] = events

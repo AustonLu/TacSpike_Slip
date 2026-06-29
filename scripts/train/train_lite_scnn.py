@@ -71,6 +71,7 @@ def make_class_weight_tensor(args: argparse.Namespace, device: torch.device) -> 
 
 def build_model(args: argparse.Namespace) -> nn.Module:
     input_channels = 2 if args.polarity_mode == "both" else 1
+    time_steps = args.time_steps if args.time_steps is not None else int(args.context_ms or 20)
     if args.model == "lite_scnn":
         return TacSpikeLiteSCNN(
             input_channels=input_channels,
@@ -94,7 +95,7 @@ def build_model(args: argparse.Namespace) -> nn.Module:
     if args.model == "frame_cnn":
         return TacSpikeFrameCNN(
             input_channels=input_channels,
-            time_steps=args.time_steps,
+            time_steps=time_steps,
             num_classes=2,
             width=args.model_width,
             temporal_mode=args.temporal_mode,
@@ -116,6 +117,8 @@ def make_loader(
         polarity_mode=args.polarity_mode,
         clip_max=args.clip_max,
         spatial_pool=args.spatial_pool,
+        context_ms=getattr(args, "context_ms", None),
+        time_bins=getattr(args, "time_bins", None),
     )
     return DataLoader(
         dataset,
@@ -255,7 +258,9 @@ def main() -> None:
     parser.add_argument("--model-width", type=int, default=32)
     parser.add_argument("--hidden-dim", type=int, default=128)
     parser.add_argument("--temporal-mode", choices=("time_channels", "sum"), default="time_channels")
-    parser.add_argument("--time-steps", type=int, default=20)
+    parser.add_argument("--time-steps", type=int, default=None)
+    parser.add_argument("--context-ms", type=float, default=None)
+    parser.add_argument("--time-bins", type=int, default=None)
     parser.add_argument("--dropout", type=float, default=0.1)
     parser.add_argument("--spatial-pool", type=int, default=4)
     parser.add_argument("--clip-max", type=float, default=None)
@@ -280,6 +285,14 @@ def main() -> None:
     summary_path = args.output_dir / "summary.json"
 
     device = torch.device(args.device if torch.cuda.is_available() or args.device == "cpu" else "cpu")
+    if args.context_ms is None and args.time_steps is None:
+        args.time_steps = 20
+    if args.time_steps is None and args.context_ms is not None:
+        args.time_steps = int(round(args.context_ms))
+    if args.time_bins is None and args.context_ms is not None:
+        args.time_bins = int(round(args.context_ms))
+    if args.time_bins is None and args.time_steps is not None:
+        args.time_bins = int(args.time_steps)
     model = build_model(args).to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
     scheduler = (
