@@ -1,0 +1,26 @@
+/lamport/makkapakka/jiajunlu/projects/TacSpike_Slip_v2/scripts/train/evaluate_sequence_smoothing.py:235: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(args.checkpoint, map_location="cpu")
+Traceback (most recent call last):
+  File "/lamport/makkapakka/jiajunlu/projects/TacSpike_Slip_v2/scripts/train/evaluate_sequence_smoothing.py", line 331, in <module>
+    main()
+  File "/lamport/makkapakka/jiajunlu/projects/TacSpike_Slip_v2/scripts/train/evaluate_sequence_smoothing.py", line 266, in main
+    pred = predict_sequence(
+  File "/lamport/makkapakka/jiajunlu/projects/TacSpike_Slip_v2/scripts/train/evaluate_sequence_smoothing.py", line 136, in predict_sequence
+    for x, y in loader:
+  File "/capsule/home/jiajunlu/miniconda3/envs/a100-torch/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 479, in __iter__
+    self._iterator = self._get_iterator()
+  File "/capsule/home/jiajunlu/miniconda3/envs/a100-torch/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 415, in _get_iterator
+    return _MultiProcessingDataLoaderIter(self)
+  File "/capsule/home/jiajunlu/miniconda3/envs/a100-torch/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1138, in __init__
+    w.start()
+  File "/capsule/home/jiajunlu/miniconda3/envs/a100-torch/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/capsule/home/jiajunlu/miniconda3/envs/a100-torch/lib/python3.10/multiprocessing/context.py", line 224, in _Popen
+    return _default_context.get_context().Process._Popen(process_obj)
+  File "/capsule/home/jiajunlu/miniconda3/envs/a100-torch/lib/python3.10/multiprocessing/context.py", line 281, in _Popen
+    return Popen(process_obj)
+  File "/capsule/home/jiajunlu/miniconda3/envs/a100-torch/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/capsule/home/jiajunlu/miniconda3/envs/a100-torch/lib/python3.10/multiprocessing/popen_fork.py", line 65, in _launch
+    child_r, parent_w = os.pipe()
+OSError: [Errno 24] Too many open files
