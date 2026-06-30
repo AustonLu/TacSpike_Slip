@@ -1,0 +1,33 @@
+{
+  "best_epoch": 4,
+  "best_val_accuracy": 0.780125,
+  "best_val_metrics": {
+    "accuracy": 0.780125,
+    "balanced_accuracy": 0.780125,
+    "f1": 0.7327965972960656,
+    "fn": 1588.0,
+    "fp": 171.0,
+    "lif1_firing_rate": 0.07199267578125,
+    "lif2_firing_rate": 0.302119140625,
+    "lif3_firing_rate": 0.399833984375,
+    "lif4_firing_rate": 0.49287890625,
+    "loss": 0.5481877193450928,
+    "num_batches": 125.0,
+    "num_samples": 8000.0,
+    "output_spike_mean": 0.0,
+    "pr_auc": 0.8860009852451378,
+    "precision": 0.9337979094076655,
+    "recall": 0.603,
+    "roc_auc": 0.867069875,
+    "samples_per_second": 2296.7395260949756,
+    "seconds": 3.483198642730713,
+    "specificity": 0.95725,
+    "tn": 3829.0,
+    "tp": 2412.0
+  },
+  "latest_epoch": 4,
+  "output_dir": "/lamport/makkapakka/jiajunlu/logs/tacspike_auto_iter03_structure_input/iter03_temporal_conv_scnn_distill_quick_v1",
+  "parameter_count": 1129602,
+  "target_accuracy": 0.94,
+  "target_met": false
+}

@@ -24,7 +24,14 @@ sys.path.insert(0, str(SRC_ROOT))
 sys.path.insert(1, str(REPO_ROOT))
 
 from tacspike.data import IndexedTacSpikeDataset, build_label_index_cache, sample_epoch_indices
-from tacspike.models import TacSpikeDeepSCNN, TacSpikeFrameCNN, TacSpikeLiteSCNN, count_parameters
+from tacspike.models import (
+    TacSpikeDeepSCNN,
+    TacSpikeFrameCNN,
+    TacSpikeLiteSCNN,
+    TacSpikeTemporalConvSCNN,
+    TacSpikeTimeChannelSCNN,
+    count_parameters,
+)
 from tacspike.training import binary_classification_metrics
 
 
@@ -140,6 +147,29 @@ def build_model(args: argparse.Namespace) -> nn.Module:
             num_classes=2,
             width=args.model_width,
             temporal_mode=args.temporal_mode,
+            dropout=args.dropout,
+        )
+    if args.model == "time_channel_scnn":
+        return TacSpikeTimeChannelSCNN(
+            input_channels=input_channels,
+            time_steps=time_steps,
+            num_classes=2,
+            beta=args.beta,
+            threshold=args.threshold,
+            surrogate_alpha=args.surrogate_alpha,
+            width=args.model_width,
+            hidden=args.hidden_dim,
+            dropout=args.dropout,
+        )
+    if args.model == "temporal_conv_scnn":
+        return TacSpikeTemporalConvSCNN(
+            input_channels=input_channels,
+            num_classes=2,
+            beta=args.beta,
+            threshold=args.threshold,
+            surrogate_alpha=args.surrogate_alpha,
+            width=args.model_width,
+            hidden=args.hidden_dim,
             dropout=args.dropout,
         )
     raise ValueError(f"Unsupported model={args.model!r}")
@@ -297,7 +327,11 @@ def save_checkpoint(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Train TacSpike-Lite-SCNN-v1 main model.")
-    parser.add_argument("--model", choices=("lite_scnn", "deep_scnn", "frame_cnn"), default="lite_scnn")
+    parser.add_argument(
+        "--model",
+        choices=("lite_scnn", "deep_scnn", "frame_cnn", "time_channel_scnn", "temporal_conv_scnn"),
+        default="lite_scnn",
+    )
     parser.add_argument("--data-root", required=True, type=Path)
     parser.add_argument("--output-dir", required=True, type=Path)
     parser.add_argument("--cache-dir", type=Path, default=None)
