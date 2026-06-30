@@ -1,0 +1,44 @@
+{
+  "best_threshold_metric": "accuracy",
+  "best_threshold_metrics": {
+    "accuracy": 0.89105,
+    "balanced_accuracy": 0.8482584909290785,
+    "f1": 0.7968677169758553,
+    "fn": 7180.0,
+    "fp": 3715.0,
+    "pr_auc": 0.8467253006579015,
+    "precision": 0.8519035280047837,
+    "recall": 0.7485113835376532,
+    "roc_auc": 0.9146600309574379,
+    "specificity": 0.9480055983205038,
+    "threshold": -0.07746824832153362,
+    "tn": 67735.0,
+    "tp": 21370.0
+  },
+  "checkpoints": [
+    "/lamport/makkapakka/jiajunlu/logs/tacspike_auto_iter03_structure_input/iter03_time_channel_scnn_thr1_full_v1/best.pt",
+    "/lamport/makkapakka/jiajunlu/logs/tacspike_auto_iter04_time_channel_refine/iter04_time_channel_thr1_random_v1/best.pt",
+    "/lamport/makkapakka/jiajunlu/logs/tacspike_auto_iter04_time_channel_refine/iter04_time_channel_thr1_random_distill_v1/best.pt",
+    "/lamport/makkapakka/jiajunlu/logs/tacspike_auto_iter03_structure_input/iter03_wide3_scnn_full_v1/best.pt",
+    "/lamport/makkapakka/jiajunlu/logs/tacspike_stage2_snn_90pct/ctx500_tb100_wide2_scnn_distill_v1/best.pt",
+    "/lamport/makkapakka/jiajunlu/logs/tacspike_stage2_snn_90pct/ctx500_tb100_wide2_scnn_ignore50_v1/best.pt"
+  ],
+  "default_metrics": {
+    "accuracy": 0.891,
+    "balanced_accuracy": 0.8467829143376077,
+    "f1": 0.7957501030618747,
+    "fn": 7317.0,
+    "fp": 3583.0,
+    "pr_auc": 0.8467253006579015,
+    "precision": 0.8556173436492586,
+    "recall": 0.7437127845884414,
+    "roc_auc": 0.9146600309574379,
+    "specificity": 0.949853044086774,
+    "tn": 67867.0,
+    "tp": 21233.0
+  },
+  "default_threshold": 0.0,
+  "samples": 100000,
+  "sampling": "random",
+  "split": "val"
+}

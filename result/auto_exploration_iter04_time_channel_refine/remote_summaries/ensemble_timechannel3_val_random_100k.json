@@ -1,0 +1,41 @@
+{
+  "best_threshold_metric": "accuracy",
+  "best_threshold_metrics": {
+    "accuracy": 0.89503,
+    "balanced_accuracy": 0.8537671010430671,
+    "f1": 0.80472514184727,
+    "fn": 6921.0,
+    "fp": 3576.0,
+    "pr_auc": 0.8485361675549002,
+    "precision": 0.8581233882166237,
+    "recall": 0.7575831873905429,
+    "roc_auc": 0.9124123489047856,
+    "specificity": 0.9499510146955913,
+    "threshold": -0.32889058087248696,
+    "tn": 67874.0,
+    "tp": 21629.0
+  },
+  "checkpoints": [
+    "/lamport/makkapakka/jiajunlu/logs/tacspike_auto_iter03_structure_input/iter03_time_channel_scnn_thr1_full_v1/best.pt",
+    "/lamport/makkapakka/jiajunlu/logs/tacspike_auto_iter04_time_channel_refine/iter04_time_channel_thr1_random_v1/best.pt",
+    "/lamport/makkapakka/jiajunlu/logs/tacspike_auto_iter04_time_channel_refine/iter04_time_channel_thr1_random_distill_v1/best.pt"
+  ],
+  "default_metrics": {
+    "accuracy": 0.89356,
+    "balanced_accuracy": 0.8469970917656402,
+    "f1": 0.7984472637757999,
+    "fn": 7467.0,
+    "fp": 3177.0,
+    "pr_auc": 0.8485361675549002,
+    "precision": 0.8690436933223413,
+    "recall": 0.7384588441330998,
+    "roc_auc": 0.9124123489047856,
+    "specificity": 0.9555353393981806,
+    "tn": 68273.0,
+    "tp": 21083.0
+  },
+  "default_threshold": 0.0,
+  "samples": 100000,
+  "sampling": "random",
+  "split": "val"
+}
