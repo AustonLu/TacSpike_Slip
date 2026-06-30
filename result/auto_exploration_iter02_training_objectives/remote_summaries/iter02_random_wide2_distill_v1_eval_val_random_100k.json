@@ -1,0 +1,37 @@
+{
+  "best_threshold_metric": "accuracy",
+  "best_threshold_metrics": {
+    "accuracy": 0.87223,
+    "balanced_accuracy": 0.8168865715066567,
+    "f1": 0.7545480741523389,
+    "fn": 8911.0,
+    "fp": 3866.0,
+    "pr_auc": 0.8132930909810102,
+    "precision": 0.8355243565198894,
+    "recall": 0.6878809106830123,
+    "roc_auc": 0.8881220299059144,
+    "specificity": 0.945892232330301,
+    "threshold": 0.11084990883605589,
+    "tn": 67584.0,
+    "tp": 19639.0
+  },
+  "checkpoint": "/lamport/makkapakka/jiajunlu/logs/tacspike_auto_iter02_training_objectives/iter02_random_wide2_distill_v1/best.pt",
+  "default_metrics": {
+    "accuracy": 0.87168,
+    "balanced_accuracy": 0.8193197697433328,
+    "f1": 0.7562587850928846,
+    "fn": 8643.0,
+    "fp": 4189.0,
+    "pr_auc": 0.8132930909810102,
+    "precision": 0.8261537184594954,
+    "recall": 0.6972679509632225,
+    "roc_auc": 0.8881220299059144,
+    "specificity": 0.9413715885234429,
+    "tn": 67261.0,
+    "tp": 19907.0
+  },
+  "default_threshold": 0.0,
+  "samples": 100000,
+  "sampling": "random",
+  "split": "val"
+}

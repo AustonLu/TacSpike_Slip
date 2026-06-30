@@ -73,6 +73,39 @@ def make_class_weight_tensor(args: argparse.Namespace, device: torch.device) -> 
     raise ValueError(f"Unsupported class_weight={args.class_weight!r}")
 
 
+class FocalCrossEntropyLoss(nn.Module):
+    def __init__(
+        self,
+        gamma: float = 2.0,
+        weight: torch.Tensor | None = None,
+        label_smoothing: float = 0.0,
+    ) -> None:
+        super().__init__()
+        self.gamma = float(gamma)
+        self.register_buffer("weight", weight if weight is not None else None)
+        self.label_smoothing = float(label_smoothing)
+
+    def forward(self, logits: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
+        ce = F.cross_entropy(
+            logits,
+            target,
+            weight=self.weight,
+            reduction="none",
+            label_smoothing=self.label_smoothing,
+        )
+        prob = F.softmax(logits, dim=1)
+        pt = prob.gather(1, target.unsqueeze(1)).squeeze(1).clamp_min(1e-6)
+        return ((1.0 - pt).pow(self.gamma) * ce).mean()
+
+
+def margin_regularization(logits: torch.Tensor, target: torch.Tensor, margin: float) -> torch.Tensor:
+    if margin <= 0:
+        return logits.new_tensor(0.0)
+    signed_target = target.to(logits.dtype) * 2.0 - 1.0
+    score = logits[:, 1] - logits[:, 0]
+    return F.relu(float(margin) - signed_target * score).mean()
+
+
 def build_model(args: argparse.Namespace) -> nn.Module:
     input_channels = 2 if args.polarity_mode == "both" else 1
     time_steps = args.time_steps if args.time_steps is not None else int(args.time_bins or args.context_ms or 20)
@@ -162,6 +195,8 @@ def run_epoch(
     teacher_model: nn.Module | None = None,
     distill_alpha: float = 0.0,
     distill_temperature: float = 2.0,
+    margin_loss_weight: float = 0.0,
+    margin_value: float = 1.0,
 ) -> Dict[str, Any]:
     train = optimizer is not None
     model.train(train)
@@ -198,6 +233,8 @@ def run_epoch(
                     loss = (1.0 - distill_alpha) * ce_loss + distill_alpha * distill_loss
                 else:
                     loss = ce_loss
+                if margin_loss_weight > 0.0:
+                    loss = loss + float(margin_loss_weight) * margin_regularization(logits, y, margin_value)
             if train:
                 if scaler is not None and amp and device.type == "cuda":
                     scaler.scale(loss).backward()
@@ -293,6 +330,10 @@ def main() -> None:
     parser.add_argument("--polarity-mode", choices=("both", "positive", "negative", "sum"), default="both")
     parser.add_argument("--sampling", choices=("balanced", "random"), default="balanced")
     parser.add_argument("--class-weight", choices=("none", "inverse_frequency"), default="inverse_frequency")
+    parser.add_argument("--loss-type", choices=("ce", "focal"), default="ce")
+    parser.add_argument("--focal-gamma", type=float, default=2.0)
+    parser.add_argument("--margin-loss-weight", type=float, default=0.0)
+    parser.add_argument("--margin-value", type=float, default=1.0)
     parser.add_argument("--label-smoothing", type=float, default=0.0)
     parser.add_argument("--ignore-transition-ms", type=float, default=0.0)
     parser.add_argument("--teacher-checkpoint", type=Path, default=None)
@@ -361,7 +402,14 @@ def main() -> None:
     )
     scaler = torch.cuda.amp.GradScaler(enabled=args.amp and device.type == "cuda")
     weights = make_class_weight_tensor(args, device)
-    criterion = nn.CrossEntropyLoss(weight=weights, label_smoothing=args.label_smoothing)
+    if args.loss_type == "focal":
+        criterion = FocalCrossEntropyLoss(
+            gamma=args.focal_gamma,
+            weight=weights,
+            label_smoothing=args.label_smoothing,
+        )
+    else:
+        criterion = nn.CrossEntropyLoss(weight=weights, label_smoothing=args.label_smoothing)
 
     config_record = {
         "event": "config",
@@ -413,6 +461,8 @@ def main() -> None:
             teacher_model=teacher_model,
             distill_alpha=args.distill_alpha,
             distill_temperature=args.distill_temperature,
+            margin_loss_weight=args.margin_loss_weight,
+            margin_value=args.margin_value,
         )
         if scheduler is not None:
             scheduler.step()
