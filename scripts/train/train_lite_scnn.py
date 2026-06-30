@@ -23,7 +23,12 @@ for path in (str(REPO_ROOT), str(SRC_ROOT)):
 sys.path.insert(0, str(SRC_ROOT))
 sys.path.insert(1, str(REPO_ROOT))
 
-from tacspike.data import IndexedTacSpikeDataset, build_label_index_cache, sample_epoch_indices
+from tacspike.data import (
+    IndexedTacSpikeDataset,
+    build_label_index_cache,
+    sample_epoch_indices,
+    transition_distance_for_indices,
+)
 from tacspike.models import (
     TacSpikeDeepSCNN,
     TacSpikeFrameCNN,
@@ -105,12 +110,72 @@ class FocalCrossEntropyLoss(nn.Module):
         return ((1.0 - pt).pow(self.gamma) * ce).mean()
 
 
+def weighted_mean(values: torch.Tensor, weights: torch.Tensor | None) -> torch.Tensor:
+    if weights is None:
+        return values.mean()
+    weights = weights.to(device=values.device, dtype=values.dtype)
+    return (values * weights).sum() / weights.sum().clamp_min(1e-6)
+
+
+def per_sample_classification_loss(
+    criterion: nn.Module,
+    logits: torch.Tensor,
+    target: torch.Tensor,
+) -> torch.Tensor:
+    if isinstance(criterion, FocalCrossEntropyLoss):
+        ce = F.cross_entropy(
+            logits,
+            target,
+            weight=criterion.weight,
+            reduction="none",
+            label_smoothing=criterion.label_smoothing,
+        )
+        prob = F.softmax(logits, dim=1)
+        pt = prob.gather(1, target.unsqueeze(1)).squeeze(1).clamp_min(1e-6)
+        return (1.0 - pt).pow(criterion.gamma) * ce
+    if isinstance(criterion, nn.CrossEntropyLoss):
+        return F.cross_entropy(
+            logits,
+            target,
+            weight=criterion.weight,
+            reduction="none",
+            label_smoothing=criterion.label_smoothing,
+        )
+    raise TypeError(f"Unsupported criterion type: {type(criterion)!r}")
+
+
 def margin_regularization(logits: torch.Tensor, target: torch.Tensor, margin: float) -> torch.Tensor:
     if margin <= 0:
         return logits.new_tensor(0.0)
     signed_target = target.to(logits.dtype) * 2.0 - 1.0
     score = logits[:, 1] - logits[:, 0]
     return F.relu(float(margin) - signed_target * score).mean()
+
+
+def margin_regularization_values(logits: torch.Tensor, target: torch.Tensor, margin: float) -> torch.Tensor:
+    if margin <= 0:
+        return logits.new_zeros((logits.shape[0],))
+    signed_target = target.to(logits.dtype) * 2.0 - 1.0
+    score = logits[:, 1] - logits[:, 0]
+    return F.relu(float(margin) - signed_target * score)
+
+
+def sample_weights_from_transition_distance(
+    distances: np.ndarray,
+    near_ms: float,
+    mid_ms: float,
+    near_weight: float,
+    mid_weight: float,
+) -> np.ndarray | None:
+    if near_ms <= 0 and mid_ms <= 0:
+        return None
+    distances = np.asarray(distances, dtype=np.float32)
+    weights = np.ones(distances.shape[0], dtype=np.float32)
+    if mid_ms > 0:
+        weights[distances < float(mid_ms)] = float(mid_weight)
+    if near_ms > 0:
+        weights[distances < float(near_ms)] = float(near_weight)
+    return weights
 
 
 def build_model(args: argparse.Namespace) -> nn.Module:
@@ -180,6 +245,7 @@ def make_loader(
     split: str,
     indices: np.ndarray,
     shuffle: bool,
+    sample_weights: np.ndarray | None = None,
 ) -> DataLoader:
     dataset = IndexedTacSpikeDataset(
         data_root=args.data_root,
@@ -190,6 +256,7 @@ def make_loader(
         spatial_pool=args.spatial_pool,
         context_ms=getattr(args, "context_ms", None),
         time_bins=getattr(args, "time_bins", None),
+        sample_weights=sample_weights,
     )
     return DataLoader(
         dataset,
@@ -235,14 +302,22 @@ def run_epoch(
     all_scores = []
     all_labels = []
     firing_totals: Dict[str, float] = {}
+    sample_weight_sum = 0.0
+    sample_weight_count = 0
     steps = 0
     start = time.time()
 
     context = torch.enable_grad() if train else torch.no_grad()
     with context:
-        for batch_idx, (x, y) in enumerate(loader):
+        for batch_idx, batch in enumerate(loader):
             if max_batches is not None and batch_idx >= max_batches:
                 break
+            if len(batch) == 3:
+                x, y, sample_weight = batch
+                sample_weight = sample_weight.to(device=device, dtype=torch.float32, non_blocking=True)
+            else:
+                x, y = batch
+                sample_weight = None
             x = x.to(device=device, dtype=torch.float32, non_blocking=True)
             input_scale = float(getattr(loader.dataset, "input_scale", 1.0))
             if input_scale != 1.0:
@@ -252,19 +327,27 @@ def run_epoch(
                 optimizer.zero_grad(set_to_none=True)
             with torch.cuda.amp.autocast(enabled=amp and device.type == "cuda"):
                 logits, stats = model(x)
-                ce_loss = criterion(logits, y)
+                if sample_weight is None:
+                    ce_loss = criterion(logits, y)
+                else:
+                    ce_loss = weighted_mean(per_sample_classification_loss(criterion, logits, y), sample_weight)
                 if teacher_model is not None and distill_alpha > 0.0:
                     with torch.no_grad():
                         teacher_logits, _ = teacher_model(x)
                     temperature = float(distill_temperature)
                     student_log_prob = F.log_softmax(logits / temperature, dim=1)
                     teacher_prob = F.softmax(teacher_logits / temperature, dim=1)
-                    distill_loss = F.kl_div(student_log_prob, teacher_prob, reduction="batchmean") * temperature * temperature
+                    distill_values = F.kl_div(student_log_prob, teacher_prob, reduction="none").sum(dim=1)
+                    distill_loss = weighted_mean(distill_values, sample_weight) * temperature * temperature
                     loss = (1.0 - distill_alpha) * ce_loss + distill_alpha * distill_loss
                 else:
                     loss = ce_loss
                 if margin_loss_weight > 0.0:
-                    loss = loss + float(margin_loss_weight) * margin_regularization(logits, y, margin_value)
+                    if sample_weight is None:
+                        margin_loss = margin_regularization(logits, y, margin_value)
+                    else:
+                        margin_loss = weighted_mean(margin_regularization_values(logits, y, margin_value), sample_weight)
+                    loss = loss + float(margin_loss_weight) * margin_loss
             if train:
                 if scaler is not None and amp and device.type == "cuda":
                     scaler.scale(loss).backward()
@@ -285,6 +368,9 @@ def run_epoch(
             score = (logits[:, 1] - logits[:, 0]).detach().float().cpu().numpy()
             all_scores.append(score)
             all_labels.append(y.detach().cpu().numpy())
+            if sample_weight is not None:
+                sample_weight_sum += float(sample_weight.detach().sum().cpu())
+                sample_weight_count += int(sample_weight.numel())
             for key, value in stats.items():
                 firing_totals[key] = firing_totals.get(key, 0.0) + float(value.detach().item())
             steps += 1
@@ -297,6 +383,8 @@ def run_epoch(
     metrics["num_batches"] = float(steps)
     metrics["seconds"] = time.time() - start
     metrics["samples_per_second"] = total_samples / max(metrics["seconds"], 1e-9)
+    if sample_weight_count:
+        metrics["sample_weight_mean"] = sample_weight_sum / max(sample_weight_count, 1)
     for key, value in firing_totals.items():
         metrics[key] = value / max(steps, 1)
     return metrics
@@ -370,6 +458,10 @@ def main() -> None:
     parser.add_argument("--margin-value", type=float, default=1.0)
     parser.add_argument("--label-smoothing", type=float, default=0.0)
     parser.add_argument("--ignore-transition-ms", type=float, default=0.0)
+    parser.add_argument("--transition-weight-near-ms", type=float, default=0.0)
+    parser.add_argument("--transition-weight-mid-ms", type=float, default=0.0)
+    parser.add_argument("--transition-near-weight", type=float, default=1.0)
+    parser.add_argument("--transition-mid-weight", type=float, default=1.0)
     parser.add_argument("--teacher-checkpoint", type=Path, default=None)
     parser.add_argument("--distill-alpha", type=float, default=0.0)
     parser.add_argument("--distill-temperature", type=float, default=2.0)
@@ -480,7 +572,17 @@ def main() -> None:
             ignore_transition_ms=args.ignore_transition_ms,
         )
         train_indices = order_indices_for_io(train_indices, args.batch_size, args.seed + epoch + 30_000)
-        train_loader = make_loader(args, "train", train_indices, shuffle=False)
+        train_sample_weights = None
+        if args.transition_weight_near_ms > 0 or args.transition_weight_mid_ms > 0:
+            train_distances = transition_distance_for_indices(args.data_root, "train", cache_dir, train_indices)
+            train_sample_weights = sample_weights_from_transition_distance(
+                train_distances,
+                near_ms=args.transition_weight_near_ms,
+                mid_ms=args.transition_weight_mid_ms,
+                near_weight=args.transition_near_weight,
+                mid_weight=args.transition_mid_weight,
+            )
+        train_loader = make_loader(args, "train", train_indices, shuffle=False, sample_weights=train_sample_weights)
         train_loader.dataset.input_scale = args.input_scale
         train_metrics = run_epoch(
             model,

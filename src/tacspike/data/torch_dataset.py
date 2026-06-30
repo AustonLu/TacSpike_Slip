@@ -23,6 +23,7 @@ class IndexedTacSpikeDataset(Dataset):
         spatial_pool: int = 4,
         context_ms: Optional[float] = None,
         time_bins: Optional[int] = None,
+        sample_weights: Optional[np.ndarray] = None,
     ) -> None:
         self.base = TacSpikeH5Dataset(
             data_root=data_root,
@@ -34,6 +35,11 @@ class IndexedTacSpikeDataset(Dataset):
             time_bins=time_bins,
         )
         self.indices = np.asarray(indices, dtype=np.int64)
+        self.sample_weights = None if sample_weights is None else np.asarray(sample_weights, dtype=np.float32)
+        if self.sample_weights is not None and self.sample_weights.shape[0] != self.indices.shape[0]:
+            raise ValueError(
+                f"sample_weights length {self.sample_weights.shape[0]} does not match indices length {self.indices.shape[0]}"
+            )
 
     def __len__(self) -> int:
         return int(self.indices.shape[0])
@@ -41,7 +47,9 @@ class IndexedTacSpikeDataset(Dataset):
     def __getitem__(self, index: int) -> Tuple[torch.Tensor, torch.Tensor]:
         global_index = int(self.indices[index])
         x, y = self.base[global_index]
-        return torch.from_numpy(x), torch.tensor(y, dtype=torch.long)
+        if self.sample_weights is None:
+            return torch.from_numpy(x), torch.tensor(y, dtype=torch.long)
+        return torch.from_numpy(x), torch.tensor(y, dtype=torch.long), torch.tensor(self.sample_weights[index])
 
 
 def transition_distances(labels: np.ndarray) -> np.ndarray:
@@ -82,6 +90,8 @@ def build_label_index_cache(
     no_slip_parts = []
     slip_distance_parts = []
     no_slip_distance_parts = []
+    all_parts = []
+    all_distance_parts = []
     for seq_idx, info in enumerate(base.sequences):
         offset = base.offsets[seq_idx]
         with h5py.File(info.path, "r") as h5:
@@ -94,6 +104,8 @@ def build_label_index_cache(
         no_slip_parts.append(local[no_slip_mask])
         slip_distance_parts.append(distances[slip_mask])
         no_slip_distance_parts.append(distances[no_slip_mask])
+        all_parts.append(local)
+        all_distance_parts.append(distances)
     base.close()
 
     slip_indices = np.concatenate(slip_parts) if slip_parts else np.empty((0,), dtype=np.int64)
@@ -102,14 +114,41 @@ def build_label_index_cache(
     no_slip_distances = (
         np.concatenate(no_slip_distance_parts) if no_slip_distance_parts else np.empty((0,), dtype=np.float32)
     )
+    all_indices = np.concatenate(all_parts) if all_parts else np.empty((0,), dtype=np.int64)
+    all_distances = np.concatenate(all_distance_parts) if all_distance_parts else np.empty((0,), dtype=np.float32)
     np.savez_compressed(
         cache_path,
         slip=slip_indices,
         no_slip=no_slip_indices,
+        all=all_indices,
         slip_transition_distance=slip_distances,
         no_slip_transition_distance=no_slip_distances,
+        all_transition_distance=all_distances,
     )
     return cache_path
+
+
+def transition_distance_for_indices(
+    data_root: Path,
+    split: str,
+    cache_dir: Path,
+    indices: np.ndarray,
+) -> np.ndarray:
+    """Return nearest label-transition distance for global window indices."""
+
+    cache_path = build_label_index_cache(data_root=data_root, split=split, cache_dir=cache_dir)
+    indices = np.asarray(indices, dtype=np.int64)
+    with np.load(cache_path) as cache:
+        if "all" in cache and "all_transition_distance" in cache:
+            all_indices = cache["all"]
+            all_distances = cache["all_transition_distance"]
+            if all_indices.shape[0] and np.array_equal(all_indices, np.arange(all_indices.shape[0], dtype=np.int64)):
+                return all_distances[indices].astype(np.float32, copy=False)
+
+        distance_lookup = np.empty((int(max(indices.max(initial=0), cache["slip"].max(initial=0), cache["no_slip"].max(initial=0))) + 1,), dtype=np.float32)
+        distance_lookup[cache["slip"]] = cache["slip_transition_distance"]
+        distance_lookup[cache["no_slip"]] = cache["no_slip_transition_distance"]
+        return distance_lookup[indices].astype(np.float32, copy=False)
 
 
 def sample_epoch_indices(
