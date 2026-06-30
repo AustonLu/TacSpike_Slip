@@ -125,6 +125,19 @@ def sample_epoch_indices(
 
     rng = np.random.default_rng(seed)
     if sampling == "random":
+        if ignore_transition_ms > 0:
+            cache_path = build_label_index_cache(data_root=data_root, split=split, cache_dir=cache_dir)
+            with np.load(cache_path) as cache:
+                min_distance = float(ignore_transition_ms)
+                slip = cache["slip"][cache["slip_transition_distance"] >= min_distance]
+                no_slip = cache["no_slip"][cache["no_slip_transition_distance"] >= min_distance]
+                eligible = np.concatenate([slip, no_slip]).astype(np.int64, copy=False)
+                if eligible.shape[0] == 0:
+                    raise ValueError(f"ignore_transition_ms={ignore_transition_ms} removed all random samples")
+            return rng.choice(eligible, size=num_samples, replace=num_samples > len(eligible)).astype(
+                np.int64,
+                copy=False,
+            )
         base = TacSpikeH5Dataset(data_root=data_root, split=split)
         indices = rng.integers(0, len(base), size=num_samples, dtype=np.int64)
         base.close()

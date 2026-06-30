@@ -116,6 +116,24 @@ def bucket_metrics(labels: np.ndarray, scores: np.ndarray, distances: np.ndarray
     return result
 
 
+def filtered_metrics(labels: np.ndarray, scores: np.ndarray, distances: np.ndarray) -> Dict[str, Any]:
+    result: Dict[str, Any] = {}
+    for min_distance in (10, 20, 50, 100, 150, 200):
+        mask = distances >= float(min_distance)
+        count = int(mask.sum())
+        if count == 0:
+            result[f"gt_{min_distance}_ms"] = {"count": 0}
+            continue
+        tuned = best_threshold(labels[mask], scores[mask], metric_name="accuracy")
+        result[f"gt_{min_distance}_ms"] = {
+            "count": count,
+            "fraction": float(count / max(labels.shape[0], 1)),
+            "default_metrics": binary_classification_metrics(labels[mask], scores[mask], threshold=0.0),
+            "best_threshold_metrics": tuned,
+        }
+    return result
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Evaluate sampled TacSpike windows by transition-distance buckets.")
     parser.add_argument("--checkpoint", required=True, type=Path)
@@ -179,6 +197,7 @@ def main() -> None:
         "samples": int(labels.shape[0]),
         "default_metrics": binary_classification_metrics(labels, scores, threshold=0.0),
         "best_threshold_metrics": tuned,
+        "filtered_transition_metrics": filtered_metrics(labels, scores, distances),
         "transition_buckets_at_best_threshold": bucket_metrics(labels, scores, distances, threshold),
         "transition_buckets_at_default_threshold": bucket_metrics(labels, scores, distances, 0.0),
         "sequence_summary": sequence_records,
