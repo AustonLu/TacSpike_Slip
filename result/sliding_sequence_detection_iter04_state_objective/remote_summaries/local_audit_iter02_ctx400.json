@@ -1,0 +1,141 @@
+{
+  "majority_baseline": {
+    "accuracy": 0.7316398179213682,
+    "label": 0
+  },
+  "majority_tolerant_accuracy": [
+    {
+      "accuracy": 0.7320373655345257,
+      "ignored_fraction": 0.0016491059895854488,
+      "ignored_windows": 609,
+      "kept_windows": 368682,
+      "radius_ms": 10
+    },
+    {
+      "accuracy": 0.7323948635895653,
+      "ignored_fraction": 0.0031790647483962513,
+      "ignored_windows": 1174,
+      "kept_windows": 368117,
+      "radius_ms": 20
+    },
+    {
+      "accuracy": 0.7333527949734403,
+      "ignored_fraction": 0.007468365056283527,
+      "ignored_windows": 2758,
+      "kept_windows": 366533,
+      "radius_ms": 50
+    },
+    {
+      "accuracy": 0.7347522210169305,
+      "ignored_fraction": 0.013961889133501763,
+      "ignored_windows": 5156,
+      "kept_windows": 364135,
+      "radius_ms": 100
+    },
+    {
+      "accuracy": 0.7373951856988408,
+      "ignored_fraction": 0.02569247558158742,
+      "ignored_windows": 9488,
+      "kept_windows": 359803,
+      "radius_ms": 200
+    },
+    {
+      "accuracy": 0.7462054278067172,
+      "ignored_fraction": 0.05908890278939915,
+      "ignored_windows": 21821,
+      "kept_windows": 347470,
+      "radius_ms": 500
+    }
+  ],
+  "perfect_state_delay_upper_bounds": [
+    {
+      "delay_ms": 0,
+      "strict_accuracy_if_perfect_state_is_delayed": 1.0
+    },
+    {
+      "delay_ms": 10,
+      "strict_accuracy_if_perfect_state_is_delayed": 0.9992147114335307
+    },
+    {
+      "delay_ms": 20,
+      "strict_accuracy_if_perfect_state_is_delayed": 0.9984294228670615
+    },
+    {
+      "delay_ms": 50,
+      "strict_accuracy_if_perfect_state_is_delayed": 0.9962522780138157
+    },
+    {
+      "delay_ms": 100,
+      "strict_accuracy_if_perfect_state_is_delayed": 0.9930461343493343
+    },
+    {
+      "delay_ms": 200,
+      "strict_accuracy_if_perfect_state_is_delayed": 0.9871808411252915
+    },
+    {
+      "delay_ms": 300,
+      "strict_accuracy_if_perfect_state_is_delayed": 0.9820358470691135
+    },
+    {
+      "delay_ms": 500,
+      "strict_accuracy_if_perfect_state_is_delayed": 0.9721087164322987
+    }
+  ],
+  "positive_fraction": 0.26836018207863177,
+  "score_cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+  "segments": {
+    "label_transitions": 29,
+    "no_slip_segments": {
+      "count": 25,
+      "max_ms": 30547.0,
+      "mean_ms": 10807.52,
+      "median_ms": 9214.0,
+      "min_ms": 33.0,
+      "p05_ms": 120.00000000000001,
+      "p95_ms": 26473.999999999985
+    },
+    "slip_segments": {
+      "count": 20,
+      "max_ms": 9767.0,
+      "mean_ms": 4955.15,
+      "median_ms": 5700.0,
+      "min_ms": 34.0,
+      "p05_ms": 65.35000000000001,
+      "p95_ms": 9577.0
+    }
+  },
+  "sequences": 16,
+  "transition_window_fraction": [
+    {
+      "fraction": 0.0016491059895854488,
+      "radius_ms": 10,
+      "windows": 609
+    },
+    {
+      "fraction": 0.0031790647483962513,
+      "radius_ms": 20,
+      "windows": 1174
+    },
+    {
+      "fraction": 0.007468365056283527,
+      "radius_ms": 50,
+      "windows": 2758
+    },
+    {
+      "fraction": 0.013961889133501763,
+      "radius_ms": 100,
+      "windows": 5156
+    },
+    {
+      "fraction": 0.02569247558158742,
+      "radius_ms": 200,
+      "windows": 9488
+    },
+    {
+      "fraction": 0.05908890278939915,
+      "radius_ms": 500,
+      "windows": 21821
+    }
+  ],
+  "windows": 369291
+}

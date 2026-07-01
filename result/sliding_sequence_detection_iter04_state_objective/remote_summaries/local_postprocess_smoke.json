@@ -1,0 +1,562 @@
+{
+  "best_method": {
+    "event_metrics": {
+      "delay_max_ms": 639.0,
+      "delay_mean_ms": 59.94736842105263,
+      "delay_median_ms": 0.0,
+      "delay_p95_ms": 231.29999999999905,
+      "detected_slip_segments": 19,
+      "false_alarm_runs": 11,
+      "false_alarm_runs_per_min": 1.7872084616196984,
+      "false_positive_window_fraction": 0.07622470279953218,
+      "false_positive_windows": 20595,
+      "label_transitions": 29,
+      "missed_slip_segments": 1,
+      "no_slip_windows": 270188,
+      "predicted_runs_starting_in_no_slip": 21,
+      "prediction_switches": 60,
+      "segment_recall": 0.95,
+      "slip_positive_window_fraction": 0.8315389039685983,
+      "slip_positive_windows": 82408,
+      "slip_windows": 99103,
+      "true_slip_segments": 20
+    },
+    "method": "subset_1_causal_ma100_thr_deb_on5_off20_gap0_minon0_minoff0",
+    "metrics": {
+      "accuracy": 0.8990227219184871,
+      "balanced_accuracy": 0.8776571005845331,
+      "f1": 0.8154928601822806,
+      "fn": 16695.0,
+      "fp": 20595.0,
+      "precision": 0.8000543673485239,
+      "recall": 0.8315389039685983,
+      "specificity": 0.9237752972004678,
+      "tn": 249593.0,
+      "tp": 82408.0
+    },
+    "params": {
+      "gap_fill": 0,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_transition_mix_lr1e4_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "min_off": 0,
+      "min_on": 0,
+      "off_k": 20,
+      "on_k": 5,
+      "series": "causal_ma100",
+      "threshold": 0.31339229055722173
+    }
+  },
+  "label_positive_fraction": 0.26836018207863177,
+  "methods_top": [
+    {
+      "event_metrics": {
+        "delay_max_ms": 639.0,
+        "delay_mean_ms": 59.94736842105263,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 231.29999999999905,
+        "detected_slip_segments": 19,
+        "false_alarm_runs": 11,
+        "false_alarm_runs_per_min": 1.7872084616196984,
+        "false_positive_window_fraction": 0.07622470279953218,
+        "false_positive_windows": 20595,
+        "label_transitions": 29,
+        "missed_slip_segments": 1,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 21,
+        "prediction_switches": 60,
+        "segment_recall": 0.95,
+        "slip_positive_window_fraction": 0.8315389039685983,
+        "slip_positive_windows": 82408,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "method": "subset_1_causal_ma100_thr_deb_on5_off20_gap0_minon0_minoff0",
+      "metrics": {
+        "accuracy": 0.8990227219184871,
+        "balanced_accuracy": 0.8776571005845331,
+        "f1": 0.8154928601822806,
+        "fn": 16695.0,
+        "fp": 20595.0,
+        "precision": 0.8000543673485239,
+        "recall": 0.8315389039685983,
+        "specificity": 0.9237752972004678,
+        "tn": 249593.0,
+        "tp": 82408.0
+      },
+      "params": {
+        "gap_fill": 0,
+        "members": [
+          {
+            "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_transition_mix_lr1e4_score_cache.npz",
+            "row": 0
+          }
+        ],
+        "min_off": 0,
+        "min_on": 0,
+        "off_k": 20,
+        "on_k": 5,
+        "series": "causal_ma100",
+        "threshold": 0.31339229055722173
+      }
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 635.0,
+        "delay_mean_ms": 61.73684210526316,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 227.29999999999905,
+        "detected_slip_segments": 19,
+        "false_alarm_runs": 14,
+        "false_alarm_runs_per_min": 2.2746289511523434,
+        "false_positive_window_fraction": 0.07566583267946762,
+        "false_positive_windows": 20444,
+        "label_transitions": 29,
+        "missed_slip_segments": 1,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 23,
+        "prediction_switches": 82,
+        "segment_recall": 0.95,
+        "slip_positive_window_fraction": 0.8296418877329647,
+        "slip_positive_windows": 82220,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "method": "subset_1_causal_ma100_thr",
+      "metrics": {
+        "accuracy": 0.898922529928972,
+        "balanced_accuracy": 0.8769880275267485,
+        "f1": 0.8149994795977538,
+        "fn": 16883.0,
+        "fp": 20444.0,
+        "precision": 0.8008649575313644,
+        "recall": 0.8296418877329647,
+        "specificity": 0.9243341673205324,
+        "tn": 249744.0,
+        "tp": 82220.0
+      },
+      "params": {
+        "members": [
+          {
+            "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_transition_mix_lr1e4_score_cache.npz",
+            "row": 0
+          }
+        ],
+        "series": "causal_ma100",
+        "threshold": 0.31339229055722173
+      }
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 601.0,
+        "delay_mean_ms": 50.526315789473685,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 189.69999999999902,
+        "detected_slip_segments": 19,
+        "false_alarm_runs": 49,
+        "false_alarm_runs_per_min": 7.9612013290332015,
+        "false_positive_window_fraction": 0.07630982871185989,
+        "false_positive_windows": 20618,
+        "label_transitions": 29,
+        "missed_slip_segments": 1,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 58,
+        "prediction_switches": 220,
+        "segment_recall": 0.95,
+        "slip_positive_window_fraction": 0.8282493970919145,
+        "slip_positive_windows": 82082,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "method": "subset_1_ema0.05_thr",
+      "metrics": {
+        "accuracy": 0.8980776677471154,
+        "balanced_accuracy": 0.8759697841900274,
+        "f1": 0.8134864199243818,
+        "fn": 17021.0,
+        "fp": 20618.0,
+        "precision": 0.7992405063291139,
+        "recall": 0.8282493970919145,
+        "specificity": 0.9236901712881401,
+        "tn": 249570.0,
+        "tp": 82082.0
+      },
+      "params": {
+        "members": [
+          {
+            "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_transition_mix_lr1e4_score_cache.npz",
+            "row": 0
+          }
+        ],
+        "series": "ema0.05",
+        "threshold": 0.3317225277132436
+      }
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 605.0,
+        "delay_mean_ms": 51.78947368421053,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 193.69999999999902,
+        "detected_slip_segments": 19,
+        "false_alarm_runs": 22,
+        "false_alarm_runs_per_min": 3.5744169232393967,
+        "false_positive_window_fraction": 0.0778828075266111,
+        "false_positive_windows": 21043,
+        "label_transitions": 29,
+        "missed_slip_segments": 1,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 31,
+        "prediction_switches": 94,
+        "segment_recall": 0.95,
+        "slip_positive_window_fraction": 0.8324672310626318,
+        "slip_positive_windows": 82500,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "method": "subset_1_ema0.05_thr_deb_on5_off20_gap0_minon0_minoff0",
+      "metrics": {
+        "accuracy": 0.8980587125058558,
+        "balanced_accuracy": 0.8772922117680103,
+        "f1": 0.8142277666472567,
+        "fn": 16603.0,
+        "fp": 21043.0,
+        "precision": 0.7967704238818655,
+        "recall": 0.8324672310626318,
+        "specificity": 0.9221171924733889,
+        "tn": 249145.0,
+        "tp": 82500.0
+      },
+      "params": {
+        "gap_fill": 0,
+        "members": [
+          {
+            "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_transition_mix_lr1e4_score_cache.npz",
+            "row": 0
+          }
+        ],
+        "min_off": 0,
+        "min_on": 0,
+        "off_k": 20,
+        "on_k": 5,
+        "series": "ema0.05",
+        "threshold": 0.3317225277132436
+      }
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 800.0,
+        "delay_mean_ms": 66.0,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 284.04999999999916,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 11,
+        "false_alarm_runs_per_min": 1.7872084616196984,
+        "false_positive_window_fraction": 0.07477016003671517,
+        "false_positive_windows": 20202,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 20,
+        "prediction_switches": 61,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8229922403963553,
+        "slip_positive_windows": 81561,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "method": "subset_0_causal_ma100_thr",
+      "metrics": {
+        "accuracy": 0.8977933391282213,
+        "balanced_accuracy": 0.87411104017982,
+        "f1": 0.8120936345623451,
+        "fn": 17542.0,
+        "fp": 20202.0,
+        "precision": 0.80147990920079,
+        "recall": 0.8229922403963553,
+        "specificity": 0.9252298399632848,
+        "tn": 249986.0,
+        "tp": 81561.0
+      },
+      "params": {
+        "members": [
+          {
+            "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+            "row": 0
+          }
+        ],
+        "series": "causal_ma100",
+        "threshold": 0.6047228207998705
+      }
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 804.0,
+        "delay_mean_ms": 67.11111111111111,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 288.04999999999916,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 6,
+        "false_alarm_runs_per_min": 0.97484097906529,
+        "false_positive_window_fraction": 0.07522169748471434,
+        "false_positive_windows": 20324,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 15,
+        "prediction_switches": 41,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8240921061925471,
+        "slip_positive_windows": 81670,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "method": "subset_0_causal_ma100_thr_deb_on5_off20_gap0_minon0_minoff0",
+      "metrics": {
+        "accuracy": 0.8977581365373107,
+        "balanced_accuracy": 0.8744352043539164,
+        "f1": 0.8122448370686783,
+        "fn": 17433.0,
+        "fp": 20324.0,
+        "precision": 0.8007333764731259,
+        "recall": 0.8240921061925471,
+        "specificity": 0.9247783025152857,
+        "tn": 249864.0,
+        "tp": 81670.0
+      },
+      "params": {
+        "gap_fill": 0,
+        "members": [
+          {
+            "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+            "row": 0
+          }
+        ],
+        "min_off": 0,
+        "min_on": 0,
+        "off_k": 20,
+        "on_k": 5,
+        "series": "causal_ma100",
+        "threshold": 0.6047228207998705
+      }
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 796.0,
+        "delay_mean_ms": 60.44444444444444,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 262.19999999999914,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 8,
+        "false_alarm_runs_per_min": 1.2997879720870533,
+        "false_positive_window_fraction": 0.07559551127363169,
+        "false_positive_windows": 20425,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 17,
+        "prediction_switches": 51,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8232243221698636,
+        "slip_positive_windows": 81584,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "method": "subset_0_ema0.05_thr_deb_on5_off20_gap0_minon0_minoff0",
+      "metrics": {
+        "accuracy": 0.8972517608065185,
+        "balanced_accuracy": 0.873814405448116,
+        "f1": 0.8113290107005052,
+        "fn": 17519.0,
+        "fp": 20425.0,
+        "precision": 0.7997725690870413,
+        "recall": 0.8232243221698636,
+        "specificity": 0.9244044887263683,
+        "tn": 249763.0,
+        "tp": 81584.0
+      },
+      "params": {
+        "gap_fill": 0,
+        "members": [
+          {
+            "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+            "row": 0
+          }
+        ],
+        "min_off": 0,
+        "min_on": 0,
+        "off_k": 20,
+        "on_k": 5,
+        "series": "ema0.05",
+        "threshold": 0.6356163683007935
+      }
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 732.0,
+        "delay_mean_ms": 55.77777777777778,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 245.7999999999992,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 26,
+        "false_alarm_runs_per_min": 4.224310909282924,
+        "false_positive_window_fraction": 0.07508475579966542,
+        "false_positive_windows": 20287,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 35,
+        "prediction_switches": 127,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8211961292796384,
+        "slip_positive_windows": 81383,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "method": "subset_0_ema0.05_thr",
+      "metrics": {
+        "accuracy": 0.897081163635182,
+        "balanced_accuracy": 0.8730556867399865,
+        "f1": 0.8106966574190753,
+        "fn": 17720.0,
+        "fp": 20287.0,
+        "precision": 0.8004622799252483,
+        "recall": 0.8211961292796384,
+        "specificity": 0.9249152442003346,
+        "tn": 249901.0,
+        "tp": 81383.0
+      },
+      "params": {
+        "members": [
+          {
+            "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+            "row": 0
+          }
+        ],
+        "series": "ema0.05",
+        "threshold": 0.6356163683007935
+      }
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 722.0,
+        "delay_mean_ms": 55.0,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 232.39999999999918,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 9,
+        "false_alarm_runs_per_min": 1.462261468597935,
+        "false_positive_window_fraction": 0.07736094867277599,
+        "false_positive_windows": 20902,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 18,
+        "prediction_switches": 45,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8247479894655055,
+        "slip_positive_windows": 81735,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "method": "subset_0_raw_thr_deb_on5_off20_gap0_minon0_minoff0",
+      "metrics": {
+        "accuracy": 0.8963689881421426,
+        "balanced_accuracy": 0.8736935203963647,
+        "f1": 0.8103003866362645,
+        "fn": 17368.0,
+        "fp": 20902.0,
+        "precision": 0.7963502440640315,
+        "recall": 0.8247479894655055,
+        "specificity": 0.922639051327224,
+        "tn": 249286.0,
+        "tp": 81735.0
+      },
+      "params": {
+        "gap_fill": 0,
+        "members": [
+          {
+            "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+            "row": 0
+          }
+        ],
+        "min_off": 0,
+        "min_on": 0,
+        "off_k": 20,
+        "on_k": 5,
+        "series": "raw",
+        "threshold": 0.7556542360892307
+      }
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 633.0,
+        "delay_mean_ms": 52.526315789473685,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 194.69999999999897,
+        "detected_slip_segments": 19,
+        "false_alarm_runs": 24,
+        "false_alarm_runs_per_min": 3.89936391626116,
+        "false_positive_window_fraction": 0.07866004411742934,
+        "false_positive_windows": 21253,
+        "label_transitions": 29,
+        "missed_slip_segments": 1,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 33,
+        "prediction_switches": 92,
+        "segment_recall": 0.95,
+        "slip_positive_window_fraction": 0.827169712319506,
+        "slip_positive_windows": 81975,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "method": "subset_1_raw_thr_deb_on5_off20_gap0_minon0_minoff0",
+      "metrics": {
+        "accuracy": 0.8960684121735976,
+        "balanced_accuracy": 0.8742548341010383,
+        "f1": 0.810305884911358,
+        "fn": 17128.0,
+        "fp": 21253.0,
+        "precision": 0.7941159375363274,
+        "recall": 0.827169712319506,
+        "specificity": 0.9213399558825707,
+        "tn": 248935.0,
+        "tp": 81975.0
+      },
+      "params": {
+        "gap_fill": 0,
+        "members": [
+          {
+            "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_transition_mix_lr1e4_score_cache.npz",
+            "row": 0
+          }
+        ],
+        "min_off": 0,
+        "min_on": 0,
+        "off_k": 20,
+        "on_k": 5,
+        "series": "raw",
+        "threshold": 0.5054092315408122
+      }
+    }
+  ],
+  "row_records": [
+    {
+      "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+      "row": 0
+    },
+    {
+      "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_transition_mix_lr1e4_score_cache.npz",
+      "row": 0
+    }
+  ],
+  "score_caches": [
+    "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+    "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_transition_mix_lr1e4_score_cache.npz"
+  ],
+  "searched_methods": 60,
+  "total_windows": 369291
+}
