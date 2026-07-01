@@ -1,0 +1,5093 @@
+{
+  "best_method": {
+    "event_metrics": {
+      "delay_max_ms": 785.0,
+      "delay_mean_ms": 66.44444444444444,
+      "delay_median_ms": 0.0,
+      "delay_p95_ms": 298.79999999999916,
+      "detected_slip_segments": 18,
+      "false_alarm_runs": 1,
+      "false_alarm_runs_per_min": 0.16247349651088167,
+      "false_positive_window_fraction": 0.07425570343612596,
+      "false_positive_windows": 20063,
+      "label_transitions": 29,
+      "missed_slip_segments": 2,
+      "no_slip_windows": 270188,
+      "predicted_runs_starting_in_no_slip": 11,
+      "prediction_switches": 26,
+      "segment_recall": 0.9,
+      "slip_positive_window_fraction": 0.8250204332865806,
+      "slip_positive_windows": 81762,
+      "slip_windows": 99103,
+      "true_slip_segments": 20
+    },
+    "kind": "binary_state",
+    "ma_window": 100,
+    "members": [
+      {
+        "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+        "row": 0
+      },
+      {
+        "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+        "row": 0
+      }
+    ],
+    "method": "subset_0_1_ma100_debounce_on5_off20",
+    "metrics": {
+      "accuracy": 0.8987140222751163,
+      "balanced_accuracy": 0.8753823649252273,
+      "f1": 0.8138437649307215,
+      "fn": 17341.0,
+      "fp": 20063.0,
+      "precision": 0.8029658728210165,
+      "recall": 0.8250204332865806,
+      "specificity": 0.925744296563874,
+      "tn": 250125.0,
+      "tp": 81762.0
+    },
+    "off_k": 20,
+    "on_k": 5,
+    "threshold": 0.5954734913404173
+  },
+  "methods_top": [
+    {
+      "event_metrics": {
+        "delay_max_ms": 785.0,
+        "delay_mean_ms": 66.44444444444444,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 298.79999999999916,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 1,
+        "false_alarm_runs_per_min": 0.16247349651088167,
+        "false_positive_window_fraction": 0.07425570343612596,
+        "false_positive_windows": 20063,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 11,
+        "prediction_switches": 26,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8250204332865806,
+        "slip_positive_windows": 81762,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma100_debounce_on5_off20",
+      "metrics": {
+        "accuracy": 0.8987140222751163,
+        "balanced_accuracy": 0.8753823649252273,
+        "f1": 0.8138437649307215,
+        "fn": 17341.0,
+        "fp": 20063.0,
+        "precision": 0.8029658728210165,
+        "recall": 0.8250204332865806,
+        "specificity": 0.925744296563874,
+        "tn": 250125.0,
+        "tp": 81762.0
+      },
+      "off_k": 20,
+      "on_k": 5,
+      "threshold": 0.5954734913404173
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 785.0,
+        "delay_mean_ms": 66.44444444444444,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 298.79999999999916,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 1,
+        "false_alarm_runs_per_min": 0.16247349651088167,
+        "false_positive_window_fraction": 0.07418168090366707,
+        "false_positive_windows": 20043,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 11,
+        "prediction_switches": 26,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8245159076919972,
+        "slip_positive_windows": 81712,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma100_debounce_on5_off10",
+      "metrics": {
+        "accuracy": 0.8986327855268609,
+        "balanced_accuracy": 0.8751671133941651,
+        "f1": 0.8136295293192206,
+        "fn": 17391.0,
+        "fp": 20043.0,
+        "precision": 0.8030268782860793,
+        "recall": 0.8245159076919972,
+        "specificity": 0.9258183190963329,
+        "tn": 250145.0,
+        "tp": 81712.0
+      },
+      "off_k": 10,
+      "on_k": 5,
+      "threshold": 0.5954734913404173
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 785.0,
+        "delay_mean_ms": 66.44444444444444,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 298.79999999999916,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 1,
+        "false_alarm_runs_per_min": 0.16247349651088167,
+        "false_positive_window_fraction": 0.07414466963743764,
+        "false_positive_windows": 20033,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 11,
+        "prediction_switches": 26,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8242636448947055,
+        "slip_positive_windows": 81687,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma100_debounce_on5_off5",
+      "metrics": {
+        "accuracy": 0.8985921671527332,
+        "balanced_accuracy": 0.875059487628634,
+        "f1": 0.8135223555070884,
+        "fn": 17416.0,
+        "fp": 20033.0,
+        "precision": 0.8030574125049155,
+        "recall": 0.8242636448947055,
+        "specificity": 0.9258553303625624,
+        "tn": 250155.0,
+        "tp": 81687.0
+      },
+      "off_k": 5,
+      "on_k": 5,
+      "threshold": 0.5954734913404173
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 782.0,
+        "delay_mean_ms": 65.77777777777777,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 295.79999999999916,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 3,
+        "false_alarm_runs_per_min": 0.487420489532645,
+        "false_positive_window_fraction": 0.07452958680622382,
+        "false_positive_windows": 20137,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 30,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8252626055719806,
+        "slip_positive_windows": 81786,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma100_debounce_on2_off20",
+      "metrics": {
+        "accuracy": 0.8985786276946907,
+        "balanced_accuracy": 0.8753665093828784,
+        "f1": 0.8136857918876165,
+        "fn": 17317.0,
+        "fp": 20137.0,
+        "precision": 0.8024292848522905,
+        "recall": 0.8252626055719806,
+        "specificity": 0.9254704131937762,
+        "tn": 250051.0,
+        "tp": 81786.0
+      },
+      "off_k": 20,
+      "on_k": 2,
+      "threshold": 0.5954734913404173
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 782.0,
+        "delay_mean_ms": 65.77777777777777,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 295.79999999999916,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 3,
+        "false_alarm_runs_per_min": 0.487420489532645,
+        "false_positive_window_fraction": 0.07438154174130605,
+        "false_positive_windows": 20097,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 30,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8247580799773973,
+        "slip_positive_windows": 81736,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma100_debounce_on2_off10",
+      "metrics": {
+        "accuracy": 0.8985515487786054,
+        "balanced_accuracy": 0.8751882691180456,
+        "f1": 0.8135525739538957,
+        "fn": 17367.0,
+        "fp": 20097.0,
+        "precision": 0.8026474718411517,
+        "recall": 0.8247580799773973,
+        "specificity": 0.9256184582586939,
+        "tn": 250091.0,
+        "tp": 81736.0
+      },
+      "off_k": 10,
+      "on_k": 2,
+      "threshold": 0.5954734913404173
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 782.0,
+        "delay_mean_ms": 65.77777777777777,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 295.79999999999916,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 3,
+        "false_alarm_runs_per_min": 0.487420489532645,
+        "false_positive_window_fraction": 0.07430751920884718,
+        "false_positive_windows": 20077,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 30,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8245058171801055,
+        "slip_positive_windows": 81711,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma100_debounce_on2_off5",
+      "metrics": {
+        "accuracy": 0.8985380093205629,
+        "balanced_accuracy": 0.8750991489856292,
+        "f1": 0.8134859202253959,
+        "fn": 17392.0,
+        "fp": 20077.0,
+        "precision": 0.8027567100247573,
+        "recall": 0.8245058171801055,
+        "specificity": 0.9256924807911528,
+        "tn": 250111.0,
+        "tp": 81711.0
+      },
+      "off_k": 5,
+      "on_k": 2,
+      "threshold": 0.5954734913404173
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 781.0,
+        "delay_mean_ms": 65.55555555555556,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 294.79999999999916,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 3,
+        "false_alarm_runs_per_min": 0.487420489532645,
+        "false_positive_window_fraction": 0.07429641582897833,
+        "false_positive_windows": 20074,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 32,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8243645500136222,
+        "slip_positive_windows": 81697,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "score",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma100",
+      "metrics": {
+        "accuracy": 0.8985082225128692,
+        "balanced_accuracy": 0.8750340670923219,
+        "f1": 0.8134153748120713,
+        "fn": 17406.0,
+        "fp": 20074.0,
+        "pr_auc": 0.8586554875502393,
+        "precision": 0.8027532401175187,
+        "recall": 0.8243645500136222,
+        "roc_auc": 0.9288129959434142,
+        "specificity": 0.9257035841710216,
+        "threshold": 0.5954734913404173,
+        "tn": 250114.0,
+        "tp": 81697.0
+      },
+      "threshold": 0.5954734913404173
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 781.0,
+        "delay_mean_ms": 73.11111111111111,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 334.74999999999926,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 2,
+        "false_alarm_runs_per_min": 0.32494699302176333,
+        "false_positive_window_fraction": 0.07099501088131227,
+        "false_positive_windows": 19182,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 11,
+        "prediction_switches": 28,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.814818925764104,
+        "slip_positive_windows": 80751,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma100_debounce_on5_off20",
+      "metrics": {
+        "accuracy": 0.8983619963660094,
+        "balanced_accuracy": 0.8719119574413958,
+        "f1": 0.8114210494583893,
+        "fn": 18352.0,
+        "fp": 19182.0,
+        "precision": 0.808051394434271,
+        "recall": 0.814818925764104,
+        "specificity": 0.9290049891186877,
+        "tn": 251006.0,
+        "tp": 80751.0
+      },
+      "off_k": 20,
+      "on_k": 5,
+      "threshold": 0.6840008404889432
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 778.0,
+        "delay_mean_ms": 72.27777777777777,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 331.74999999999926,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 2,
+        "false_alarm_runs_per_min": 0.32494699302176333,
+        "false_positive_window_fraction": 0.07111714805986942,
+        "false_positive_windows": 19215,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 11,
+        "prediction_switches": 28,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.815091369585179,
+        "slip_positive_windows": 80778,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma100_debounce_on2_off20",
+      "metrics": {
+        "accuracy": 0.8983457490163583,
+        "balanced_accuracy": 0.8719871107626548,
+        "f1": 0.811447743801985,
+        "fn": 18325.0,
+        "fp": 19215.0,
+        "precision": 0.807836548558399,
+        "recall": 0.815091369585179,
+        "specificity": 0.9288828519401305,
+        "tn": 250973.0,
+        "tp": 80778.0
+      },
+      "off_k": 20,
+      "on_k": 2,
+      "threshold": 0.6840008404889432
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 781.0,
+        "delay_mean_ms": 73.11111111111111,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 334.74999999999926,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 2,
+        "false_alarm_runs_per_min": 0.32494699302176333,
+        "false_positive_window_fraction": 0.07088397708262395,
+        "false_positive_windows": 19152,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 11,
+        "prediction_switches": 28,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8143144001695206,
+        "slip_positive_windows": 80701,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma100_debounce_on5_off10",
+      "metrics": {
+        "accuracy": 0.8983078385338392,
+        "balanced_accuracy": 0.8717152115434483,
+        "f1": 0.8112446973200105,
+        "fn": 18402.0,
+        "fp": 19152.0,
+        "precision": 0.8081980511351687,
+        "recall": 0.8143144001695206,
+        "specificity": 0.929116022917376,
+        "tn": 251036.0,
+        "tp": 80701.0
+      },
+      "off_k": 10,
+      "on_k": 5,
+      "threshold": 0.6840008404889432
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 778.0,
+        "delay_mean_ms": 72.27777777777777,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 331.74999999999926,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 2,
+        "false_alarm_runs_per_min": 0.32494699302176333,
+        "false_positive_window_fraction": 0.0710061142611811,
+        "false_positive_windows": 19185,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 11,
+        "prediction_switches": 28,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8145868439905957,
+        "slip_positive_windows": 80728,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma100_debounce_on2_off10",
+      "metrics": {
+        "accuracy": 0.8982915911841881,
+        "balanced_accuracy": 0.8717903648647073,
+        "f1": 0.8112714555613619,
+        "fn": 18375.0,
+        "fp": 19185.0,
+        "precision": 0.8079829451622912,
+        "recall": 0.8145868439905957,
+        "specificity": 0.9289938857388189,
+        "tn": 251003.0,
+        "tp": 80728.0
+      },
+      "off_k": 10,
+      "on_k": 2,
+      "threshold": 0.6840008404889432
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 781.0,
+        "delay_mean_ms": 73.11111111111111,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 334.74999999999926,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 2,
+        "false_alarm_runs_per_min": 0.32494699302176333,
+        "false_positive_window_fraction": 0.07082846018327979,
+        "false_positive_windows": 19137,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 11,
+        "prediction_switches": 28,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8140621373722289,
+        "slip_positive_windows": 80676,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma100_debounce_on5_off5",
+      "metrics": {
+        "accuracy": 0.898280759617754,
+        "balanced_accuracy": 0.8716168385944745,
+        "f1": 0.8111564680568681,
+        "fn": 18427.0,
+        "fp": 19137.0,
+        "precision": 0.8082714676444952,
+        "recall": 0.8140621373722289,
+        "specificity": 0.9291715398167202,
+        "tn": 251051.0,
+        "tp": 80676.0
+      },
+      "off_k": 5,
+      "on_k": 5,
+      "threshold": 0.6840008404889432
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 778.0,
+        "delay_mean_ms": 72.27777777777777,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 331.74999999999926,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 2,
+        "false_alarm_runs_per_min": 0.32494699302176333,
+        "false_positive_window_fraction": 0.07095059736183694,
+        "false_positive_windows": 19170,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 11,
+        "prediction_switches": 28,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8143345811933039,
+        "slip_positive_windows": 80703,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma100_debounce_on2_off5",
+      "metrics": {
+        "accuracy": 0.8982645122681029,
+        "balanced_accuracy": 0.8716919919157335,
+        "f1": 0.8111832582824059,
+        "fn": 18400.0,
+        "fp": 19170.0,
+        "precision": 0.8080562314138956,
+        "recall": 0.8143345811933039,
+        "specificity": 0.929049402638163,
+        "tn": 251018.0,
+        "tp": 80703.0
+      },
+      "off_k": 5,
+      "on_k": 2,
+      "threshold": 0.6840008404889432
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 777.0,
+        "delay_mean_ms": 72.0,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 330.74999999999926,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 2,
+        "false_alarm_runs_per_min": 0.32494699302176333,
+        "false_positive_window_fraction": 0.070946896235214,
+        "false_positive_windows": 19169,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 11,
+        "prediction_switches": 32,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8142034045387122,
+        "slip_positive_windows": 80690,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "score",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma100",
+      "metrics": {
+        "accuracy": 0.8982320175688008,
+        "balanced_accuracy": 0.871628254151749,
+        "f1": 0.8111096591308894,
+        "fn": 18413.0,
+        "fp": 19169.0,
+        "pr_auc": 0.8639042538875203,
+        "precision": 0.8080393354630029,
+        "recall": 0.8142034045387122,
+        "roc_auc": 0.9337169052685922,
+        "specificity": 0.929053103764786,
+        "threshold": 0.6840008404889432,
+        "tn": 251019.0,
+        "tp": 80690.0
+      },
+      "threshold": 0.6840008404889432
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 749.0,
+        "delay_mean_ms": 63.0,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 276.3999999999992,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 4,
+        "false_alarm_runs_per_min": 0.6498939860435267,
+        "false_positive_window_fraction": 0.0737634535952744,
+        "false_positive_windows": 19930,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 39,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8217006548742217,
+        "slip_positive_windows": 81433,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma50_debounce_on2_off20",
+      "metrics": {
+        "accuracy": 0.8981832755198474,
+        "balanced_accuracy": 0.8739686006394737,
+        "f1": 0.8124370217393473,
+        "fn": 17670.0,
+        "fp": 19930.0,
+        "precision": 0.8033799315332024,
+        "recall": 0.8217006548742217,
+        "specificity": 0.9262365464047256,
+        "tn": 250258.0,
+        "tp": 81433.0
+      },
+      "off_k": 20,
+      "on_k": 2,
+      "threshold": 0.6601934395675199
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 752.0,
+        "delay_mean_ms": 63.833333333333336,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 279.3999999999992,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 4,
+        "false_alarm_runs_per_min": 0.6498939860435267,
+        "false_positive_window_fraction": 0.07361910965697958,
+        "false_positive_windows": 19891,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 37,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8211658577439633,
+        "slip_positive_windows": 81380,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma50_debounce_on5_off20",
+      "metrics": {
+        "accuracy": 0.8981453650373283,
+        "balanced_accuracy": 0.8737733740434919,
+        "f1": 0.8122810344655494,
+        "fn": 17723.0,
+        "fp": 19891.0,
+        "precision": 0.8035864166444491,
+        "recall": 0.8211658577439633,
+        "specificity": 0.9263808903430204,
+        "tn": 250297.0,
+        "tp": 81380.0
+      },
+      "off_k": 20,
+      "on_k": 5,
+      "threshold": 0.6601934395675199
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 749.0,
+        "delay_mean_ms": 63.0,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 276.3999999999992,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 5,
+        "false_alarm_runs_per_min": 0.8123674825544084,
+        "false_positive_window_fraction": 0.07350807585829126,
+        "false_positive_windows": 19861,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 14,
+        "prediction_switches": 43,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8208530518753216,
+        "slip_positive_windows": 81349,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma50_debounce_on2_off10",
+      "metrics": {
+        "accuracy": 0.8981426571457197,
+        "balanced_accuracy": 0.8736724880085152,
+        "f1": 0.8122188774567801,
+        "fn": 17754.0,
+        "fp": 19861.0,
+        "precision": 0.8037644501531469,
+        "recall": 0.8208530518753216,
+        "specificity": 0.9264919241417088,
+        "tn": 250327.0,
+        "tp": 81349.0
+      },
+      "off_k": 10,
+      "on_k": 2,
+      "threshold": 0.6601934395675199
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 752.0,
+        "delay_mean_ms": 63.833333333333336,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 279.3999999999992,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 5,
+        "false_alarm_runs_per_min": 0.8123674825544084,
+        "false_positive_window_fraction": 0.07335262854012761,
+        "false_positive_windows": 19819,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 14,
+        "prediction_switches": 41,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8202375306499299,
+        "slip_positive_windows": 81288,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma50_debounce_on5_off10",
+      "metrics": {
+        "accuracy": 0.898091207205158,
+        "balanced_accuracy": 0.8734424510549011,
+        "f1": 0.8120273712601769,
+        "fn": 17815.0,
+        "fp": 19819.0,
+        "precision": 0.8039799420415995,
+        "recall": 0.8202375306499299,
+        "specificity": 0.9266473714598724,
+        "tn": 250369.0,
+        "tp": 81288.0
+      },
+      "off_k": 10,
+      "on_k": 5,
+      "threshold": 0.6601934395675199
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 749.0,
+        "delay_mean_ms": 63.0,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 276.3999999999992,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 5,
+        "false_alarm_runs_per_min": 0.8123674825544084,
+        "false_positive_window_fraction": 0.07337853642648823,
+        "false_positive_windows": 19826,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 14,
+        "prediction_switches": 47,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8202879832093882,
+        "slip_positive_windows": 81293,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma50_debounce_on2_off5",
+      "metrics": {
+        "accuracy": 0.898085791421941,
+        "balanced_accuracy": 0.87345472339145,
+        "f1": 0.8120286482004974,
+        "fn": 17810.0,
+        "fp": 19826.0,
+        "precision": 0.80393397877748,
+        "recall": 0.8202879832093882,
+        "specificity": 0.9266214635735118,
+        "tn": 250362.0,
+        "tp": 81293.0
+      },
+      "off_k": 5,
+      "on_k": 2,
+      "threshold": 0.6601934395675199
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 752.0,
+        "delay_mean_ms": 63.833333333333336,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 279.3999999999992,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 5,
+        "false_alarm_runs_per_min": 0.8123674825544084,
+        "false_positive_window_fraction": 0.07322308910832458,
+        "false_positive_windows": 19784,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 14,
+        "prediction_switches": 43,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8197531860791298,
+        "slip_positive_windows": 81240,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma50_debounce_on5_off5",
+      "metrics": {
+        "accuracy": 0.8980560046142473,
+        "balanced_accuracy": 0.8732650484854027,
+        "f1": 0.8118844533721088,
+        "fn": 17863.0,
+        "fp": 19784.0,
+        "precision": 0.8041653468482737,
+        "recall": 0.8197531860791298,
+        "specificity": 0.9267769108916755,
+        "tn": 250404.0,
+        "tp": 81240.0
+      },
+      "off_k": 5,
+      "on_k": 5,
+      "threshold": 0.6601934395675199
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 748.0,
+        "delay_mean_ms": 62.72222222222222,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 275.3999999999992,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 7,
+        "false_alarm_runs_per_min": 1.1373144755761717,
+        "false_positive_window_fraction": 0.0733008127674064,
+        "false_positive_windows": 19805,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 16,
+        "prediction_switches": 61,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8199449058050715,
+        "slip_positive_windows": 81259,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "score",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma50",
+      "metrics": {
+        "accuracy": 0.8980505888310303,
+        "balanced_accuracy": 0.8733220465188325,
+        "f1": 0.8119120534353815,
+        "fn": 17844.0,
+        "fp": 19805.0,
+        "pr_auc": 0.8575510892565572,
+        "precision": 0.8040350668883084,
+        "recall": 0.8199449058050715,
+        "roc_auc": 0.9285610648556234,
+        "specificity": 0.9266991872325936,
+        "threshold": 0.6601934395675199,
+        "tn": 250383.0,
+        "tp": 81259.0
+      },
+      "threshold": 0.6601934395675199
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 722.0,
+        "delay_mean_ms": 54.166666666666664,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 251.09999999999923,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 4,
+        "false_alarm_runs_per_min": 0.6498939860435267,
+        "false_positive_window_fraction": 0.07675396390661317,
+        "false_positive_windows": 20738,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 14,
+        "prediction_switches": 36,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.829207995721623,
+        "slip_positive_windows": 82177,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 1,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma1_debounce_on5_off20",
+      "metrics": {
+        "accuracy": 0.8980099704569026,
+        "balanced_accuracy": 0.876227015907505,
+        "f1": 0.8135611678167293,
+        "fn": 16926.0,
+        "fp": 20738.0,
+        "precision": 0.798493902735267,
+        "recall": 0.829207995721623,
+        "specificity": 0.9232460360933868,
+        "tn": 249450.0,
+        "tp": 82177.0
+      },
+      "off_k": 20,
+      "on_k": 5,
+      "threshold": 0.6306159639133437
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 727.0,
+        "delay_mean_ms": 58.94444444444444,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 266.2999999999992,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 10,
+        "false_alarm_runs_per_min": 1.6247349651088168,
+        "false_positive_window_fraction": 0.07491080284838705,
+        "false_positive_windows": 20240,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 19,
+        "prediction_switches": 57,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8239407485141721,
+        "slip_positive_windows": 81655,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 20,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma20_debounce_on5_off10",
+      "metrics": {
+        "accuracy": 0.8979449810582982,
+        "balanced_accuracy": 0.8745149728328925,
+        "f1": 0.812495646722853,
+        "fn": 17448.0,
+        "fp": 20240.0,
+        "precision": 0.801364149369449,
+        "recall": 0.8239407485141721,
+        "specificity": 0.925089197151613,
+        "tn": 249948.0,
+        "tp": 81655.0
+      },
+      "off_k": 10,
+      "on_k": 5,
+      "threshold": 0.6246226652028781
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 724.0,
+        "delay_mean_ms": 58.111111111111114,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 263.2999999999992,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 13,
+        "false_alarm_runs_per_min": 2.112155454641462,
+        "false_positive_window_fraction": 0.07483678031592816,
+        "false_positive_windows": 20220,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 22,
+        "prediction_switches": 77,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8236380331574221,
+        "slip_positive_windows": 81625,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 20,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma20_debounce_on2_off5",
+      "metrics": {
+        "accuracy": 0.897917902142213,
+        "balanced_accuracy": 0.8744006264207469,
+        "f1": 0.8123992276608873,
+        "fn": 17478.0,
+        "fp": 20220.0,
+        "precision": 0.8014630075114144,
+        "recall": 0.8236380331574221,
+        "specificity": 0.9251632196840718,
+        "tn": 249968.0,
+        "tp": 81625.0
+      },
+      "off_k": 5,
+      "on_k": 2,
+      "threshold": 0.6246226652028781
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 724.0,
+        "delay_mean_ms": 58.111111111111114,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 263.2999999999992,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 10,
+        "false_alarm_runs_per_min": 1.6247349651088168,
+        "false_positive_window_fraction": 0.07512176706589486,
+        "false_positive_windows": 20297,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 19,
+        "prediction_switches": 57,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8243948215492972,
+        "slip_positive_windows": 81700,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 20,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma20_debounce_on2_off10",
+      "metrics": {
+        "accuracy": 0.897912486358996,
+        "balanced_accuracy": 0.8746365272417012,
+        "f1": 0.8125310790651417,
+        "fn": 17403.0,
+        "fp": 20297.0,
+        "precision": 0.8010039510966008,
+        "recall": 0.8243948215492972,
+        "specificity": 0.9248782329341051,
+        "tn": 249891.0,
+        "tp": 81700.0
+      },
+      "off_k": 10,
+      "on_k": 2,
+      "threshold": 0.6246226652028781
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 727.0,
+        "delay_mean_ms": 58.94444444444444,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 266.2999999999992,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 13,
+        "false_alarm_runs_per_min": 2.112155454641462,
+        "false_positive_window_fraction": 0.07459250595881387,
+        "false_positive_windows": 20154,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 22,
+        "prediction_switches": 75,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.822941787836897,
+        "slip_positive_windows": 81556,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 20,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma20_debounce_on5_off5",
+      "metrics": {
+        "accuracy": 0.8979097784673875,
+        "balanced_accuracy": 0.8741746409390416,
+        "f1": 0.8122581705367681,
+        "fn": 17547.0,
+        "fp": 20154.0,
+        "precision": 0.8018483924884475,
+        "recall": 0.822941787836897,
+        "specificity": 0.9254074940411862,
+        "tn": 250034.0,
+        "tp": 81556.0
+      },
+      "off_k": 5,
+      "on_k": 5,
+      "threshold": 0.6246226652028781
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 727.0,
+        "delay_mean_ms": 58.94444444444444,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 266.2999999999992,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 5,
+        "false_alarm_runs_per_min": 0.8123674825544084,
+        "false_positive_window_fraction": 0.07537344367625505,
+        "false_positive_windows": 20365,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 14,
+        "prediction_switches": 43,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8250607953341473,
+        "slip_positive_windows": 81766,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 20,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma20_debounce_on5_off20",
+      "metrics": {
+        "accuracy": 0.897907070575779,
+        "balanced_accuracy": 0.8748436758289462,
+        "f1": 0.8126459743383325,
+        "fn": 17337.0,
+        "fp": 20365.0,
+        "precision": 0.8005992304001723,
+        "recall": 0.8250607953341473,
+        "specificity": 0.9246265563237449,
+        "tn": 249823.0,
+        "tp": 81766.0
+      },
+      "off_k": 20,
+      "on_k": 5,
+      "threshold": 0.6246226652028781
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 724.0,
+        "delay_mean_ms": 58.111111111111114,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 263.2999999999992,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 5,
+        "false_alarm_runs_per_min": 0.8123674825544084,
+        "false_positive_window_fraction": 0.0755288909944187,
+        "false_positive_windows": 20407,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 14,
+        "prediction_switches": 43,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8254543252979224,
+        "slip_positive_windows": 81805,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 20,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma20_debounce_on2_off20",
+      "metrics": {
+        "accuracy": 0.8978989469009534,
+        "balanced_accuracy": 0.8749627171517518,
+        "f1": 0.8127064550579937,
+        "fn": 17298.0,
+        "fp": 20407.0,
+        "precision": 0.8003463389817242,
+        "recall": 0.8254543252979224,
+        "specificity": 0.9244711090055813,
+        "tn": 249781.0,
+        "tp": 81805.0
+      },
+      "off_k": 20,
+      "on_k": 2,
+      "threshold": 0.6246226652028781
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 723.0,
+        "delay_mean_ms": 57.833333333333336,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 262.2999999999992,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 23,
+        "false_alarm_runs_per_min": 3.7368904197502784,
+        "false_positive_window_fraction": 0.07467393074451863,
+        "false_positive_windows": 20176,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 32,
+        "prediction_switches": 107,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8230729644914887,
+        "slip_positive_windows": 81569,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "score",
+      "ma_window": 20,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma20",
+      "metrics": {
+        "accuracy": 0.8978854074429109,
+        "balanced_accuracy": 0.8741995168734851,
+        "f1": 0.8122460766350673,
+        "fn": 17534.0,
+        "fp": 20176.0,
+        "pr_auc": 0.8565444175891267,
+        "precision": 0.8017003292545088,
+        "recall": 0.8230729644914887,
+        "roc_auc": 0.9282787448902017,
+        "specificity": 0.9253260692554813,
+        "threshold": 0.6246226652028781,
+        "tn": 250012.0,
+        "tp": 81569.0
+      },
+      "threshold": 0.6246226652028781
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 745.0,
+        "delay_mean_ms": 64.72222222222223,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 304.69999999999925,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 3,
+        "false_alarm_runs_per_min": 0.487420489532645,
+        "false_positive_window_fraction": 0.07225709505973618,
+        "false_positive_windows": 19523,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 36,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.816433407666771,
+        "slip_positive_windows": 80911,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma50_debounce_on5_off20",
+      "metrics": {
+        "accuracy": 0.8978718679848683,
+        "balanced_accuracy": 0.8720881563035174,
+        "f1": 0.8109874359141414,
+        "fn": 18192.0,
+        "fp": 19523.0,
+        "precision": 0.8056136368162177,
+        "recall": 0.816433407666771,
+        "specificity": 0.9277429049402638,
+        "tn": 250665.0,
+        "tp": 80911.0
+      },
+      "off_k": 20,
+      "on_k": 5,
+      "threshold": 0.6663502970933769
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 804.0,
+        "delay_mean_ms": 67.11111111111111,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 288.04999999999916,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 6,
+        "false_alarm_runs_per_min": 0.97484097906529,
+        "false_positive_window_fraction": 0.07464802285815803,
+        "false_positive_windows": 20169,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 15,
+        "prediction_switches": 43,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.822911516301222,
+        "slip_positive_windows": 81553,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_1_ma100_debounce_on5_off5",
+      "metrics": {
+        "accuracy": 0.8978610364184343,
+        "balanced_accuracy": 0.8741317467215319,
+        "f1": 0.8121797584962032,
+        "fn": 17550.0,
+        "fp": 20169.0,
+        "precision": 0.8017243074261222,
+        "recall": 0.822911516301222,
+        "specificity": 0.925351977141842,
+        "tn": 250019.0,
+        "tp": 81553.0
+      },
+      "off_k": 5,
+      "on_k": 5,
+      "threshold": 0.6047228207998705
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 742.0,
+        "delay_mean_ms": 64.05555555555556,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 301.69999999999925,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 3,
+        "false_alarm_runs_per_min": 0.487420489532645,
+        "false_positive_window_fraction": 0.072401438998031,
+        "false_positive_windows": 19562,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 36,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.816766394559196,
+        "slip_positive_windows": 80944,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma50_debounce_on2_off20",
+      "metrics": {
+        "accuracy": 0.8978556206352172,
+        "balanced_accuracy": 0.8721824777805824,
+        "f1": 0.8110255549599467,
+        "fn": 18159.0,
+        "fp": 19562.0,
+        "precision": 0.8053648538395718,
+        "recall": 0.816766394559196,
+        "specificity": 0.927598561001969,
+        "tn": 250626.0,
+        "tp": 80944.0
+      },
+      "off_k": 20,
+      "on_k": 2,
+      "threshold": 0.6663502970933769
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 804.0,
+        "delay_mean_ms": 67.11111111111111,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 288.04999999999916,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 6,
+        "false_alarm_runs_per_min": 0.97484097906529,
+        "false_positive_window_fraction": 0.07482937806268228,
+        "false_positive_windows": 20218,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 15,
+        "prediction_switches": 43,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8233151367768887,
+        "slip_positive_windows": 81593,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_1_ma100_debounce_on5_off10",
+      "metrics": {
+        "accuracy": 0.8978366653939576,
+        "balanced_accuracy": 0.8742428793571032,
+        "f1": 0.8122181629951123,
+        "fn": 17510.0,
+        "fp": 20218.0,
+        "precision": 0.8014163499032521,
+        "recall": 0.8233151367768887,
+        "specificity": 0.9251706219373177,
+        "tn": 249970.0,
+        "tp": 81593.0
+      },
+      "off_k": 10,
+      "on_k": 5,
+      "threshold": 0.6047228207998705
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 801.0,
+        "delay_mean_ms": 66.27777777777777,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 285.04999999999916,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 7,
+        "false_alarm_runs_per_min": 1.1373144755761717,
+        "false_positive_window_fraction": 0.0748552859490429,
+        "false_positive_windows": 20225,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 16,
+        "prediction_switches": 45,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.823274774729322,
+        "slip_positive_windows": 81589,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_1_ma100_debounce_on2_off5",
+      "metrics": {
+        "accuracy": 0.897806878586264,
+        "balanced_accuracy": 0.8742097443901395,
+        "f1": 0.8121662178909699,
+        "fn": 17514.0,
+        "fp": 20225.0,
+        "precision": 0.801353448445204,
+        "recall": 0.823274774729322,
+        "specificity": 0.9251447140509571,
+        "tn": 249963.0,
+        "tp": 81589.0
+      },
+      "off_k": 5,
+      "on_k": 2,
+      "threshold": 0.6047228207998705
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 801.0,
+        "delay_mean_ms": 66.27777777777777,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 285.04999999999916,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 6,
+        "false_alarm_runs_per_min": 0.97484097906529,
+        "false_positive_window_fraction": 0.07501813552045243,
+        "false_positive_windows": 20269,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 15,
+        "prediction_switches": 43,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8236783952049888,
+        "slip_positive_windows": 81629,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_1_ma100_debounce_on2_off10",
+      "metrics": {
+        "accuracy": 0.8977960470198298,
+        "balanced_accuracy": 0.8743301298422681,
+        "f1": 0.8122248148019164,
+        "fn": 17474.0,
+        "fp": 20269.0,
+        "precision": 0.8010853991246148,
+        "recall": 0.8236783952049888,
+        "specificity": 0.9249818644795476,
+        "tn": 249919.0,
+        "tp": 81629.0
+      },
+      "off_k": 10,
+      "on_k": 2,
+      "threshold": 0.6047228207998705
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 800.0,
+        "delay_mean_ms": 66.0,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 284.04999999999916,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 11,
+        "false_alarm_runs_per_min": 1.7872084616196984,
+        "false_positive_window_fraction": 0.07477016003671517,
+        "false_positive_windows": 20202,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 20,
+        "prediction_switches": 61,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8229922403963553,
+        "slip_positive_windows": 81561,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "score",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_1_ma100",
+      "metrics": {
+        "accuracy": 0.8977933391282213,
+        "balanced_accuracy": 0.87411104017982,
+        "f1": 0.8120936345623451,
+        "fn": 17542.0,
+        "fp": 20202.0,
+        "pr_auc": 0.844504034849275,
+        "precision": 0.80147990920079,
+        "recall": 0.8229922403963553,
+        "roc_auc": 0.9202773336090129,
+        "specificity": 0.9252298399632848,
+        "threshold": 0.6047228207998705,
+        "tn": 249986.0,
+        "tp": 81561.0
+      },
+      "threshold": 0.6047228207998705
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 804.0,
+        "delay_mean_ms": 67.11111111111111,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 288.04999999999916,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 6,
+        "false_alarm_runs_per_min": 0.97484097906529,
+        "false_positive_window_fraction": 0.07522169748471434,
+        "false_positive_windows": 20324,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 15,
+        "prediction_switches": 41,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8240921061925471,
+        "slip_positive_windows": 81670,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_1_ma100_debounce_on5_off20",
+      "metrics": {
+        "accuracy": 0.8977581365373107,
+        "balanced_accuracy": 0.8744352043539164,
+        "f1": 0.8122448370686783,
+        "fn": 17433.0,
+        "fp": 20324.0,
+        "precision": 0.8007333764731259,
+        "recall": 0.8240921061925471,
+        "specificity": 0.9247783025152857,
+        "tn": 249864.0,
+        "tp": 81670.0
+      },
+      "off_k": 20,
+      "on_k": 5,
+      "threshold": 0.6047228207998705
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 745.0,
+        "delay_mean_ms": 64.72222222222223,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 304.69999999999925,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 3,
+        "false_alarm_runs_per_min": 0.487420489532645,
+        "false_positive_window_fraction": 0.07210904999481842,
+        "false_positive_windows": 19483,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 38,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8155050805727374,
+        "slip_positive_windows": 80819,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma50_debounce_on5_off10",
+      "metrics": {
+        "accuracy": 0.8977310576212255,
+        "balanced_accuracy": 0.8716980152889595,
+        "f1": 0.8106015395802513,
+        "fn": 18284.0,
+        "fp": 19483.0,
+        "precision": 0.8057566150226316,
+        "recall": 0.8155050805727374,
+        "specificity": 0.9278909500051816,
+        "tn": 250705.0,
+        "tp": 80819.0
+      },
+      "off_k": 10,
+      "on_k": 5,
+      "threshold": 0.6663502970933769
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 742.0,
+        "delay_mean_ms": 64.05555555555556,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 301.69999999999925,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 3,
+        "false_alarm_runs_per_min": 0.487420489532645,
+        "false_positive_window_fraction": 0.07225339393311324,
+        "false_positive_windows": 19522,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 38,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8158683390008376,
+        "slip_positive_windows": 80855,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma50_debounce_on2_off10",
+      "metrics": {
+        "accuracy": 0.8977229339464,
+        "balanced_accuracy": 0.8718074725338621,
+        "f1": 0.8106577100461199,
+        "fn": 18248.0,
+        "fp": 19522.0,
+        "precision": 0.805513215178776,
+        "recall": 0.8158683390008376,
+        "specificity": 0.9277466060668867,
+        "tn": 250666.0,
+        "tp": 80855.0
+      },
+      "off_k": 10,
+      "on_k": 2,
+      "threshold": 0.6663502970933769
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 801.0,
+        "delay_mean_ms": 66.27777777777777,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 285.04999999999916,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 6,
+        "false_alarm_runs_per_min": 0.97484097906529,
+        "false_positive_window_fraction": 0.0754104549424845,
+        "false_positive_windows": 20375,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 15,
+        "prediction_switches": 41,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8244250930849722,
+        "slip_positive_windows": 81703,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_1_ma100_debounce_on2_off20",
+      "metrics": {
+        "accuracy": 0.8977093944883574,
+        "balanced_accuracy": 0.8745073190712439,
+        "f1": 0.812233759649271,
+        "fn": 17400.0,
+        "fp": 20375.0,
+        "precision": 0.8003977350653422,
+        "recall": 0.8244250930849722,
+        "specificity": 0.9245895450575156,
+        "tn": 249813.0,
+        "tp": 81703.0
+      },
+      "off_k": 20,
+      "on_k": 2,
+      "threshold": 0.6047228207998705
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 731.0,
+        "delay_mean_ms": 60.166666666666664,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 275.39999999999924,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 3,
+        "false_alarm_runs_per_min": 0.487420489532645,
+        "false_positive_window_fraction": 0.0732341924881934,
+        "false_positive_windows": 19787,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 32,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8184616005569962,
+        "slip_positive_windows": 81112,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 1,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma1_debounce_on5_off20",
+      "metrics": {
+        "accuracy": 0.8977012708135319,
+        "balanced_accuracy": 0.8726137040344014,
+        "f1": 0.8111118888811112,
+        "fn": 17991.0,
+        "fp": 19787.0,
+        "precision": 0.8038930019128039,
+        "recall": 0.8184616005569962,
+        "specificity": 0.9267658075118066,
+        "tn": 250401.0,
+        "tp": 81112.0
+      },
+      "off_k": 20,
+      "on_k": 5,
+      "threshold": 0.6978910639680983
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 745.0,
+        "delay_mean_ms": 64.72222222222223,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 304.69999999999925,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 3,
+        "false_alarm_runs_per_min": 0.487420489532645,
+        "false_positive_window_fraction": 0.07203502746235954,
+        "false_positive_windows": 19463,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 38,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8150510075376124,
+        "slip_positive_windows": 80774,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma50_debounce_on5_off5",
+      "metrics": {
+        "accuracy": 0.8976633603310127,
+        "balanced_accuracy": 0.8715079900376264,
+        "f1": 0.8104143674124611,
+        "fn": 18329.0,
+        "fp": 19463.0,
+        "precision": 0.8058301824675519,
+        "recall": 0.8150510075376124,
+        "specificity": 0.9279649725376404,
+        "tn": 250725.0,
+        "tp": 80774.0
+      },
+      "off_k": 5,
+      "on_k": 5,
+      "threshold": 0.6663502970933769
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 742.0,
+        "delay_mean_ms": 64.05555555555556,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 301.69999999999925,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 3,
+        "false_alarm_runs_per_min": 0.487420489532645,
+        "false_positive_window_fraction": 0.07217937140065436,
+        "false_positive_windows": 19502,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 38,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8154142659657124,
+        "slip_positive_windows": 80810,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma50_debounce_on2_off5",
+      "metrics": {
+        "accuracy": 0.8976552366561871,
+        "balanced_accuracy": 0.8716174472825291,
+        "f1": 0.8104706265827545,
+        "fn": 18293.0,
+        "fp": 19502.0,
+        "precision": 0.805586569901906,
+        "recall": 0.8154142659657124,
+        "specificity": 0.9278206285993457,
+        "tn": 250686.0,
+        "tp": 80810.0
+      },
+      "off_k": 5,
+      "on_k": 2,
+      "threshold": 0.6663502970933769
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 741.0,
+        "delay_mean_ms": 63.833333333333336,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 300.69999999999925,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 3,
+        "false_alarm_runs_per_min": 0.487420489532645,
+        "false_positive_window_fraction": 0.07216826802078553,
+        "false_positive_windows": 19499,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 38,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8151720936803124,
+        "slip_positive_windows": 80786,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "score",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma50",
+      "metrics": {
+        "accuracy": 0.8975983709324084,
+        "balanced_accuracy": 0.8715019128297634,
+        "f1": 0.8103396392962465,
+        "fn": 18317.0,
+        "fp": 19499.0,
+        "pr_auc": 0.8629451850367732,
+        "precision": 0.8055641421947449,
+        "recall": 0.8151720936803124,
+        "roc_auc": 0.9334089335188029,
+        "specificity": 0.9278317319792144,
+        "threshold": 0.6663502970933769,
+        "tn": 250689.0,
+        "tp": 80786.0
+      },
+      "threshold": 0.6663502970933769
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 728.0,
+        "delay_mean_ms": 60.77777777777778,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 279.19999999999925,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 4,
+        "false_alarm_runs_per_min": 0.6498939860435267,
+        "false_positive_window_fraction": 0.07254948406294875,
+        "false_positive_windows": 19602,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 14,
+        "prediction_switches": 54,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8161407828219126,
+        "slip_positive_windows": 80882,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 20,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma20_debounce_on2_off20",
+      "metrics": {
+        "accuracy": 0.8975794156911487,
+        "balanced_accuracy": 0.8717956493794818,
+        "f1": 0.8104936694273674,
+        "fn": 18221.0,
+        "fp": 19602.0,
+        "precision": 0.8049241670315672,
+        "recall": 0.8161407828219126,
+        "specificity": 0.9274505159370512,
+        "tn": 250586.0,
+        "tp": 80882.0
+      },
+      "off_k": 20,
+      "on_k": 2,
+      "threshold": 0.6948379898047733
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 731.0,
+        "delay_mean_ms": 61.44444444444444,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 282.19999999999925,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 4,
+        "false_alarm_runs_per_min": 0.6498939860435267,
+        "false_positive_window_fraction": 0.07237182998504745,
+        "false_positive_windows": 19554,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 14,
+        "prediction_switches": 54,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8154949900608458,
+        "slip_positive_windows": 80818,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 20,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma20_debounce_on5_off20",
+      "metrics": {
+        "accuracy": 0.8975360894254125,
+        "balanced_accuracy": 0.8715615800378992,
+        "f1": 0.8103070560220579,
+        "fn": 18285.0,
+        "fp": 19554.0,
+        "precision": 0.8051847128681305,
+        "recall": 0.8154949900608458,
+        "specificity": 0.9276281700149526,
+        "tn": 250634.0,
+        "tp": 80818.0
+      },
+      "off_k": 20,
+      "on_k": 5,
+      "threshold": 0.6948379898047733
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 722.0,
+        "delay_mean_ms": 54.666666666666664,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 251.09999999999923,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 26,
+        "false_alarm_runs_per_min": 4.224310909282924,
+        "false_positive_window_fraction": 0.0745369890594697,
+        "false_positive_windows": 20139,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 35,
+        "prediction_switches": 129,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.82114567672018,
+        "slip_positive_windows": 81378,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 1,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma1_debounce_on5_off5",
+      "metrics": {
+        "accuracy": 0.8974683921351996,
+        "balanced_accuracy": 0.8733043438303552,
+        "f1": 0.811265078257402,
+        "fn": 17725.0,
+        "fp": 20139.0,
+        "precision": 0.8016194331983806,
+        "recall": 0.82114567672018,
+        "specificity": 0.9254630109405303,
+        "tn": 250049.0,
+        "tp": 81378.0
+      },
+      "off_k": 5,
+      "on_k": 5,
+      "threshold": 0.6306159639133437
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 722.0,
+        "delay_mean_ms": 54.166666666666664,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 251.09999999999923,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 5,
+        "false_alarm_runs_per_min": 0.8123674825544084,
+        "false_positive_window_fraction": 0.0763616444845811,
+        "false_positive_windows": 20632,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 15,
+        "prediction_switches": 47,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8261102085708808,
+        "slip_positive_windows": 81870,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 1,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma1_debounce_on5_off10",
+      "metrics": {
+        "accuracy": 0.8974656842435911,
+        "balanced_accuracy": 0.8748742820431499,
+        "f1": 0.8121822375437118,
+        "fn": 17233.0,
+        "fp": 20632.0,
+        "precision": 0.7987161226122417,
+        "recall": 0.8261102085708808,
+        "specificity": 0.9236383555154188,
+        "tn": 249556.0,
+        "tp": 81870.0
+      },
+      "off_k": 10,
+      "on_k": 5,
+      "threshold": 0.6306159639133437
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 907.0,
+        "delay_mean_ms": 77.72222222222223,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 317.099999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 5,
+        "false_alarm_runs_per_min": 0.8123674825544084,
+        "false_positive_window_fraction": 0.07128739988452484,
+        "false_positive_windows": 19261,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 15,
+        "prediction_switches": 39,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8122256642079453,
+        "slip_positive_windows": 80494,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_2_ma100_debounce_on5_off20",
+      "metrics": {
+        "accuracy": 0.8974521447855486,
+        "balanced_accuracy": 0.8704691321617102,
+        "f1": 0.809562602460047,
+        "fn": 18609.0,
+        "fp": 19261.0,
+        "precision": 0.8069169465189715,
+        "recall": 0.8122256642079453,
+        "specificity": 0.9287126001154752,
+        "tn": 250927.0,
+        "tp": 80494.0
+      },
+      "off_k": 20,
+      "on_k": 5,
+      "threshold": 0.7194055988343553
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 904.0,
+        "delay_mean_ms": 77.05555555555556,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 314.099999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 5,
+        "false_alarm_runs_per_min": 0.8123674825544084,
+        "false_positive_window_fraction": 0.07145395058255732,
+        "false_positive_windows": 19306,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 15,
+        "prediction_switches": 39,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8125889226360453,
+        "slip_positive_windows": 80530,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_2_ma100_debounce_on2_off20",
+      "metrics": {
+        "accuracy": 0.8974277737610719,
+        "balanced_accuracy": 0.870567486026744,
+        "f1": 0.8095949009495372,
+        "fn": 18573.0,
+        "fp": 19306.0,
+        "precision": 0.8066228614928482,
+        "recall": 0.8125889226360453,
+        "specificity": 0.9285460494174427,
+        "tn": 250882.0,
+        "tp": 80530.0
+      },
+      "off_k": 20,
+      "on_k": 2,
+      "threshold": 0.7194055988343553
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 907.0,
+        "delay_mean_ms": 77.72222222222223,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 317.099999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 5,
+        "false_alarm_runs_per_min": 0.8123674825544084,
+        "false_positive_window_fraction": 0.07102832102091877,
+        "false_positive_windows": 19191,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 15,
+        "prediction_switches": 41,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8114083327447201,
+        "slip_positive_windows": 80413,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_2_ma100_debounce_on5_off10",
+      "metrics": {
+        "accuracy": 0.8974223579778549,
+        "balanced_accuracy": 0.8701900058619008,
+        "f1": 0.8093625287483581,
+        "fn": 18690.0,
+        "fp": 19191.0,
+        "precision": 0.8073270149793181,
+        "recall": 0.8114083327447201,
+        "specificity": 0.9289716789790813,
+        "tn": 250997.0,
+        "tp": 80413.0
+      },
+      "off_k": 10,
+      "on_k": 5,
+      "threshold": 0.7194055988343553
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 907.0,
+        "delay_mean_ms": 77.72222222222223,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 317.099999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 5,
+        "false_alarm_runs_per_min": 0.8123674825544084,
+        "false_positive_window_fraction": 0.07089878158911572,
+        "false_positive_windows": 19156,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 15,
+        "prediction_switches": 41,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8110047122690535,
+        "slip_positive_windows": 80373,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_2_ma100_debounce_on5_off5",
+      "metrics": {
+        "accuracy": 0.8974088185198122,
+        "balanced_accuracy": 0.8700529653399689,
+        "f1": 0.8092653751661364,
+        "fn": 18730.0,
+        "fp": 19156.0,
+        "precision": 0.8075334827035336,
+        "recall": 0.8110047122690535,
+        "specificity": 0.9291012184108842,
+        "tn": 251032.0,
+        "tp": 80373.0
+      },
+      "off_k": 5,
+      "on_k": 5,
+      "threshold": 0.7194055988343553
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 905.0,
+        "delay_mean_ms": 78.44444444444444,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 315.949999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 3,
+        "false_alarm_runs_per_min": 0.487420489532645,
+        "false_positive_window_fraction": 0.07092468947547634,
+        "false_positive_windows": 19163,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 32,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8110652553404034,
+        "slip_positive_windows": 80379,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_2_ma100_debounce_on5_off20",
+      "metrics": {
+        "accuracy": 0.8974061106282037,
+        "balanced_accuracy": 0.8700702829324636,
+        "f1": 0.8092728233783886,
+        "fn": 18724.0,
+        "fp": 19163.0,
+        "precision": 0.8074882963975005,
+        "recall": 0.8110652553404034,
+        "specificity": 0.9290753105245236,
+        "tn": 251025.0,
+        "tp": 80379.0
+      },
+      "off_k": 20,
+      "on_k": 5,
+      "threshold": 0.7062898413407948
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 904.0,
+        "delay_mean_ms": 77.05555555555556,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 314.099999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 5,
+        "false_alarm_runs_per_min": 0.8123674825544084,
+        "false_positive_window_fraction": 0.07119487171895125,
+        "false_positive_windows": 19236,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 15,
+        "prediction_switches": 41,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8118018627084952,
+        "slip_positive_windows": 80452,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_2_ma100_debounce_on2_off10",
+      "metrics": {
+        "accuracy": 0.8974061106282037,
+        "balanced_accuracy": 0.8703034954947719,
+        "f1": 0.8094129009864632,
+        "fn": 18651.0,
+        "fp": 19236.0,
+        "precision": 0.8070379584303026,
+        "recall": 0.8118018627084952,
+        "specificity": 0.9288051282810488,
+        "tn": 250952.0,
+        "tp": 80452.0
+      },
+      "off_k": 10,
+      "on_k": 2,
+      "threshold": 0.7194055988343553
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 904.0,
+        "delay_mean_ms": 77.05555555555556,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 314.099999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 5,
+        "false_alarm_runs_per_min": 0.8123674825544084,
+        "false_positive_window_fraction": 0.0710653322871482,
+        "false_positive_windows": 19201,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 15,
+        "prediction_switches": 41,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8113982422328285,
+        "slip_positive_windows": 80412,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_2_ma100_debounce_on2_off5",
+      "metrics": {
+        "accuracy": 0.8973925711701612,
+        "balanced_accuracy": 0.8701664549728402,
+        "f1": 0.8093158074840476,
+        "fn": 18691.0,
+        "fp": 19201.0,
+        "precision": 0.807244034413179,
+        "recall": 0.8113982422328285,
+        "specificity": 0.9289346677128518,
+        "tn": 250987.0,
+        "tp": 80412.0
+      },
+      "off_k": 5,
+      "on_k": 2,
+      "threshold": 0.7194055988343553
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 902.0,
+        "delay_mean_ms": 77.77777777777777,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 312.949999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 3,
+        "false_alarm_runs_per_min": 0.487420489532645,
+        "false_positive_window_fraction": 0.07106903341377115,
+        "false_positive_windows": 19202,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 32,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8113376991614785,
+        "slip_positive_windows": 80406,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_2_ma100_debounce_on2_off20",
+      "metrics": {
+        "accuracy": 0.8973736159289016,
+        "balanced_accuracy": 0.8701343328738537,
+        "f1": 0.8092757824176818,
+        "fn": 18697.0,
+        "fp": 19202.0,
+        "precision": 0.8072243193317806,
+        "recall": 0.8113376991614785,
+        "specificity": 0.9289309665862289,
+        "tn": 250986.0,
+        "tp": 80406.0
+      },
+      "off_k": 20,
+      "on_k": 2,
+      "threshold": 0.7062898413407948
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 903.0,
+        "delay_mean_ms": 76.83333333333333,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 313.099999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 6,
+        "false_alarm_runs_per_min": 0.97484097906529,
+        "false_positive_window_fraction": 0.07102091876767289,
+        "false_positive_windows": 19189,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 16,
+        "prediction_switches": 49,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8111459794355368,
+        "slip_positive_windows": 80387,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "score",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_2_ma100",
+      "metrics": {
+        "accuracy": 0.8973573685792505,
+        "balanced_accuracy": 0.870062530333932,
+        "f1": 0.809214864177895,
+        "fn": 18716.0,
+        "fp": 19189.0,
+        "pr_auc": 0.8471040208286218,
+        "precision": 0.8072929219892343,
+        "recall": 0.8111459794355368,
+        "roc_auc": 0.9232364632753818,
+        "specificity": 0.9289790812323271,
+        "threshold": 0.7194055988343553,
+        "tn": 250999.0,
+        "tp": 80387.0
+      },
+      "threshold": 0.7194055988343553
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 905.0,
+        "delay_mean_ms": 78.44444444444444,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 315.949999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 3,
+        "false_alarm_runs_per_min": 0.487420489532645,
+        "false_positive_window_fraction": 0.07077664441055857,
+        "false_positive_windows": 19123,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 32,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8104598246269034,
+        "slip_positive_windows": 80319,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_2_ma100_debounce_on5_off10",
+      "metrics": {
+        "accuracy": 0.8973519527960335,
+        "balanced_accuracy": 0.8698415901081724,
+        "f1": 0.80907602810446,
+        "fn": 18784.0,
+        "fp": 19123.0,
+        "precision": 0.8076969489752821,
+        "recall": 0.8104598246269034,
+        "specificity": 0.9292233555894415,
+        "tn": 251065.0,
+        "tp": 80319.0
+      },
+      "off_k": 10,
+      "on_k": 5,
+      "threshold": 0.7062898413407948
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 905.0,
+        "delay_mean_ms": 78.44444444444444,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 315.949999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 3,
+        "false_alarm_runs_per_min": 0.487420489532645,
+        "false_positive_window_fraction": 0.0707026218780997,
+        "false_positive_windows": 19103,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 32,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8101571092701533,
+        "slip_positive_windows": 80289,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_2_ma100_debounce_on5_off5",
+      "metrics": {
+        "accuracy": 0.8973248738799483,
+        "balanced_accuracy": 0.8697272436960268,
+        "f1": 0.8089775561097257,
+        "fn": 18814.0,
+        "fp": 19103.0,
+        "precision": 0.8078014327108821,
+        "recall": 0.8101571092701533,
+        "specificity": 0.9292973781219003,
+        "tn": 251085.0,
+        "tp": 80289.0
+      },
+      "off_k": 5,
+      "on_k": 5,
+      "threshold": 0.7062898413407948
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 902.0,
+        "delay_mean_ms": 77.77777777777777,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 312.949999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 3,
+        "false_alarm_runs_per_min": 0.487420489532645,
+        "false_positive_window_fraction": 0.0709209883488534,
+        "false_positive_windows": 19162,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 32,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8107322684479784,
+        "slip_positive_windows": 80346,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_2_ma100_debounce_on2_off10",
+      "metrics": {
+        "accuracy": 0.8973194580967313,
+        "balanced_accuracy": 0.8699056400495625,
+        "f1": 0.80907905403024,
+        "fn": 18757.0,
+        "fp": 19162.0,
+        "precision": 0.8074325682357197,
+        "recall": 0.8107322684479784,
+        "specificity": 0.9290790116511466,
+        "tn": 251026.0,
+        "tp": 80346.0
+      },
+      "off_k": 10,
+      "on_k": 2,
+      "threshold": 0.7062898413407948
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 728.0,
+        "delay_mean_ms": 60.77777777777778,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 279.19999999999925,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 9,
+        "false_alarm_runs_per_min": 1.462261468597935,
+        "false_positive_window_fraction": 0.07223488829999852,
+        "false_positive_windows": 19517,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 19,
+        "prediction_switches": 72,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8142538570981706,
+        "slip_positive_windows": 80695,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 20,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma20_debounce_on2_off10",
+      "metrics": {
+        "accuracy": 0.8973032107470802,
+        "balanced_accuracy": 0.8710094843990861,
+        "f1": 0.8097233023104131,
+        "fn": 18408.0,
+        "fp": 19517.0,
+        "precision": 0.8052428850836227,
+        "recall": 0.8142538570981706,
+        "specificity": 0.9277651117000015,
+        "tn": 250671.0,
+        "tp": 80695.0
+      },
+      "off_k": 10,
+      "on_k": 2,
+      "threshold": 0.6948379898047733
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 714.0,
+        "delay_mean_ms": 51.5,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 228.64999999999918,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 63,
+        "false_alarm_runs_per_min": 10.235830280185546,
+        "false_positive_window_fraction": 0.07641346025730232,
+        "false_positive_windows": 20646,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 73,
+        "prediction_switches": 235,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8256258640000808,
+        "slip_positive_windows": 81822,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 1,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma1_debounce_on2_off5",
+      "metrics": {
+        "accuracy": 0.8972977949638632,
+        "balanced_accuracy": 0.8746062018713892,
+        "f1": 0.8118429734436005,
+        "fn": 17281.0,
+        "fp": 20646.0,
+        "precision": 0.7985127064059023,
+        "recall": 0.8256258640000808,
+        "specificity": 0.9235865397426977,
+        "tn": 249542.0,
+        "tp": 81822.0
+      },
+      "off_k": 5,
+      "on_k": 2,
+      "threshold": 0.6306159639133437
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 902.0,
+        "delay_mean_ms": 77.77777777777777,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 312.949999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 3,
+        "false_alarm_runs_per_min": 0.487420489532645,
+        "false_positive_window_fraction": 0.0708469658163945,
+        "false_positive_windows": 19142,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 32,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8104295530912283,
+        "slip_positive_windows": 80316,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_2_ma100_debounce_on2_off5",
+      "metrics": {
+        "accuracy": 0.8972923791806462,
+        "balanced_accuracy": 0.8697912936374169,
+        "f1": 0.8089806155287292,
+        "fn": 18787.0,
+        "fp": 19142.0,
+        "precision": 0.8075368497255123,
+        "recall": 0.8104295530912283,
+        "specificity": 0.9291530341836055,
+        "tn": 251046.0,
+        "tp": 80316.0
+      },
+      "off_k": 5,
+      "on_k": 2,
+      "threshold": 0.7062898413407948
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 901.0,
+        "delay_mean_ms": 77.55555555555556,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 311.949999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 3,
+        "false_alarm_runs_per_min": 0.487420489532645,
+        "false_positive_window_fraction": 0.07083586243652568,
+        "false_positive_windows": 19139,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 13,
+        "prediction_switches": 34,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8102681049009616,
+        "slip_positive_windows": 80300,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "score",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_2_ma100",
+      "metrics": {
+        "accuracy": 0.8972571765897355,
+        "balanced_accuracy": 0.869716121232218,
+        "f1": 0.8088968580955161,
+        "fn": 18803.0,
+        "fp": 19139.0,
+        "pr_auc": 0.8444526751592565,
+        "precision": 0.8075302446726134,
+        "recall": 0.8102681049009616,
+        "roc_auc": 0.9226852771487651,
+        "specificity": 0.9291641375634743,
+        "threshold": 0.7062898413407948,
+        "tn": 251049.0,
+        "tp": 80300.0
+      },
+      "threshold": 0.7062898413407948
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 731.0,
+        "delay_mean_ms": 61.44444444444444,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 282.19999999999925,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 9,
+        "false_alarm_runs_per_min": 1.462261468597935,
+        "false_positive_window_fraction": 0.07200171732275304,
+        "false_positive_windows": 19454,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 19,
+        "prediction_switches": 72,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8134264351230538,
+        "slip_positive_windows": 80613,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 20,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma20_debounce_on5_off10",
+      "metrics": {
+        "accuracy": 0.8972517608065185,
+        "balanced_accuracy": 0.8707123589001504,
+        "f1": 0.8094893809308631,
+        "fn": 18490.0,
+        "fp": 19454.0,
+        "precision": 0.8055902545294653,
+        "recall": 0.8134264351230538,
+        "specificity": 0.9279982826772469,
+        "tn": 250734.0,
+        "tp": 80613.0
+      },
+      "off_k": 10,
+      "on_k": 5,
+      "threshold": 0.6948379898047733
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 728.0,
+        "delay_mean_ms": 60.77777777777778,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 279.19999999999925,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 10,
+        "false_alarm_runs_per_min": 1.6247349651088168,
+        "false_positive_window_fraction": 0.07203872858898248,
+        "false_positive_windows": 19464,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 20,
+        "prediction_switches": 74,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8132448059090037,
+        "slip_positive_windows": 80595,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 20,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma20_debounce_on2_off5",
+      "metrics": {
+        "accuracy": 0.89717593984148,
+        "balanced_accuracy": 0.8706030386600105,
+        "f1": 0.809341139373977,
+        "fn": 18508.0,
+        "fp": 19464.0,
+        "precision": 0.8054747698857674,
+        "recall": 0.8132448059090037,
+        "specificity": 0.9279612714110175,
+        "tn": 250724.0,
+        "tp": 80595.0
+      },
+      "off_k": 5,
+      "on_k": 2,
+      "threshold": 0.6948379898047733
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 805.0,
+        "delay_mean_ms": 61.77777777777778,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 264.39999999999907,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 10,
+        "false_alarm_runs_per_min": 1.6247349651088168,
+        "false_positive_window_fraction": 0.07542525944897627,
+        "false_positive_windows": 20379,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 19,
+        "prediction_switches": 57,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8223363571233969,
+        "slip_positive_windows": 81496,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_1_ma50_debounce_on5_off10",
+      "metrics": {
+        "accuracy": 0.8971380293589608,
+        "balanced_accuracy": 0.8734555488372103,
+        "f1": 0.8109942381753226,
+        "fn": 17607.0,
+        "fp": 20379.0,
+        "precision": 0.799960736196319,
+        "recall": 0.8223363571233969,
+        "specificity": 0.9245747405510237,
+        "tn": 249809.0,
+        "tp": 81496.0
+      },
+      "off_k": 10,
+      "on_k": 5,
+      "threshold": 0.6200152476838412
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 731.0,
+        "delay_mean_ms": 61.44444444444444,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 282.19999999999925,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 10,
+        "false_alarm_runs_per_min": 1.6247349651088168,
+        "false_positive_window_fraction": 0.07179445423186818,
+        "false_positive_windows": 19398,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 20,
+        "prediction_switches": 74,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.812417383933887,
+        "slip_positive_windows": 80513,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 20,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma20_debounce_on5_off5",
+      "metrics": {
+        "accuracy": 0.8971326135757438,
+        "balanced_accuracy": 0.8703114648510094,
+        "f1": 0.8091189564553247,
+        "fn": 18590.0,
+        "fp": 19398.0,
+        "precision": 0.8058472040115703,
+        "recall": 0.812417383933887,
+        "specificity": 0.9282055457681319,
+        "tn": 250790.0,
+        "tp": 80513.0
+      },
+      "off_k": 5,
+      "on_k": 5,
+      "threshold": 0.6948379898047733
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 805.0,
+        "delay_mean_ms": 61.77777777777778,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 264.39999999999907,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 9,
+        "false_alarm_runs_per_min": 1.462261468597935,
+        "false_positive_window_fraction": 0.07586939464372955,
+        "false_positive_windows": 20499,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 18,
+        "prediction_switches": 51,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8234160418958054,
+        "slip_positive_windows": 81603,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_1_ma50_debounce_on5_off20",
+      "metrics": {
+        "accuracy": 0.8971028267680501,
+        "balanced_accuracy": 0.8737733236260379,
+        "f1": 0.8111428642429362,
+        "fn": 17500.0,
+        "fp": 20499.0,
+        "precision": 0.7992301815831228,
+        "recall": 0.8234160418958054,
+        "specificity": 0.9241306053562705,
+        "tn": 249689.0,
+        "tp": 81603.0
+      },
+      "off_k": 20,
+      "on_k": 5,
+      "threshold": 0.6200152476838412
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 727.0,
+        "delay_mean_ms": 61.72222222222222,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 278.19999999999925,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 16,
+        "false_alarm_runs_per_min": 2.5995759441741066,
+        "false_positive_window_fraction": 0.07189808577731062,
+        "false_positive_windows": 19426,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 25,
+        "prediction_switches": 94,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8125586511003703,
+        "slip_positive_windows": 80527,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "score",
+      "ma_window": 20,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma20",
+      "metrics": {
+        "accuracy": 0.8970947030932246,
+        "balanced_accuracy": 0.8703302826615298,
+        "f1": 0.8090888996061409,
+        "fn": 18576.0,
+        "fp": 19426.0,
+        "pr_auc": 0.8621474437430547,
+        "precision": 0.8056486548677878,
+        "recall": 0.8125586511003703,
+        "roc_auc": 0.9331400557802667,
+        "specificity": 0.9281019142226894,
+        "threshold": 0.6948379898047733,
+        "tn": 250762.0,
+        "tp": 80527.0
+      },
+      "threshold": 0.6948379898047733
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 716.0,
+        "delay_mean_ms": 58.5,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 270.5999999999992,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 11,
+        "false_alarm_runs_per_min": 1.7872084616196984,
+        "false_positive_window_fraction": 0.07479236679645285,
+        "false_positive_windows": 20208,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 21,
+        "prediction_switches": 58,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8203787978164132,
+        "slip_positive_windows": 81302,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 1,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma1_debounce_on2_off20",
+      "metrics": {
+        "accuracy": 0.897075747851965,
+        "balanced_accuracy": 0.8727932155099802,
+        "f1": 0.810535708054812,
+        "fn": 17801.0,
+        "fp": 20208.0,
+        "precision": 0.8009260171411684,
+        "recall": 0.8203787978164132,
+        "specificity": 0.9252076332035472,
+        "tn": 249980.0,
+        "tp": 81302.0
+      },
+      "off_k": 20,
+      "on_k": 2,
+      "threshold": 0.6978910639680983
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 805.0,
+        "delay_mean_ms": 61.77777777777778,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 264.39999999999907,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 12,
+        "false_alarm_runs_per_min": 1.94968195813058,
+        "false_positive_window_fraction": 0.07516247945874724,
+        "false_positive_windows": 20308,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 21,
+        "prediction_switches": 71,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8213676679817967,
+        "slip_positive_windows": 81400,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_1_ma50_debounce_on5_off5",
+      "metrics": {
+        "accuracy": 0.897070332068748,
+        "balanced_accuracy": 0.8731025942615247,
+        "f1": 0.8107125605669012,
+        "fn": 17703.0,
+        "fp": 20308.0,
+        "precision": 0.8003303574940024,
+        "recall": 0.8213676679817967,
+        "specificity": 0.9248375205412528,
+        "tn": 249880.0,
+        "tp": 81400.0
+      },
+      "off_k": 5,
+      "on_k": 5,
+      "threshold": 0.6200152476838412
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 886.0,
+        "delay_mean_ms": 71.05555555555556,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 285.899999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 4,
+        "false_alarm_runs_per_min": 0.6498939860435267,
+        "false_positive_window_fraction": 0.0722756006928509,
+        "false_positive_windows": 19528,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 14,
+        "prediction_switches": 38,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8133961635873788,
+        "slip_positive_windows": 80610,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_2_ma50_debounce_on5_off20",
+      "metrics": {
+        "accuracy": 0.8970432531526628,
+        "balanced_accuracy": 0.8705602814472639,
+        "f1": 0.8091708031981371,
+        "fn": 18493.0,
+        "fp": 19528.0,
+        "precision": 0.8049891150212707,
+        "recall": 0.8133961635873788,
+        "specificity": 0.9277243993071491,
+        "tn": 250660.0,
+        "tp": 80610.0
+      },
+      "off_k": 20,
+      "on_k": 5,
+      "threshold": 0.6795008745504856
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 801.0,
+        "delay_mean_ms": 60.44444444444444,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 260.39999999999907,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 21,
+        "false_alarm_runs_per_min": 3.411943426728515,
+        "false_positive_window_fraction": 0.07530682339704206,
+        "false_positive_windows": 20347,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 30,
+        "prediction_switches": 97,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8215492971958468,
+        "slip_positive_windows": 81418,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "score",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_1_ma50",
+      "metrics": {
+        "accuracy": 0.8970134663449691,
+        "balanced_accuracy": 0.8731212368994024,
+        "f1": 0.8106617281000458,
+        "fn": 17685.0,
+        "fp": 20347.0,
+        "pr_auc": 0.8430525475949656,
+        "precision": 0.8000589593671694,
+        "recall": 0.8215492971958468,
+        "roc_auc": 0.9199438398904635,
+        "specificity": 0.9246931766029579,
+        "threshold": 0.6200152476838412,
+        "tn": 249841.0,
+        "tp": 81418.0
+      },
+      "threshold": 0.6200152476838412
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 802.0,
+        "delay_mean_ms": 60.94444444444444,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 261.39999999999907,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 12,
+        "false_alarm_runs_per_min": 1.94968195813058,
+        "false_positive_window_fraction": 0.07577686647815596,
+        "false_positive_windows": 20474,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 21,
+        "prediction_switches": 61,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8227904301585219,
+        "slip_positive_windows": 81541,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_1_ma50_debounce_on2_off10",
+      "metrics": {
+        "accuracy": 0.897002634778535,
+        "balanced_accuracy": 0.8735067818401829,
+        "f1": 0.8108771964717231,
+        "fn": 17562.0,
+        "fp": 20474.0,
+        "precision": 0.7993040239180512,
+        "recall": 0.8227904301585219,
+        "specificity": 0.924223133521844,
+        "tn": 249714.0,
+        "tp": 81541.0
+      },
+      "off_k": 10,
+      "on_k": 2,
+      "threshold": 0.6200152476838412
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 731.0,
+        "delay_mean_ms": 60.166666666666664,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 275.39999999999924,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 9,
+        "false_alarm_runs_per_min": 1.462261468597935,
+        "false_positive_window_fraction": 0.07274934490058774,
+        "false_positive_windows": 19656,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 19,
+        "prediction_switches": 66,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.814516210407354,
+        "slip_positive_windows": 80721,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 1,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma1_debounce_on5_off10",
+      "metrics": {
+        "accuracy": 0.896997218995318,
+        "balanced_accuracy": 0.8708834327533832,
+        "f1": 0.8093142169641067,
+        "fn": 18382.0,
+        "fp": 19656.0,
+        "precision": 0.804178248005021,
+        "recall": 0.814516210407354,
+        "specificity": 0.9272506550994123,
+        "tn": 250532.0,
+        "tp": 80721.0
+      },
+      "off_k": 10,
+      "on_k": 5,
+      "threshold": 0.6978910639680983
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 802.0,
+        "delay_mean_ms": 60.94444444444444,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 261.39999999999907,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 14,
+        "false_alarm_runs_per_min": 2.2746289511523434,
+        "false_positive_window_fraction": 0.07549928198143514,
+        "false_positive_windows": 20399,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 23,
+        "prediction_switches": 75,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8220134607428635,
+        "slip_positive_windows": 81464,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_1_ma50_debounce_on2_off5",
+      "metrics": {
+        "accuracy": 0.896997218995318,
+        "balanced_accuracy": 0.8732570893807141,
+        "f1": 0.8107242021038386,
+        "fn": 17639.0,
+        "fp": 20399.0,
+        "precision": 0.7997408283675133,
+        "recall": 0.8220134607428635,
+        "specificity": 0.9245007180185648,
+        "tn": 249789.0,
+        "tp": 81464.0
+      },
+      "off_k": 5,
+      "on_k": 2,
+      "threshold": 0.6200152476838412
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 883.0,
+        "delay_mean_ms": 70.38888888888889,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 282.899999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 4,
+        "false_alarm_runs_per_min": 0.6498939860435267,
+        "false_positive_window_fraction": 0.0724939671636046,
+        "false_positive_windows": 19587,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 14,
+        "prediction_switches": 38,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8137896935511538,
+        "slip_positive_windows": 80649,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_2_ma50_debounce_on2_off20",
+      "metrics": {
+        "accuracy": 0.8969890953204925,
+        "balanced_accuracy": 0.8706478631937746,
+        "f1": 0.8091642879717467,
+        "fn": 18454.0,
+        "fp": 19587.0,
+        "precision": 0.8045911648509517,
+        "recall": 0.8137896935511538,
+        "specificity": 0.9275060328363954,
+        "tn": 250601.0,
+        "tp": 80649.0
+      },
+      "off_k": 20,
+      "on_k": 2,
+      "threshold": 0.6795008745504856
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 894.0,
+        "delay_mean_ms": 70.83333333333333,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 289.64999999999895,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 8,
+        "false_alarm_runs_per_min": 1.2997879720870533,
+        "false_positive_window_fraction": 0.07176114409226168,
+        "false_positive_windows": 19389,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 18,
+        "prediction_switches": 49,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8117615006609286,
+        "slip_positive_windows": 80448,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_2_ma50_debounce_on5_off5",
+      "metrics": {
+        "accuracy": 0.8969809716456669,
+        "balanced_accuracy": 0.8700001782843334,
+        "f1": 0.8087664622499247,
+        "fn": 18655.0,
+        "fp": 19389.0,
+        "precision": 0.8057934433125995,
+        "recall": 0.8117615006609286,
+        "specificity": 0.9282388559077384,
+        "tn": 250799.0,
+        "tp": 80448.0
+      },
+      "off_k": 5,
+      "on_k": 5,
+      "threshold": 0.7108482232252572
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 894.0,
+        "delay_mean_ms": 70.83333333333333,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 289.64999999999895,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 8,
+        "false_alarm_runs_per_min": 1.2997879720870533,
+        "false_positive_window_fraction": 0.07194620042340888,
+        "false_positive_windows": 19439,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 18,
+        "prediction_switches": 49,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8122155736960536,
+        "slip_positive_windows": 80493,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_2_ma50_debounce_on5_off10",
+      "metrics": {
+        "accuracy": 0.8969674321876244,
+        "balanced_accuracy": 0.8701346866363223,
+        "f1": 0.8088326173788528,
+        "fn": 18610.0,
+        "fp": 19439.0,
+        "precision": 0.8054777248528999,
+        "recall": 0.8122155736960536,
+        "specificity": 0.9280537995765911,
+        "tn": 250749.0,
+        "tp": 80493.0
+      },
+      "off_k": 10,
+      "on_k": 5,
+      "threshold": 0.7108482232252572
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 894.0,
+        "delay_mean_ms": 70.83333333333333,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 289.64999999999895,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 8,
+        "false_alarm_runs_per_min": 1.2997879720870533,
+        "false_positive_window_fraction": 0.07231631308570328,
+        "false_positive_windows": 19539,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 18,
+        "prediction_switches": 49,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8131237197663037,
+        "slip_positive_windows": 80583,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_2_ma50_debounce_on5_off20",
+      "metrics": {
+        "accuracy": 0.8969403532715392,
+        "balanced_accuracy": 0.8704037033403003,
+        "f1": 0.8089647383611495,
+        "fn": 18520.0,
+        "fp": 19539.0,
+        "precision": 0.8048480853358903,
+        "recall": 0.8131237197663037,
+        "specificity": 0.9276836869142967,
+        "tn": 250649.0,
+        "tp": 80583.0
+      },
+      "off_k": 20,
+      "on_k": 5,
+      "threshold": 0.7108482232252572
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 891.0,
+        "delay_mean_ms": 70.16666666666667,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 286.64999999999895,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 9,
+        "false_alarm_runs_per_min": 1.462261468597935,
+        "false_positive_window_fraction": 0.07198321168963832,
+        "false_positive_windows": 19449,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 19,
+        "prediction_switches": 51,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8121953926722703,
+        "slip_positive_windows": 80491,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_2_ma50_debounce_on2_off5",
+      "metrics": {
+        "accuracy": 0.8969349374883222,
+        "balanced_accuracy": 0.870106090491316,
+        "f1": 0.8087800123591384,
+        "fn": 18612.0,
+        "fp": 19449.0,
+        "precision": 0.805393235941565,
+        "recall": 0.8121953926722703,
+        "specificity": 0.9280167883103617,
+        "tn": 250739.0,
+        "tp": 80491.0
+      },
+      "off_k": 5,
+      "on_k": 2,
+      "threshold": 0.7108482232252572
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 886.0,
+        "delay_mean_ms": 71.05555555555556,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 285.899999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 4,
+        "false_alarm_runs_per_min": 0.6498939860435267,
+        "false_positive_window_fraction": 0.0720905443617037,
+        "false_positive_windows": 19478,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 14,
+        "prediction_switches": 40,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.812477927005237,
+        "slip_positive_windows": 80519,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_2_ma50_debounce_on5_off10",
+      "metrics": {
+        "accuracy": 0.8969322295967137,
+        "balanced_accuracy": 0.8701936913217667,
+        "f1": 0.8088297338021094,
+        "fn": 18584.0,
+        "fp": 19478.0,
+        "precision": 0.8052141564246927,
+        "recall": 0.812477927005237,
+        "specificity": 0.9279094556382963,
+        "tn": 250710.0,
+        "tp": 80519.0
+      },
+      "off_k": 10,
+      "on_k": 5,
+      "threshold": 0.6795008745504856
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 922.0,
+        "delay_mean_ms": 76.77777777777777,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 308.299999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 6,
+        "false_alarm_runs_per_min": 0.97484097906529,
+        "false_positive_window_fraction": 0.07111714805986942,
+        "false_positive_windows": 19215,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 16,
+        "prediction_switches": 47,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8097736698182699,
+        "slip_positive_windows": 80251,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_1_2_ma100_debounce_on5_off20",
+      "metrics": {
+        "accuracy": 0.8969186901386711,
+        "balanced_accuracy": 0.8693282608792002,
+        "f1": 0.8082933388393958,
+        "fn": 18852.0,
+        "fp": 19215.0,
+        "precision": 0.806818410311061,
+        "recall": 0.8097736698182699,
+        "specificity": 0.9288828519401305,
+        "tn": 250973.0,
+        "tp": 80251.0
+      },
+      "off_k": 20,
+      "on_k": 5,
+      "threshold": 0.7321259665883008
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 891.0,
+        "delay_mean_ms": 70.16666666666667,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 286.64999999999895,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 9,
+        "false_alarm_runs_per_min": 1.462261468597935,
+        "false_positive_window_fraction": 0.07218677365390025,
+        "false_positive_windows": 19504,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 19,
+        "prediction_switches": 51,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8126494657073954,
+        "slip_positive_windows": 80536,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_2_ma50_debounce_on2_off10",
+      "metrics": {
+        "accuracy": 0.8969078585722371,
+        "balanced_accuracy": 0.8702313460267476,
+        "f1": 0.8088258186328419,
+        "fn": 18567.0,
+        "fp": 19504.0,
+        "precision": 0.8050379848060776,
+        "recall": 0.8126494657073954,
+        "specificity": 0.9278132263460998,
+        "tn": 250684.0,
+        "tp": 80536.0
+      },
+      "off_k": 10,
+      "on_k": 2,
+      "threshold": 0.7108482232252572
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 883.0,
+        "delay_mean_ms": 70.38888888888889,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 282.899999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 5,
+        "false_alarm_runs_per_min": 0.8123674825544084,
+        "false_positive_window_fraction": 0.0722830029460968,
+        "false_positive_windows": 19530,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 15,
+        "prediction_switches": 42,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.812901728504687,
+        "slip_positive_windows": 80561,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_2_ma50_debounce_on2_off10",
+      "metrics": {
+        "accuracy": 0.8969051506806286,
+        "balanced_accuracy": 0.870309362779295,
+        "f1": 0.8088697450726428,
+        "fn": 18542.0,
+        "fp": 19530.0,
+        "precision": 0.8048775614191086,
+        "recall": 0.812901728504687,
+        "specificity": 0.9277169970539032,
+        "tn": 250658.0,
+        "tp": 80561.0
+      },
+      "off_k": 10,
+      "on_k": 2,
+      "threshold": 0.6795008745504856
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 890.0,
+        "delay_mean_ms": 69.94444444444444,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 285.64999999999895,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 10,
+        "false_alarm_runs_per_min": 1.6247349651088168,
+        "false_positive_window_fraction": 0.07189438465068768,
+        "false_positive_windows": 19425,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 20,
+        "prediction_switches": 65,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8118422247560618,
+        "slip_positive_windows": 80456,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "score",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_2_ma50",
+      "metrics": {
+        "accuracy": 0.8969051506806286,
+        "balanced_accuracy": 0.869973920052687,
+        "f1": 0.8086680336107426,
+        "fn": 18647.0,
+        "fp": 19425.0,
+        "pr_auc": 0.8460447916846233,
+        "precision": 0.8055185670948428,
+        "recall": 0.8118422247560618,
+        "roc_auc": 0.9230220016924576,
+        "specificity": 0.9281056153493124,
+        "threshold": 0.7108482232252572,
+        "tn": 250763.0,
+        "tp": 80456.0
+      },
+      "threshold": 0.7108482232252572
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 713.0,
+        "delay_mean_ms": 50.833333333333336,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 227.64999999999918,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 323,
+        "false_alarm_runs_per_min": 52.47893937301478,
+        "false_positive_window_fraction": 0.07489969946851821,
+        "false_positive_windows": 20237,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 333,
+        "prediction_switches": 1393,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8200155393883132,
+        "slip_positive_windows": 81266,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "score",
+      "ma_window": 1,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma1",
+      "metrics": {
+        "accuracy": 0.8968997348974115,
+        "balanced_accuracy": 0.8725579199598974,
+        "f1": 0.8102050786118061,
+        "fn": 17837.0,
+        "fp": 20237.0,
+        "pr_auc": 0.8539797823315063,
+        "precision": 0.8006265824655429,
+        "recall": 0.8200155393883132,
+        "roc_auc": 0.9271694395648146,
+        "specificity": 0.9251003005314817,
+        "threshold": 0.6306159639133437,
+        "tn": 249951.0,
+        "tp": 81266.0
+      },
+      "threshold": 0.6306159639133437
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 919.0,
+        "delay_mean_ms": 76.11111111111111,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 305.299999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 6,
+        "false_alarm_runs_per_min": 0.97484097906529,
+        "false_positive_window_fraction": 0.07129480213777074,
+        "false_positive_windows": 19263,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 16,
+        "prediction_switches": 47,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.810167199782045,
+        "slip_positive_windows": 80290,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_1_2_ma100_debounce_on2_off20",
+      "metrics": {
+        "accuracy": 0.8968943191141945,
+        "balanced_accuracy": 0.8694361988221371,
+        "f1": 0.8083319909793816,
+        "fn": 18813.0,
+        "fp": 19263.0,
+        "precision": 0.806505077697307,
+        "recall": 0.810167199782045,
+        "specificity": 0.9287051978622293,
+        "tn": 250925.0,
+        "tp": 80290.0
+      },
+      "off_k": 20,
+      "on_k": 2,
+      "threshold": 0.7321259665883008
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 716.0,
+        "delay_mean_ms": 58.5,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 270.5999999999992,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 21,
+        "false_alarm_runs_per_min": 3.411943426728515,
+        "false_positive_window_fraction": 0.0740743482316017,
+        "false_positive_windows": 20014,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 31,
+        "prediction_switches": 106,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8177350837007962,
+        "slip_positive_windows": 81040,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 1,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_ma1_debounce_on2_off10",
+      "metrics": {
+        "accuracy": 0.896891611222586,
+        "balanced_accuracy": 0.8718303677345972,
+        "f1": 0.8097643349970273,
+        "fn": 18063.0,
+        "fp": 20014.0,
+        "precision": 0.8019474736279613,
+        "recall": 0.8177350837007962,
+        "specificity": 0.9259256517683983,
+        "tn": 250174.0,
+        "tp": 81040.0
+      },
+      "off_k": 10,
+      "on_k": 2,
+      "threshold": 0.6978910639680983
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 886.0,
+        "delay_mean_ms": 71.05555555555556,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 285.899999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 5,
+        "false_alarm_runs_per_min": 0.8123674825544084,
+        "false_positive_window_fraction": 0.0719721083097695,
+        "false_positive_windows": 19446,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 15,
+        "prediction_switches": 44,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8119734014106536,
+        "slip_positive_windows": 80469,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_2_ma50_debounce_on5_off5",
+      "metrics": {
+        "accuracy": 0.8968834875477605,
+        "balanced_accuracy": 0.870000646550442,
+        "f1": 0.8086605231687586,
+        "fn": 18634.0,
+        "fp": 19446.0,
+        "precision": 0.8053745683831257,
+        "recall": 0.8119734014106536,
+        "specificity": 0.9280278916902305,
+        "tn": 250742.0,
+        "tp": 80469.0
+      },
+      "off_k": 5,
+      "on_k": 5,
+      "threshold": 0.6795008745504856
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 883.0,
+        "delay_mean_ms": 70.38888888888889,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 282.899999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 6,
+        "false_alarm_runs_per_min": 0.97484097906529,
+        "false_positive_window_fraction": 0.07215716464091669,
+        "false_positive_windows": 19496,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 16,
+        "prediction_switches": 46,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8124274744457787,
+        "slip_positive_windows": 80514,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_2_ma50_debounce_on2_off5",
+      "metrics": {
+        "accuracy": 0.8968699480897179,
+        "balanced_accuracy": 0.870135154902431,
+        "f1": 0.8087267029274834,
+        "fn": 18589.0,
+        "fp": 19496.0,
+        "precision": 0.805059494050595,
+        "recall": 0.8124274744457787,
+        "specificity": 0.9278428353590833,
+        "tn": 250692.0,
+        "tp": 80514.0
+      },
+      "off_k": 5,
+      "on_k": 2,
+      "threshold": 0.6795008745504856
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 922.0,
+        "delay_mean_ms": 76.77777777777777,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 308.299999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 6,
+        "false_alarm_runs_per_min": 0.97484097906529,
+        "false_positive_window_fraction": 0.0708210579300339,
+        "false_positive_windows": 19135,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 16,
+        "prediction_switches": 47,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8087646186291031,
+        "slip_positive_windows": 80151,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_1_2_ma100_debounce_on5_off10",
+      "metrics": {
+        "accuracy": 0.8968645323065009,
+        "balanced_accuracy": 0.8689717803495346,
+        "f1": 0.8080185897403587,
+        "fn": 18952.0,
+        "fp": 19135.0,
+        "precision": 0.8072739359023428,
+        "recall": 0.8087646186291031,
+        "specificity": 0.9291789420699661,
+        "tn": 251053.0,
+        "tp": 80151.0
+      },
+      "off_k": 10,
+      "on_k": 5,
+      "threshold": 0.7321259665883008
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 802.0,
+        "delay_mean_ms": 60.94444444444444,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 261.39999999999907,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 10,
+        "false_alarm_runs_per_min": 1.6247349651088168,
+        "false_positive_window_fraction": 0.07634313885146639,
+        "false_positive_windows": 20627,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 19,
+        "prediction_switches": 53,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8238095718595805,
+        "slip_positive_windows": 81642,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_1_ma50_debounce_on2_off20",
+      "metrics": {
+        "accuracy": 0.8968618244148924,
+        "balanced_accuracy": 0.873733216504057,
+        "f1": 0.8108575174304272,
+        "fn": 17461.0,
+        "fp": 20627.0,
+        "precision": 0.7983064271675678,
+        "recall": 0.8238095718595805,
+        "specificity": 0.9236568611485336,
+        "tn": 249561.0,
+        "tp": 81642.0
+      },
+      "off_k": 20,
+      "on_k": 2,
+      "threshold": 0.6200152476838412
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 714.0,
+        "delay_mean_ms": 51.5,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 228.64999999999918,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 9,
+        "false_alarm_runs_per_min": 1.462261468597935,
+        "false_positive_window_fraction": 0.07872296327001939,
+        "false_positive_windows": 21270,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 19,
+        "prediction_switches": 46,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8302977710059232,
+        "slip_positive_windows": 82285,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 1,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_ma1_debounce_on2_off20",
+      "metrics": {
+        "accuracy": 0.8968618244148924,
+        "balanced_accuracy": 0.8757874038679518,
+        "f1": 0.812057752469678,
+        "fn": 16818.0,
+        "fp": 21270.0,
+        "precision": 0.7946019023707209,
+        "recall": 0.8302977710059232,
+        "specificity": 0.9212770367299806,
+        "tn": 248918.0,
+        "tp": 82285.0
+      },
+      "off_k": 20,
+      "on_k": 2,
+      "threshold": 0.6306159639133437
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 794.0,
+        "delay_mean_ms": 61.611111111111114,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 248.2999999999991,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 11,
+        "false_alarm_runs_per_min": 1.7872084616196984,
+        "false_positive_window_fraction": 0.07394480879979866,
+        "false_positive_windows": 19979,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 21,
+        "prediction_switches": 55,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8172406486181044,
+        "slip_positive_windows": 80991,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 1,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_2_ma1_debounce_on5_off10",
+      "metrics": {
+        "accuracy": 0.8968537007400668,
+        "balanced_accuracy": 0.8716479199091529,
+        "f1": 0.8096144907108904,
+        "fn": 18112.0,
+        "fp": 19979.0,
+        "precision": 0.8021293453501039,
+        "recall": 0.8172406486181044,
+        "specificity": 0.9260551912002013,
+        "tn": 250209.0,
+        "tp": 80991.0
+      },
+      "off_k": 10,
+      "on_k": 5,
+      "threshold": 0.6975837760606125
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 891.0,
+        "delay_mean_ms": 70.16666666666667,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 286.64999999999895,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 9,
+        "false_alarm_runs_per_min": 1.462261468597935,
+        "false_positive_window_fraction": 0.07259389758242409,
+        "false_positive_windows": 19614,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 19,
+        "prediction_switches": 51,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8135576117776455,
+        "slip_positive_windows": 80626,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_1_2_ma50_debounce_on2_off20",
+      "metrics": {
+        "accuracy": 0.8968537007400668,
+        "balanced_accuracy": 0.8704818570976107,
+        "f1": 0.8089172933085184,
+        "fn": 18477.0,
+        "fp": 19614.0,
+        "precision": 0.8043296089385474,
+        "recall": 0.8135576117776455,
+        "specificity": 0.9274061024175759,
+        "tn": 250574.0,
+        "tp": 80626.0
+      },
+      "off_k": 20,
+      "on_k": 2,
+      "threshold": 0.7108482232252572
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 919.0,
+        "delay_mean_ms": 76.11111111111111,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 305.299999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 6,
+        "false_alarm_runs_per_min": 0.97484097906529,
+        "false_positive_window_fraction": 0.07099871200793521,
+        "false_positive_windows": 19183,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 16,
+        "prediction_switches": 47,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8091581485928782,
+        "slip_positive_windows": 80190,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_1_2_ma100_debounce_on2_off10",
+      "metrics": {
+        "accuracy": 0.8968401612820242,
+        "balanced_accuracy": 0.8690797182924714,
+        "f1": 0.8080573973679438,
+        "fn": 18913.0,
+        "fp": 19183.0,
+        "precision": 0.8069596369235104,
+        "recall": 0.8091581485928782,
+        "specificity": 0.9290012879920648,
+        "tn": 251005.0,
+        "tp": 80190.0
+      },
+      "off_k": 10,
+      "on_k": 2,
+      "threshold": 0.7321259665883008
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 922.0,
+        "delay_mean_ms": 76.77777777777777,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 308.299999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 6,
+        "false_alarm_runs_per_min": 0.97484097906529,
+        "false_positive_window_fraction": 0.07067301286511614,
+        "false_positive_windows": 19095,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 16,
+        "prediction_switches": 47,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8082600930345196,
+        "slip_positive_windows": 80101,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "binary_state",
+      "ma_window": 100,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_1_2_ma100_debounce_on5_off5",
+      "metrics": {
+        "accuracy": 0.8968374533904157,
+        "balanced_accuracy": 0.8687935400847018,
+        "f1": 0.8078810281443679,
+        "fn": 19002.0,
+        "fp": 19095.0,
+        "precision": 0.8075023186418807,
+        "recall": 0.8082600930345196,
+        "specificity": 0.9293269871348838,
+        "tn": 251093.0,
+        "tp": 80101.0
+      },
+      "off_k": 5,
+      "on_k": 5,
+      "threshold": 0.7321259665883008
+    },
+    {
+      "event_metrics": {
+        "delay_max_ms": 882.0,
+        "delay_mean_ms": 70.16666666666667,
+        "delay_median_ms": 0.0,
+        "delay_p95_ms": 281.899999999999,
+        "detected_slip_segments": 18,
+        "false_alarm_runs": 9,
+        "false_alarm_runs_per_min": 1.462261468597935,
+        "false_positive_window_fraction": 0.07211275112144137,
+        "false_positive_windows": 19484,
+        "label_transitions": 29,
+        "missed_slip_segments": 2,
+        "no_slip_windows": 270188,
+        "predicted_runs_starting_in_no_slip": 19,
+        "prediction_switches": 56,
+        "segment_recall": 0.9,
+        "slip_positive_window_fraction": 0.8121045780652453,
+        "slip_positive_windows": 80482,
+        "slip_windows": 99103,
+        "true_slip_segments": 20
+      },
+      "kind": "score",
+      "ma_window": 50,
+      "members": [
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+          "row": 0
+        },
+        {
+          "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+          "row": 0
+        }
+      ],
+      "method": "subset_0_2_ma50",
+      "metrics": {
+        "accuracy": 0.8968157902575475,
+        "balanced_accuracy": 0.869995913471902,
+        "f1": 0.8085839583260075,
+        "fn": 18621.0,
+        "fp": 19484.0,
+        "pr_auc": 0.8434133503947474,
+        "precision": 0.8050937318688354,
+        "recall": 0.8121045780652453,
+        "roc_auc": 0.9224598219466368,
+        "specificity": 0.9278872488785587,
+        "threshold": 0.6795008745504856,
+        "tn": 250704.0,
+        "tp": 80482.0
+      },
+      "threshold": 0.6795008745504856
+    }
+  ],
+  "row_records": [
+    {
+      "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+      "row": 0
+    },
+    {
+      "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+      "row": 0
+    },
+    {
+      "cache": "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz",
+      "row": 0
+    }
+  ],
+  "score_caches": [
+    "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\ctx500_best5_mean_score_cache.npz",
+    "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\iter02_ctx400_score_cache.npz",
+    "result\\sliding_sequence_detection_iter03_sequence_aware_streaming\\remote_summaries\\seq_ft_ctx400_s32_random_lr5e5_score_cache.npz"
+  ],
+  "searched_subsets": 7,
+  "total_windows": 369291
+}

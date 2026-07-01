@@ -13,6 +13,7 @@ import h5py
 import numpy as np
 import torch
 from torch import nn
+from torch.nn import functional as F
 from torch.utils.data import DataLoader, Dataset
 
 REPO_ROOT = Path(__file__).absolute().parents[2]
@@ -225,6 +226,82 @@ def make_loader(
     )
 
 
+def expand_transition_mask(labels: torch.Tensor, radius: int) -> torch.Tensor:
+    if radius <= 0 or labels.shape[1] <= 1:
+        return torch.zeros_like(labels, dtype=torch.bool)
+    transitions = torch.zeros_like(labels, dtype=torch.bool)
+    transitions[:, 1:] = labels[:, 1:] != labels[:, :-1]
+    expanded = transitions.clone()
+    for offset in range(1, int(radius) + 1):
+        expanded[:, offset:] |= transitions[:, :-offset]
+        expanded[:, :-offset] |= transitions[:, offset:]
+    return expanded
+
+
+def masked_mean(values: torch.Tensor, mask: torch.Tensor) -> torch.Tensor:
+    mask_f = mask.to(device=values.device, dtype=values.dtype)
+    return (values * mask_f).sum() / mask_f.sum().clamp_min(1.0)
+
+
+def sequence_detection_loss(
+    logits_seq: torch.Tensor,
+    labels: torch.Tensor,
+    loss_mode: str,
+    warmup_steps: int,
+    supervise_tail_steps: int,
+    transition_ignore_steps: int,
+    positive_weight: float,
+    negative_weight: float,
+    smoothness_weight: float,
+    flip_penalty_weight: float,
+) -> Tuple[torch.Tensor, torch.Tensor, Dict[str, float]]:
+    batch, steps = labels.shape
+    valid = torch.ones((batch, steps), device=labels.device, dtype=torch.bool)
+    if loss_mode == "last":
+        valid[:, :-1] = False
+    if warmup_steps > 0:
+        valid[:, : int(warmup_steps)] = False
+    if supervise_tail_steps > 0 and supervise_tail_steps < steps:
+        valid[:, : steps - int(supervise_tail_steps)] = False
+    if transition_ignore_steps > 0:
+        valid &= ~expand_transition_mask(labels, int(transition_ignore_steps))
+
+    ce = F.cross_entropy(
+        logits_seq.reshape(-1, logits_seq.shape[-1]),
+        labels.reshape(-1),
+        reduction="none",
+    ).reshape(batch, steps)
+    sample_weight = torch.where(
+        labels == 1,
+        torch.as_tensor(float(positive_weight), device=labels.device, dtype=ce.dtype),
+        torch.as_tensor(float(negative_weight), device=labels.device, dtype=ce.dtype),
+    )
+    ce_loss = masked_mean(ce * sample_weight, valid)
+    loss = ce_loss
+
+    score = logits_seq[..., 1] - logits_seq[..., 0]
+    pair_valid = valid[:, 1:] & valid[:, :-1] & (labels[:, 1:] == labels[:, :-1])
+    smooth_loss = score.new_tensor(0.0)
+    flip_loss = score.new_tensor(0.0)
+    if smoothness_weight > 0.0 and pair_valid.any():
+        score_delta = score[:, 1:] - score[:, :-1]
+        smooth_loss = masked_mean(score_delta.pow(2), pair_valid)
+        loss = loss + float(smoothness_weight) * smooth_loss
+    if flip_penalty_weight > 0.0 and pair_valid.any():
+        prob = torch.softmax(logits_seq, dim=-1)[..., 1]
+        prob_delta = prob[:, 1:] - prob[:, :-1]
+        flip_loss = masked_mean(prob_delta.abs(), pair_valid)
+        loss = loss + float(flip_penalty_weight) * flip_loss
+
+    diagnostics = {
+        "valid_fraction": float(valid.float().mean().detach().cpu()),
+        "ce_loss": float(ce_loss.detach().cpu()),
+        "smooth_loss": float(smooth_loss.detach().cpu()),
+        "flip_loss": float(flip_loss.detach().cpu()),
+    }
+    return loss, valid, diagnostics
+
+
 def run_epoch(
     model: nn.Module,
     loader: DataLoader,
@@ -235,6 +312,13 @@ def run_epoch(
     scaler: torch.cuda.amp.GradScaler | None = None,
     loss_mode: str = "all",
     grad_clip: float = 1.0,
+    warmup_steps: int = 0,
+    supervise_tail_steps: int = 0,
+    transition_ignore_steps: int = 0,
+    positive_weight: float = 1.0,
+    negative_weight: float = 1.0,
+    smoothness_weight: float = 0.0,
+    flip_penalty_weight: float = 0.0,
 ) -> Dict[str, Any]:
     train = optimizer is not None
     model.train(train)
@@ -242,7 +326,10 @@ def run_epoch(
     total_samples = 0
     all_scores: List[np.ndarray] = []
     all_labels: List[np.ndarray] = []
+    valid_scores: List[np.ndarray] = []
+    valid_labels: List[np.ndarray] = []
     firing_totals: Dict[str, float] = {}
+    diagnostic_totals: Dict[str, float] = {}
     steps = 0
     start = time.time()
 
@@ -255,10 +342,18 @@ def run_epoch(
                 optimizer.zero_grad(set_to_none=True)
             with torch.cuda.amp.autocast(enabled=amp and device.type == "cuda"):
                 logits_seq, stats = model(x)
-                if loss_mode == "last":
-                    loss = criterion(logits_seq[:, -1], y[:, -1])
-                else:
-                    loss = criterion(logits_seq.reshape(-1, logits_seq.shape[-1]), y.reshape(-1))
+                loss, valid_mask, diagnostics = sequence_detection_loss(
+                    logits_seq=logits_seq,
+                    labels=y,
+                    loss_mode=loss_mode,
+                    warmup_steps=warmup_steps,
+                    supervise_tail_steps=supervise_tail_steps,
+                    transition_ignore_steps=transition_ignore_steps,
+                    positive_weight=positive_weight,
+                    negative_weight=negative_weight,
+                    smoothness_weight=smoothness_weight,
+                    flip_penalty_weight=flip_penalty_weight,
+                )
             if train:
                 if scaler is not None and amp and device.type == "cuda":
                     scaler.scale(loss).backward()
@@ -275,24 +370,36 @@ def run_epoch(
 
             score = (logits_seq[..., 1] - logits_seq[..., 0]).detach().float().cpu().numpy().reshape(-1)
             labels = y.detach().cpu().numpy().reshape(-1)
+            valid_np = valid_mask.detach().cpu().numpy().reshape(-1)
             all_scores.append(score)
             all_labels.append(labels)
+            valid_scores.append(score[valid_np])
+            valid_labels.append(labels[valid_np])
             bs = int(labels.shape[0])
             total_loss += float(loss.detach().item()) * bs
             total_samples += bs
             for key, value in stats.items():
                 firing_totals[key] = firing_totals.get(key, 0.0) + float(value.detach().item())
+            for key, value in diagnostics.items():
+                diagnostic_totals[key] = diagnostic_totals.get(key, 0.0) + float(value)
             steps += 1
 
     labels_np = np.concatenate(all_labels) if all_labels else np.empty((0,), dtype=np.int64)
     scores_np = np.concatenate(all_scores) if all_scores else np.empty((0,), dtype=np.float32)
+    valid_labels_np = np.concatenate(valid_labels) if valid_labels else np.empty((0,), dtype=np.int64)
+    valid_scores_np = np.concatenate(valid_scores) if valid_scores else np.empty((0,), dtype=np.float32)
     metrics = binary_classification_metrics(labels_np, scores_np)
+    valid_metrics = binary_classification_metrics(valid_labels_np, valid_scores_np) if valid_labels_np.size else {}
+    for key, value in valid_metrics.items():
+        metrics[f"valid_{key}"] = value
     metrics["loss"] = total_loss / max(total_samples, 1)
     metrics["num_samples"] = float(total_samples)
     metrics["num_batches"] = float(steps)
     metrics["seconds"] = time.time() - start
     metrics["samples_per_second"] = total_samples / max(metrics["seconds"], 1e-9)
     for key, value in firing_totals.items():
+        metrics[key] = value / max(steps, 1)
+    for key, value in diagnostic_totals.items():
         metrics[key] = value / max(steps, 1)
     return metrics
 
@@ -343,6 +450,14 @@ def main() -> None:
     parser.add_argument("--polarity-mode", choices=("both", "positive", "negative", "sum"), default="both")
     parser.add_argument("--sampling", choices=("balanced", "random"), default="balanced")
     parser.add_argument("--loss-mode", choices=("all", "last"), default="all")
+    parser.add_argument("--warmup-steps", type=int, default=0)
+    parser.add_argument("--supervise-tail-steps", type=int, default=0)
+    parser.add_argument("--transition-ignore-steps", type=int, default=0)
+    parser.add_argument("--positive-weight", type=float, default=1.0)
+    parser.add_argument("--negative-weight", type=float, default=1.0)
+    parser.add_argument("--smoothness-weight", type=float, default=0.0)
+    parser.add_argument("--flip-penalty-weight", type=float, default=0.0)
+    parser.add_argument("--best-metric", choices=("accuracy", "valid_accuracy", "balanced_accuracy", "valid_balanced_accuracy"), default="valid_accuracy")
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--amp", action="store_true")
@@ -418,6 +533,13 @@ def main() -> None:
             scaler=scaler,
             loss_mode=args.loss_mode,
             grad_clip=args.grad_clip,
+            warmup_steps=args.warmup_steps,
+            supervise_tail_steps=args.supervise_tail_steps,
+            transition_ignore_steps=args.transition_ignore_steps,
+            positive_weight=args.positive_weight,
+            negative_weight=args.negative_weight,
+            smoothness_weight=args.smoothness_weight,
+            flip_penalty_weight=args.flip_penalty_weight,
         )
         if scheduler is not None:
             scheduler.step()
@@ -431,10 +553,17 @@ def main() -> None:
             scaler=None,
             loss_mode=args.loss_mode,
             grad_clip=args.grad_clip,
+            warmup_steps=args.warmup_steps,
+            supervise_tail_steps=args.supervise_tail_steps,
+            transition_ignore_steps=args.transition_ignore_steps,
+            positive_weight=args.positive_weight,
+            negative_weight=args.negative_weight,
+            smoothness_weight=args.smoothness_weight,
+            flip_penalty_weight=args.flip_penalty_weight,
         )
         record = {"event": "epoch", "epoch": epoch, "train": train_metrics, "val": val_metrics}
         write_jsonl(log_path, record)
-        metric = float(val_metrics.get("accuracy", 0.0))
+        metric = float(val_metrics.get(args.best_metric, val_metrics.get("accuracy", 0.0)))
         save_checkpoint(args.output_dir / "latest.pt", model, optimizer, epoch, best_metric, args, val_metrics)
         if metric > best_metric:
             best_metric = metric
@@ -448,6 +577,7 @@ def main() -> None:
             "latest_epoch": epoch,
             "target_accuracy": args.target_accuracy,
             "target_met": best_metric >= args.target_accuracy,
+            "best_metric": args.best_metric,
             "parameter_count": count_parameters(model),
             "output_dir": str(args.output_dir),
         }
