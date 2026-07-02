@@ -55,8 +55,8 @@ git status --short --branch
 7. 写 `SUMMARY.md`，至少包含：
 
 - 本轮最佳指标。
-- 与上一轮最佳 SNN/CNN upper-bound 的差距。
-- 是否达到 `90%` accuracy。
+- 与上一轮最佳 SNN的差距。
+- 是否达到 `95%` accuracy。
 - 主要失败或成功原因。
 - 下一轮优先建议。
 
@@ -74,23 +74,3 @@ git add <本轮相关文件>
 git commit -m "<iteration summary>"
 git push
 ```
-
-## 指标口径
-
-每轮结果必须明确区分以下口径：
-
-- 训练期 validation：通常是 balanced sampling 的 5k 或 20k。
-- 100k random validation：近似自然类别分布。
-- 100k balanced validation：平衡 slip/no-slip 后的分类能力。
-- default threshold：模型原始阈值。
-- tuned threshold：在验证集上按 accuracy 或其他指标搜索阈值。
-- ROC-AUC / PR-AUC：反映分数可分性，不等同于固定阈值 accuracy。
-
-## 当前长期目标
-
-优先目标：
-
-- 100k random validation accuracy >= `90%`
-- 或 100k balanced validation accuracy >= `90%`
-
-若仍未达到，应记录是否至少缩小与 CNN upper-bound 的差距，并说明下一轮为什么选择新的探索方向。
