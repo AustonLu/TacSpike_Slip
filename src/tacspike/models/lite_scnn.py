@@ -162,16 +162,23 @@ class TacSpikeStreamingLiteSCNN(nn.Module):
         threshold: float = 0.1,
         surrogate_alpha: float = 2.0,
         hidden: int = 64,
+        conv1_channels: int = 16,
+        conv2_channels: int = 32,
+        dropout: float = 0.0,
     ) -> None:
         super().__init__()
-        self.conv1 = nn.Conv2d(input_channels, 16, kernel_size=5, stride=1, padding=2, bias=False)
+        self.conv1_channels = int(conv1_channels)
+        self.conv2_channels = int(conv2_channels)
+        self.hidden = int(hidden)
+        self.conv1 = nn.Conv2d(input_channels, self.conv1_channels, kernel_size=5, stride=1, padding=2, bias=False)
         self.lif1 = LIFCell(beta=beta, threshold=threshold, surrogate_alpha=surrogate_alpha)
-        self.conv2 = nn.Conv2d(16, 32, kernel_size=3, stride=2, padding=1, bias=False)
+        self.conv2 = nn.Conv2d(self.conv1_channels, self.conv2_channels, kernel_size=3, stride=2, padding=1, bias=False)
         self.lif2 = LIFCell(beta=beta, threshold=threshold, surrogate_alpha=surrogate_alpha)
         self.pool = nn.AdaptiveAvgPool2d((4, 4))
-        self.fc1 = nn.Linear(32 * 4 * 4, hidden, bias=False)
+        self.fc1 = nn.Linear(self.conv2_channels * 4 * 4, self.hidden, bias=False)
         self.lif3 = LIFCell(beta=beta, threshold=threshold, surrogate_alpha=surrogate_alpha)
-        self.fc2 = nn.Linear(hidden, num_classes)
+        self.dropout = nn.Dropout(float(dropout))
+        self.fc2 = nn.Linear(self.hidden, num_classes)
 
     def step(
         self,
@@ -189,7 +196,7 @@ class TacSpikeStreamingLiteSCNN(nn.Module):
         z = self.pool(s2).flatten(1)
         z = self.fc1(z)
         s3, state3 = self.lif3(z, state3)
-        logits = self.fc2(s3)
+        logits = self.fc2(self.dropout(s3))
         stats = {
             "lif1_firing_rate": s1.detach().mean(),
             "lif2_firing_rate": s2.detach().mean(),
@@ -197,10 +204,18 @@ class TacSpikeStreamingLiteSCNN(nn.Module):
         }
         return logits, (state1, state2, state3), stats
 
-    def forward(self, x: torch.Tensor) -> Tuple[torch.Tensor, Dict[str, torch.Tensor]]:
+    def forward(
+        self,
+        x: torch.Tensor,
+        state: Tuple[LIFState | None, LIFState | None, LIFState | None] | None = None,
+        return_state: bool = False,
+    ) -> Tuple[torch.Tensor, Dict[str, torch.Tensor]] | Tuple[
+        torch.Tensor,
+        Dict[str, torch.Tensor],
+        Tuple[LIFState, LIFState, LIFState],
+    ]:
         if x.ndim != 5:
             raise ValueError(f"Expected x shape [B, T, C, H, W], got {tuple(x.shape)}")
-        state = None
         logits = []
         firing_totals = {
             "lif1_firing_rate": x.new_tensor(0.0),
@@ -214,6 +229,8 @@ class TacSpikeStreamingLiteSCNN(nn.Module):
                 firing_totals[key] = firing_totals[key] + value
         logit_seq = torch.stack(logits, dim=1)
         stats = {key: value / max(x.shape[1], 1) for key, value in firing_totals.items()}
+        if return_state:
+            return logit_seq, stats, state
         return logit_seq, stats
 
 

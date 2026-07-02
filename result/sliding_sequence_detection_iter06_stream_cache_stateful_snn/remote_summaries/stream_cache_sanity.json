@@ -1,0 +1,1966 @@
+{
+  "cache_format": "sparse",
+  "cache_root": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse",
+  "chunk_steps": 512,
+  "clip_max": null,
+  "data_root": "/lamport/makkapakka/jiajunlu/TacSpike_Dataset/releases/hf_v1.0.0_ready/tacspike-slip-detection-1khz-v1.0.0",
+  "dtype": "float16",
+  "polarity_mode": "both",
+  "spatial_pool": 4,
+  "splits": [
+    {
+      "build": {
+        "built": [],
+        "built_sequences": 0,
+        "cache_dir": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train",
+        "cache_format": "sparse",
+        "cache_root": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse",
+        "chunk_steps": 512,
+        "clip_max": null,
+        "compression": "gzip",
+        "data_root": "/lamport/makkapakka/jiajunlu/TacSpike_Dataset/releases/hf_v1.0.0_ready/tacspike-slip-detection-1khz-v1.0.0",
+        "dtype": "float16",
+        "event_sum": 2749123.0,
+        "num_sequences": 1091,
+        "polarity_mode": "both",
+        "positive_fraction": 0.27344069522094727,
+        "reused": [
+          {
+            "length": 14047,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_11.h5",
+            "sequence_id": "flat_batch_1_11"
+          },
+          {
+            "length": 27281,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_14.h5",
+            "sequence_id": "flat_batch_1_14"
+          },
+          {
+            "length": 23880,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_17.h5",
+            "sequence_id": "flat_batch_1_17"
+          },
+          {
+            "length": 17014,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_20.h5",
+            "sequence_id": "flat_batch_1_20"
+          },
+          {
+            "length": 27481,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_21.h5",
+            "sequence_id": "flat_batch_1_21"
+          },
+          {
+            "length": 26447,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_23.h5",
+            "sequence_id": "flat_batch_1_23"
+          },
+          {
+            "length": 20681,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_25.h5",
+            "sequence_id": "flat_batch_1_25"
+          },
+          {
+            "length": 9881,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_26.h5",
+            "sequence_id": "flat_batch_1_26"
+          },
+          {
+            "length": 16914,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_27.h5",
+            "sequence_id": "flat_batch_1_27"
+          },
+          {
+            "length": 21114,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_28.h5",
+            "sequence_id": "flat_batch_1_28"
+          },
+          {
+            "length": 27614,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_29.h5",
+            "sequence_id": "flat_batch_1_29"
+          },
+          {
+            "length": 10814,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_30.h5",
+            "sequence_id": "flat_batch_1_30"
+          },
+          {
+            "length": 12981,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_31.h5",
+            "sequence_id": "flat_batch_1_31"
+          },
+          {
+            "length": 24514,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_32.h5",
+            "sequence_id": "flat_batch_1_32"
+          },
+          {
+            "length": 20447,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_33.h5",
+            "sequence_id": "flat_batch_1_33"
+          },
+          {
+            "length": 23514,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_35.h5",
+            "sequence_id": "flat_batch_1_35"
+          },
+          {
+            "length": 15947,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_38.h5",
+            "sequence_id": "flat_batch_1_38"
+          },
+          {
+            "length": 19581,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_39.h5",
+            "sequence_id": "flat_batch_1_39"
+          },
+          {
+            "length": 23714,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_41.h5",
+            "sequence_id": "flat_batch_1_41"
+          },
+          {
+            "length": 23914,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_42.h5",
+            "sequence_id": "flat_batch_1_42"
+          }
+        ],
+        "reused_sequences": 1091,
+        "spatial_pool": 4,
+        "split": "train",
+        "total_bins": 20293980
+      },
+      "manifest": {
+        "event_sum": 2749123.0,
+        "event_sum_per_bin": 0.1354649506898105,
+        "first_sequences": [
+          {
+            "event_sum": 518.0,
+            "length": 14047,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_11.h5",
+            "positive_fraction": 0.719014736242614,
+            "sequence_id": "flat_batch_1_11"
+          },
+          {
+            "event_sum": 2308.0,
+            "length": 27281,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_14.h5",
+            "positive_fraction": 0.14420292511271582,
+            "sequence_id": "flat_batch_1_14"
+          },
+          {
+            "event_sum": 7824.0,
+            "length": 23880,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_17.h5",
+            "positive_fraction": 0.39639865996649915,
+            "sequence_id": "flat_batch_1_17"
+          },
+          {
+            "event_sum": 2572.0,
+            "length": 17014,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_20.h5",
+            "positive_fraction": 0.5799341718584695,
+            "sequence_id": "flat_batch_1_20"
+          },
+          {
+            "event_sum": 1645.0,
+            "length": 27481,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_21.h5",
+            "positive_fraction": 0.207452421673156,
+            "sequence_id": "flat_batch_1_21"
+          },
+          {
+            "event_sum": 7480.0,
+            "length": 26447,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_23.h5",
+            "positive_fraction": 0.3390554694294249,
+            "sequence_id": "flat_batch_1_23"
+          },
+          {
+            "event_sum": 2312.0,
+            "length": 20681,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_25.h5",
+            "positive_fraction": 0.4174846477443064,
+            "sequence_id": "flat_batch_1_25"
+          },
+          {
+            "event_sum": 207.0,
+            "length": 9881,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_26.h5",
+            "positive_fraction": 0.5972067604493473,
+            "sequence_id": "flat_batch_1_26"
+          },
+          {
+            "event_sum": 1750.0,
+            "length": 16914,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_27.h5",
+            "positive_fraction": 0.5873241102045643,
+            "sequence_id": "flat_batch_1_27"
+          },
+          {
+            "event_sum": 1563.0,
+            "length": 21114,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/train/flat_batch_1_28.h5",
+            "positive_fraction": 0.3172302737520129,
+            "sequence_id": "flat_batch_1_28"
+          }
+        ],
+        "length_max": 39247,
+        "length_mean": 18601.264894592117,
+        "length_min": 247,
+        "num_sequences": 1091,
+        "positive_fraction_mean": 0.26110590039524123,
+        "positive_fraction_weighted": 0.27344069522094727,
+        "split": "train",
+        "total_bins": 20293980
+      }
+    },
+    {
+      "build": {
+        "built": [
+          {
+            "event_sum": 1099.0,
+            "length": 18481,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_1.h5",
+            "positive_fraction": 0.5212921378713273,
+            "sequence_id": "flat_batch_1_1"
+          },
+          {
+            "event_sum": 682.0,
+            "length": 16514,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_19.h5",
+            "positive_fraction": 0.5551047595979169,
+            "sequence_id": "flat_batch_1_19"
+          },
+          {
+            "event_sum": 2168.0,
+            "length": 19181,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_2.h5",
+            "positive_fraction": 0.5092018142953965,
+            "sequence_id": "flat_batch_1_2"
+          },
+          {
+            "event_sum": 1828.0,
+            "length": 18981,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_22.h5",
+            "positive_fraction": 0.514567198777725,
+            "sequence_id": "flat_batch_1_22"
+          },
+          {
+            "event_sum": 2108.0,
+            "length": 21481,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_3.h5",
+            "positive_fraction": 0.3725152460313766,
+            "sequence_id": "flat_batch_1_3"
+          },
+          {
+            "event_sum": 2424.0,
+            "length": 28214,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_34.h5",
+            "positive_fraction": 0.17601190898135677,
+            "sequence_id": "flat_batch_1_34"
+          },
+          {
+            "event_sum": 579.0,
+            "length": 12881,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_4.h5",
+            "positive_fraction": 0.3494293921279404,
+            "sequence_id": "flat_batch_1_4"
+          },
+          {
+            "event_sum": 3116.0,
+            "length": 18347,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_40.h5",
+            "positive_fraction": 0.5268981304845479,
+            "sequence_id": "flat_batch_1_40"
+          },
+          {
+            "event_sum": 5012.0,
+            "length": 25681,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_45.h5",
+            "positive_fraction": 0.323235076515712,
+            "sequence_id": "flat_batch_1_45"
+          },
+          {
+            "event_sum": 3388.0,
+            "length": 17614,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_49.h5",
+            "positive_fraction": 0.569660497331668,
+            "sequence_id": "flat_batch_1_49"
+          },
+          {
+            "event_sum": 6296.0,
+            "length": 26014,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_57.h5",
+            "positive_fraction": 0.24471438456215883,
+            "sequence_id": "flat_batch_1_57"
+          },
+          {
+            "event_sum": 7924.0,
+            "length": 26581,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_65.h5",
+            "positive_fraction": 0.33610473646589667,
+            "sequence_id": "flat_batch_1_65"
+          },
+          {
+            "event_sum": 2272.0,
+            "length": 18814,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_69.h5",
+            "positive_fraction": 0.5066971404273414,
+            "sequence_id": "flat_batch_1_69"
+          },
+          {
+            "event_sum": 540.0,
+            "length": 14047,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_2_11.h5",
+            "positive_fraction": 0.719014736242614,
+            "sequence_id": "flat_batch_2_11"
+          },
+          {
+            "event_sum": 689.0,
+            "length": 16514,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_2_19.h5",
+            "positive_fraction": 0.5551047595979169,
+            "sequence_id": "flat_batch_2_19"
+          },
+          {
+            "event_sum": 7656.0,
+            "length": 26447,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_2_23.h5",
+            "positive_fraction": 0.3390554694294249,
+            "sequence_id": "flat_batch_2_23"
+          },
+          {
+            "event_sum": 3152.0,
+            "length": 18347,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_2_40.h5",
+            "positive_fraction": 0.5268981304845479,
+            "sequence_id": "flat_batch_2_40"
+          },
+          {
+            "event_sum": 3232.0,
+            "length": 17614,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_2_49.h5",
+            "positive_fraction": 0.569660497331668,
+            "sequence_id": "flat_batch_2_49"
+          },
+          {
+            "event_sum": 2790.0,
+            "length": 21281,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_2_6.h5",
+            "positive_fraction": 0.41981109910248576,
+            "sequence_id": "flat_batch_2_6"
+          },
+          {
+            "event_sum": 8156.0,
+            "length": 26581,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_2_65.h5",
+            "positive_fraction": 0.33610473646589667,
+            "sequence_id": "flat_batch_2_65"
+          },
+          {
+            "event_sum": 3722.0,
+            "length": 21714,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_2_7.h5",
+            "positive_fraction": 0.44211108040895275,
+            "sequence_id": "flat_batch_2_7"
+          },
+          {
+            "event_sum": 5060.0,
+            "length": 20347,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_2_73.h5",
+            "positive_fraction": 0.4751068953654101,
+            "sequence_id": "flat_batch_2_73"
+          },
+          {
+            "event_sum": 221.0,
+            "length": 10414,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_3_11.h5",
+            "positive_fraction": 0.7810639523718071,
+            "sequence_id": "flat_batch_3_11"
+          },
+          {
+            "event_sum": 1421.0,
+            "length": 27614,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_3_14.h5",
+            "positive_fraction": 0.19555298037227492,
+            "sequence_id": "flat_batch_3_14"
+          },
+          {
+            "event_sum": 4776.0,
+            "length": 22447,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_3_15.h5",
+            "positive_fraction": 0.43956876197264666,
+            "sequence_id": "flat_batch_3_15"
+          },
+          {
+            "event_sum": 308.0,
+            "length": 16314,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_3_17.h5",
+            "positive_fraction": 0.22275346328306975,
+            "sequence_id": "flat_batch_3_17"
+          },
+          {
+            "event_sum": 3772.0,
+            "length": 23981,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_3_2.h5",
+            "positive_fraction": 0.3892248029690171,
+            "sequence_id": "flat_batch_3_2"
+          },
+          {
+            "event_sum": 340.0,
+            "length": 14981,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_3_30.h5",
+            "positive_fraction": 0.6719845137173753,
+            "sequence_id": "flat_batch_3_30"
+          },
+          {
+            "event_sum": 1525.0,
+            "length": 18647,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_3_47.h5",
+            "positive_fraction": 0.5237839867002735,
+            "sequence_id": "flat_batch_3_47"
+          },
+          {
+            "event_sum": 5788.0,
+            "length": 29214,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_3_5.h5",
+            "positive_fraction": 0.31036489354419117,
+            "sequence_id": "flat_batch_3_5"
+          },
+          {
+            "event_sum": 2256.0,
+            "length": 29581,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_3_60.h5",
+            "positive_fraction": 0.316655961596971,
+            "sequence_id": "flat_batch_3_60"
+          },
+          {
+            "event_sum": 159.0,
+            "length": 8114,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_3_62.h5",
+            "positive_fraction": 0.5341385260044368,
+            "sequence_id": "flat_batch_3_62"
+          },
+          {
+            "event_sum": 3780.0,
+            "length": 23447,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_3_65.h5",
+            "positive_fraction": 0.4193713481468845,
+            "sequence_id": "flat_batch_3_65"
+          },
+          {
+            "event_sum": 521.0,
+            "length": 16514,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_3_9.h5",
+            "positive_fraction": 0.442049170400872,
+            "sequence_id": "flat_batch_3_9"
+          },
+          {
+            "event_sum": 1390.0,
+            "length": 27614,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_4_14.h5",
+            "positive_fraction": 0.19555298037227492,
+            "sequence_id": "flat_batch_4_14"
+          },
+          {
+            "event_sum": 4092.0,
+            "length": 30214,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_4_21.h5",
+            "positive_fraction": 0.25375653670483883,
+            "sequence_id": "flat_batch_4_21"
+          },
+          {
+            "event_sum": 2828.0,
+            "length": 25714,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_4_4.h5",
+            "positive_fraction": 0.34483160924010264,
+            "sequence_id": "flat_batch_4_4"
+          },
+          {
+            "event_sum": 268.0,
+            "length": 14114,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_4_43.h5",
+            "positive_fraction": 0.6920079353833074,
+            "sequence_id": "flat_batch_4_43"
+          },
+          {
+            "event_sum": 1563.0,
+            "length": 18647,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_4_47.h5",
+            "positive_fraction": 0.5237839867002735,
+            "sequence_id": "flat_batch_4_47"
+          },
+          {
+            "event_sum": 3288.0,
+            "length": 24214,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_4_49.h5",
+            "positive_fraction": 0.3703229536631701,
+            "sequence_id": "flat_batch_4_49"
+          },
+          {
+            "event_sum": 5616.0,
+            "length": 29214,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_4_5.h5",
+            "positive_fraction": 0.31036489354419117,
+            "sequence_id": "flat_batch_4_5"
+          },
+          {
+            "event_sum": 444.0,
+            "length": 18481,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_4_52.h5",
+            "positive_fraction": 0.5176667929224609,
+            "sequence_id": "flat_batch_4_52"
+          },
+          {
+            "event_sum": 2080.0,
+            "length": 29814,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_4_57.h5",
+            "positive_fraction": 0.11182665861675722,
+            "sequence_id": "flat_batch_4_57"
+          },
+          {
+            "event_sum": 2264.0,
+            "length": 29581,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_4_60.h5",
+            "positive_fraction": 0.316655961596971,
+            "sequence_id": "flat_batch_4_60"
+          },
+          {
+            "event_sum": 8768.0,
+            "length": 33014,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_10.h5",
+            "positive_fraction": 0.29078572726721996,
+            "sequence_id": "sharp_batch_1_10"
+          },
+          {
+            "event_sum": 2604.0,
+            "length": 36481,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_101.h5",
+            "positive_fraction": 0.23757572434966145,
+            "sequence_id": "sharp_batch_1_101"
+          },
+          {
+            "event_sum": 3044.0,
+            "length": 30880,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_104.h5",
+            "positive_fraction": 0.3054727979274611,
+            "sequence_id": "sharp_batch_1_104"
+          },
+          {
+            "event_sum": 8896.0,
+            "length": 35381,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_106.h5",
+            "positive_fraction": 0.24027020152059014,
+            "sequence_id": "sharp_batch_1_106"
+          },
+          {
+            "event_sum": 345.0,
+            "length": 13447,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_111.h5",
+            "positive_fraction": 0.7560794229196103,
+            "sequence_id": "sharp_batch_1_111"
+          },
+          {
+            "event_sum": 3260.0,
+            "length": 36714,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_114.h5",
+            "positive_fraction": 0.16797406983711935,
+            "sequence_id": "sharp_batch_1_114"
+          },
+          {
+            "event_sum": 2184.0,
+            "length": 31314,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_116.h5",
+            "positive_fraction": 0.2522833237529539,
+            "sequence_id": "sharp_batch_1_116"
+          },
+          {
+            "event_sum": 4900.0,
+            "length": 31281,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_117.h5",
+            "positive_fraction": 0.2930532911351939,
+            "sequence_id": "sharp_batch_1_117"
+          },
+          {
+            "event_sum": 2080.0,
+            "length": 26514,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_120.h5",
+            "positive_fraction": 0.36837142641623294,
+            "sequence_id": "sharp_batch_1_120"
+          },
+          {
+            "event_sum": 4196.0,
+            "length": 31981,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_140.h5",
+            "positive_fraction": 0.2689409336793721,
+            "sequence_id": "sharp_batch_1_140"
+          },
+          {
+            "event_sum": 2496.0,
+            "length": 29880,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_161.h5",
+            "positive_fraction": 0.30230923694779116,
+            "sequence_id": "sharp_batch_1_161"
+          },
+          {
+            "event_sum": 1555.0,
+            "length": 28914,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_162.h5",
+            "positive_fraction": 0.29860967005602823,
+            "sequence_id": "sharp_batch_1_162"
+          },
+          {
+            "event_sum": 1033.0,
+            "length": 25347,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_17.h5",
+            "positive_fraction": 0.366907326310806,
+            "sequence_id": "sharp_batch_1_17"
+          },
+          {
+            "event_sum": 9312.0,
+            "length": 36414,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_171.h5",
+            "positive_fraction": 0.24166529356840777,
+            "sequence_id": "sharp_batch_1_171"
+          },
+          {
+            "event_sum": 4832.0,
+            "length": 33081,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_23.h5",
+            "positive_fraction": 0.25897040597321724,
+            "sequence_id": "sharp_batch_1_23"
+          },
+          {
+            "event_sum": 5744.0,
+            "length": 33481,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_46.h5",
+            "positive_fraction": 0.25987873719422955,
+            "sequence_id": "sharp_batch_1_46"
+          },
+          {
+            "event_sum": 3644.0,
+            "length": 25081,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_64.h5",
+            "positive_fraction": 0.3814441210478051,
+            "sequence_id": "sharp_batch_1_64"
+          },
+          {
+            "event_sum": 5472.0,
+            "length": 36181,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_80.h5",
+            "positive_fraction": 0.24139741853458999,
+            "sequence_id": "sharp_batch_1_80"
+          },
+          {
+            "event_sum": 3848.0,
+            "length": 25014,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_90.h5",
+            "positive_fraction": 0.3651555129127689,
+            "sequence_id": "sharp_batch_1_90"
+          },
+          {
+            "event_sum": 5992.0,
+            "length": 36581,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_1_93.h5",
+            "positive_fraction": 0.2287252945518165,
+            "sequence_id": "sharp_batch_1_93"
+          },
+          {
+            "event_sum": 2324.0,
+            "length": 23981,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_2_108.h5",
+            "positive_fraction": 0.2571619198532171,
+            "sequence_id": "sharp_batch_2_108"
+          },
+          {
+            "event_sum": 6484.0,
+            "length": 30380,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_2_121.h5",
+            "positive_fraction": 0.3094140882159315,
+            "sequence_id": "sharp_batch_2_121"
+          },
+          {
+            "event_sum": 6320.0,
+            "length": 33081,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_2_122.h5",
+            "positive_fraction": 0.14107796015839907,
+            "sequence_id": "sharp_batch_2_122"
+          },
+          {
+            "event_sum": 4560.0,
+            "length": 21347,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_2_131.h5",
+            "positive_fraction": 0.4418887899939101,
+            "sequence_id": "sharp_batch_2_131"
+          },
+          {
+            "event_sum": 8400.0,
+            "length": 22014,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_2_136.h5",
+            "positive_fraction": 0.45425638230217136,
+            "sequence_id": "sharp_batch_2_136"
+          },
+          {
+            "event_sum": 4232.0,
+            "length": 19814,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_2_141.h5",
+            "positive_fraction": 0.491268799838498,
+            "sequence_id": "sharp_batch_2_141"
+          },
+          {
+            "event_sum": 18320.0,
+            "length": 26380,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_2_36.h5",
+            "positive_fraction": 0.37399545109931764,
+            "sequence_id": "sharp_batch_2_36"
+          },
+          {
+            "event_sum": 326.0,
+            "length": 13914,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_2_37.h5",
+            "positive_fraction": 0.7115135834411385,
+            "sequence_id": "sharp_batch_2_37"
+          },
+          {
+            "event_sum": 7804.0,
+            "length": 29781,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_2_52.h5",
+            "positive_fraction": 0.3234612672509318,
+            "sequence_id": "sharp_batch_2_52"
+          },
+          {
+            "event_sum": 134.0,
+            "length": 8814,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_2_57.h5",
+            "positive_fraction": 0.5144088949398684,
+            "sequence_id": "sharp_batch_2_57"
+          },
+          {
+            "event_sum": 6464.0,
+            "length": 16814,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_2_62.h5",
+            "positive_fraction": 0.6026525514452242,
+            "sequence_id": "sharp_batch_2_62"
+          },
+          {
+            "event_sum": 146.0,
+            "length": 7681,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_2_74.h5",
+            "positive_fraction": 0.5078765785704986,
+            "sequence_id": "sharp_batch_2_74"
+          },
+          {
+            "event_sum": 5348.0,
+            "length": 25447,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_2_75.h5",
+            "positive_fraction": 0.3680984005973199,
+            "sequence_id": "sharp_batch_2_75"
+          },
+          {
+            "event_sum": 8648.0,
+            "length": 29581,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_2_80.h5",
+            "positive_fraction": 0.31780534802745003,
+            "sequence_id": "sharp_batch_2_80"
+          },
+          {
+            "event_sum": 2992.0,
+            "length": 34114,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_2_82.h5",
+            "positive_fraction": 0.25016122413085534,
+            "sequence_id": "sharp_batch_2_82"
+          },
+          {
+            "event_sum": 8400.0,
+            "length": 29947,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_2_92.h5",
+            "positive_fraction": 0.28493672154138977,
+            "sequence_id": "sharp_batch_2_92"
+          },
+          {
+            "event_sum": 1016.0,
+            "length": 15214,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sharp_batch_2_96.h5",
+            "positive_fraction": 0.6616931773366636,
+            "sequence_id": "sharp_batch_2_96"
+          },
+          {
+            "event_sum": 148.0,
+            "length": 9814,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_120.h5",
+            "positive_fraction": 0.10525779498675361,
+            "sequence_id": "sphere2_batch_1_120"
+          },
+          {
+            "event_sum": 130.0,
+            "length": 8181,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_134.h5",
+            "positive_fraction": 0.0,
+            "sequence_id": "sphere2_batch_1_134"
+          },
+          {
+            "event_sum": 1727.0,
+            "length": 12814,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_141.h5",
+            "positive_fraction": 0.06508506321211176,
+            "sequence_id": "sphere2_batch_1_141"
+          },
+          {
+            "event_sum": 630.0,
+            "length": 8014,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_144.h5",
+            "positive_fraction": 0.18717244821562265,
+            "sequence_id": "sphere2_batch_1_144"
+          },
+          {
+            "event_sum": 1797.0,
+            "length": 10214,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_15.h5",
+            "positive_fraction": 0.14029763070295673,
+            "sequence_id": "sphere2_batch_1_15"
+          },
+          {
+            "event_sum": 2926.0,
+            "length": 12747,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_19.h5",
+            "positive_fraction": 0.06275986506629011,
+            "sequence_id": "sphere2_batch_1_19"
+          },
+          {
+            "event_sum": 156.0,
+            "length": 8080,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_29.h5",
+            "positive_fraction": 0.18972772277227723,
+            "sequence_id": "sphere2_batch_1_29"
+          },
+          {
+            "event_sum": 1958.0,
+            "length": 10381,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_3.h5",
+            "positive_fraction": 0.09960504768326751,
+            "sequence_id": "sphere2_batch_1_3"
+          },
+          {
+            "event_sum": 929.0,
+            "length": 7347,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_39.h5",
+            "positive_fraction": 0.18143459915611815,
+            "sequence_id": "sphere2_batch_1_39"
+          },
+          {
+            "event_sum": 461.0,
+            "length": 8214,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_40.h5",
+            "positive_fraction": 0.16228390552714878,
+            "sequence_id": "sphere2_batch_1_40"
+          },
+          {
+            "event_sum": 384.0,
+            "length": 8181,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_41.h5",
+            "positive_fraction": 0.1793179317931793,
+            "sequence_id": "sphere2_batch_1_41"
+          },
+          {
+            "event_sum": 570.0,
+            "length": 13014,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_49.h5",
+            "positive_fraction": 0.061472260642385125,
+            "sequence_id": "sphere2_batch_1_49"
+          },
+          {
+            "event_sum": 2041.0,
+            "length": 9814,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_64.h5",
+            "positive_fraction": 0.14611779091094354,
+            "sequence_id": "sphere2_batch_1_64"
+          },
+          {
+            "event_sum": 243.0,
+            "length": 7747,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_76.h5",
+            "positive_fraction": 0.18497482896605139,
+            "sequence_id": "sphere2_batch_1_76"
+          },
+          {
+            "event_sum": 141.0,
+            "length": 7547,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_77.h5",
+            "positive_fraction": 0.1678812773287399,
+            "sequence_id": "sphere2_batch_1_77"
+          },
+          {
+            "event_sum": 223.0,
+            "length": 12381,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_84.h5",
+            "positive_fraction": 0.07277279702770374,
+            "sequence_id": "sphere2_batch_1_84"
+          },
+          {
+            "event_sum": 65.0,
+            "length": 4247,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_89.h5",
+            "positive_fraction": 0.3689663291735343,
+            "sequence_id": "sphere2_batch_1_89"
+          },
+          {
+            "event_sum": 684.0,
+            "length": 6814,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_90.h5",
+            "positive_fraction": 0.21529204578808336,
+            "sequence_id": "sphere2_batch_1_90"
+          },
+          {
+            "event_sum": 266.0,
+            "length": 6681,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_91.h5",
+            "positive_fraction": 0.2345457266876216,
+            "sequence_id": "sphere2_batch_1_91"
+          },
+          {
+            "event_sum": 306.0,
+            "length": 5314,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_1_99.h5",
+            "positive_fraction": 0.29488144523899135,
+            "sequence_id": "sphere2_batch_1_99"
+          },
+          {
+            "event_sum": 1842.0,
+            "length": 12114,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_101.h5",
+            "positive_fraction": 0.10186561003797259,
+            "sequence_id": "sphere2_batch_2_101"
+          },
+          {
+            "event_sum": 1846.0,
+            "length": 10381,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_105.h5",
+            "positive_fraction": 0.11569212985261536,
+            "sequence_id": "sphere2_batch_2_105"
+          },
+          {
+            "event_sum": 146.0,
+            "length": 7714,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_109.h5",
+            "positive_fraction": 0.18148820326678766,
+            "sequence_id": "sphere2_batch_2_109"
+          },
+          {
+            "event_sum": 3432.0,
+            "length": 11747,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_110.h5",
+            "positive_fraction": 0.11066655316250958,
+            "sequence_id": "sphere2_batch_2_110"
+          },
+          {
+            "event_sum": 1183.0,
+            "length": 8381,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_112.h5",
+            "positive_fraction": 0.15523207254504237,
+            "sequence_id": "sphere2_batch_2_112"
+          },
+          {
+            "event_sum": 53.0,
+            "length": 2881,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_117.h5",
+            "positive_fraction": 0.09267615411315515,
+            "sequence_id": "sphere2_batch_2_117"
+          },
+          {
+            "event_sum": 789.0,
+            "length": 10581,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_120.h5",
+            "positive_fraction": 0.09139022776675172,
+            "sequence_id": "sphere2_batch_2_120"
+          },
+          {
+            "event_sum": 2828.0,
+            "length": 11214,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_124.h5",
+            "positive_fraction": 0.1219011949349028,
+            "sequence_id": "sphere2_batch_2_124"
+          },
+          {
+            "event_sum": 324.0,
+            "length": 8947,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_127.h5",
+            "positive_fraction": 0.17134234939085727,
+            "sequence_id": "sphere2_batch_2_127"
+          },
+          {
+            "event_sum": 118.0,
+            "length": 6214,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_147.h5",
+            "positive_fraction": 0.23076923076923078,
+            "sequence_id": "sphere2_batch_2_147"
+          },
+          {
+            "event_sum": 1643.0,
+            "length": 10814,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_148.h5",
+            "positive_fraction": 0.08017384871462918,
+            "sequence_id": "sphere2_batch_2_148"
+          },
+          {
+            "event_sum": 1808.0,
+            "length": 13247,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_154.h5",
+            "positive_fraction": 0.07299765984751265,
+            "sequence_id": "sphere2_batch_2_154"
+          },
+          {
+            "event_sum": 872.0,
+            "length": 11547,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_157.h5",
+            "positive_fraction": 0.09526283883259722,
+            "sequence_id": "sphere2_batch_2_157"
+          },
+          {
+            "event_sum": 2224.0,
+            "length": 11947,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_16.h5",
+            "positive_fraction": 0.08646522139449234,
+            "sequence_id": "sphere2_batch_2_16"
+          },
+          {
+            "event_sum": 3380.0,
+            "length": 11881,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_160.h5",
+            "positive_fraction": 0.10950256712397946,
+            "sequence_id": "sphere2_batch_2_160"
+          },
+          {
+            "event_sum": 3312.0,
+            "length": 11547,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_18.h5",
+            "positive_fraction": 0.07508443751623799,
+            "sequence_id": "sphere2_batch_2_18"
+          },
+          {
+            "event_sum": 1336.0,
+            "length": 11214,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_22.h5",
+            "positive_fraction": 0.10112359550561797,
+            "sequence_id": "sphere2_batch_2_22"
+          },
+          {
+            "event_sum": 320.0,
+            "length": 6281,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_23.h5",
+            "positive_fraction": 0.2547365069256488,
+            "sequence_id": "sphere2_batch_2_23"
+          },
+          {
+            "event_sum": 494.0,
+            "length": 11014,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_25.h5",
+            "positive_fraction": 0.08779734882876339,
+            "sequence_id": "sphere2_batch_2_25"
+          },
+          {
+            "event_sum": 213.0,
+            "length": 5247,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_28.h5",
+            "positive_fraction": 0.27958833619210977,
+            "sequence_id": "sphere2_batch_2_28"
+          },
+          {
+            "event_sum": 135.0,
+            "length": 8381,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_29.h5",
+            "positive_fraction": 0.13924352702541462,
+            "sequence_id": "sphere2_batch_2_29"
+          },
+          {
+            "event_sum": 184.0,
+            "length": 7814,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_31.h5",
+            "positive_fraction": 0.1791656002047607,
+            "sequence_id": "sphere2_batch_2_31"
+          },
+          {
+            "event_sum": 67.0,
+            "length": 4614,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_34.h5",
+            "positive_fraction": 0.3250975292587776,
+            "sequence_id": "sphere2_batch_2_34"
+          },
+          {
+            "event_sum": 2176.0,
+            "length": 11414,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_41.h5",
+            "positive_fraction": 0.11976520063080427,
+            "sequence_id": "sphere2_batch_2_41"
+          },
+          {
+            "event_sum": 2186.0,
+            "length": 13614,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_5.h5",
+            "positive_fraction": 0.046569707653885704,
+            "sequence_id": "sphere2_batch_2_5"
+          },
+          {
+            "event_sum": 1044.0,
+            "length": 8647,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_53.h5",
+            "positive_fraction": 0.1541575112755869,
+            "sequence_id": "sphere2_batch_2_53"
+          },
+          {
+            "event_sum": 3268.0,
+            "length": 13281,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_64.h5",
+            "positive_fraction": 0.07785558316391838,
+            "sequence_id": "sphere2_batch_2_64"
+          },
+          {
+            "event_sum": 319.0,
+            "length": 7814,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_65.h5",
+            "positive_fraction": 0.19631430765293065,
+            "sequence_id": "sphere2_batch_2_65"
+          },
+          {
+            "event_sum": 1191.0,
+            "length": 8981,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_78.h5",
+            "positive_fraction": 0.13740118026945775,
+            "sequence_id": "sphere2_batch_2_78"
+          },
+          {
+            "event_sum": 807.0,
+            "length": 10047,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_82.h5",
+            "positive_fraction": 0.12600776351149598,
+            "sequence_id": "sphere2_batch_2_82"
+          },
+          {
+            "event_sum": 837.0,
+            "length": 9747,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_91.h5",
+            "positive_fraction": 0.11624089463424643,
+            "sequence_id": "sphere2_batch_2_91"
+          },
+          {
+            "event_sum": 110.0,
+            "length": 5580,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_96.h5",
+            "positive_fraction": 0.26881720430107525,
+            "sequence_id": "sphere2_batch_2_96"
+          },
+          {
+            "event_sum": 66.0,
+            "length": 3847,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_2_99.h5",
+            "positive_fraction": 0.42448661294515205,
+            "sequence_id": "sphere2_batch_2_99"
+          },
+          {
+            "event_sum": 128.0,
+            "length": 8214,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_101.h5",
+            "positive_fraction": 0.1582663744825907,
+            "sequence_id": "sphere2_batch_3_101"
+          },
+          {
+            "event_sum": 531.0,
+            "length": 5847,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_105.h5",
+            "positive_fraction": 0.2680006841115102,
+            "sequence_id": "sphere2_batch_3_105"
+          },
+          {
+            "event_sum": 1566.0,
+            "length": 10014,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_106.h5",
+            "positive_fraction": 0.1365088875574196,
+            "sequence_id": "sphere2_batch_3_106"
+          },
+          {
+            "event_sum": 931.0,
+            "length": 7614,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_111.h5",
+            "positive_fraction": 0.19267139479905437,
+            "sequence_id": "sphere2_batch_3_111"
+          },
+          {
+            "event_sum": 104.0,
+            "length": 5847,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_127.h5",
+            "positive_fraction": 0.2736446040704635,
+            "sequence_id": "sphere2_batch_3_127"
+          },
+          {
+            "event_sum": 4192.0,
+            "length": 12414,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_136.h5",
+            "positive_fraction": 0.10206218785242469,
+            "sequence_id": "sphere2_batch_3_136"
+          },
+          {
+            "event_sum": 961.0,
+            "length": 12381,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_14.h5",
+            "positive_fraction": 0.05120749535578709,
+            "sequence_id": "sphere2_batch_3_14"
+          },
+          {
+            "event_sum": 2184.0,
+            "length": 13347,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_17.h5",
+            "positive_fraction": 0.0724507379935566,
+            "sequence_id": "sphere2_batch_3_17"
+          },
+          {
+            "event_sum": 106.0,
+            "length": 6914,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_2.h5",
+            "positive_fraction": 0.1590974833670813,
+            "sequence_id": "sphere2_batch_3_2"
+          },
+          {
+            "event_sum": 2868.0,
+            "length": 12247,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_27.h5",
+            "positive_fraction": 0.10067771699191638,
+            "sequence_id": "sphere2_batch_3_27"
+          },
+          {
+            "event_sum": 342.0,
+            "length": 5181,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_32.h5",
+            "positive_fraction": 0.3153831306697549,
+            "sequence_id": "sphere2_batch_3_32"
+          },
+          {
+            "event_sum": 264.0,
+            "length": 10814,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_34.h5",
+            "positive_fraction": 0.09552432032550398,
+            "sequence_id": "sphere2_batch_3_34"
+          },
+          {
+            "event_sum": 3678.0,
+            "length": 13347,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_37.h5",
+            "positive_fraction": 0.059938562972952726,
+            "sequence_id": "sphere2_batch_3_37"
+          },
+          {
+            "event_sum": 200.0,
+            "length": 8447,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_40.h5",
+            "positive_fraction": 0.15390079318101102,
+            "sequence_id": "sphere2_batch_3_40"
+          },
+          {
+            "event_sum": 398.0,
+            "length": 9314,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_42.h5",
+            "positive_fraction": 0.12883830792355594,
+            "sequence_id": "sphere2_batch_3_42"
+          },
+          {
+            "event_sum": 534.0,
+            "length": 10847,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_46.h5",
+            "positive_fraction": 0.11367198303678436,
+            "sequence_id": "sphere2_batch_3_46"
+          },
+          {
+            "event_sum": 447.0,
+            "length": 12614,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_49.h5",
+            "positive_fraction": 0.09513239257967337,
+            "sequence_id": "sphere2_batch_3_49"
+          },
+          {
+            "event_sum": 2110.0,
+            "length": 10647,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_50.h5",
+            "positive_fraction": 0.11900065746219593,
+            "sequence_id": "sphere2_batch_3_50"
+          },
+          {
+            "event_sum": 1189.0,
+            "length": 10347,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_59.h5",
+            "positive_fraction": 0.1321155890596308,
+            "sequence_id": "sphere2_batch_3_59"
+          },
+          {
+            "event_sum": 353.0,
+            "length": 10147,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_61.h5",
+            "positive_fraction": 0.12811668473440427,
+            "sequence_id": "sphere2_batch_3_61"
+          },
+          {
+            "event_sum": 1532.0,
+            "length": 9314,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_62.h5",
+            "positive_fraction": 0.1467683057762508,
+            "sequence_id": "sphere2_batch_3_62"
+          },
+          {
+            "event_sum": 3452.0,
+            "length": 12180,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_63.h5",
+            "positive_fraction": 0.08752052545155993,
+            "sequence_id": "sphere2_batch_3_63"
+          },
+          {
+            "event_sum": 1580.0,
+            "length": 13014,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_71.h5",
+            "positive_fraction": 0.046104195481788846,
+            "sequence_id": "sphere2_batch_3_71"
+          },
+          {
+            "event_sum": 71.0,
+            "length": 3914,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_72.h5",
+            "positive_fraction": 0.4174757281553398,
+            "sequence_id": "sphere2_batch_3_72"
+          },
+          {
+            "event_sum": 1379.0,
+            "length": 12881,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_79.h5",
+            "positive_fraction": 0.09323810263178324,
+            "sequence_id": "sphere2_batch_3_79"
+          },
+          {
+            "event_sum": 1439.0,
+            "length": 11647,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_9.h5",
+            "positive_fraction": 0.09727826908216708,
+            "sequence_id": "sphere2_batch_3_9"
+          },
+          {
+            "event_sum": 264.0,
+            "length": 10047,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_92.h5",
+            "positive_fraction": 0.09953219866626854,
+            "sequence_id": "sphere2_batch_3_92"
+          },
+          {
+            "event_sum": 113.0,
+            "length": 5481,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_94.h5",
+            "positive_fraction": 0.29209998175515417,
+            "sequence_id": "sphere2_batch_3_94"
+          },
+          {
+            "event_sum": 368.0,
+            "length": 6514,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_3_98.h5",
+            "positive_fraction": 0.24562480810561868,
+            "sequence_id": "sphere2_batch_3_98"
+          },
+          {
+            "event_sum": 1164.0,
+            "length": 12647,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_test_101.h5",
+            "positive_fraction": 0.10279117577291057,
+            "sequence_id": "sphere2_batch_test_101"
+          },
+          {
+            "event_sum": 1096.0,
+            "length": 10614,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_test_102.h5",
+            "positive_fraction": 0.11937064254757868,
+            "sequence_id": "sphere2_batch_test_102"
+          },
+          {
+            "event_sum": 4864.0,
+            "length": 13114,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_test_105.h5",
+            "positive_fraction": 0.08136342839713284,
+            "sequence_id": "sphere2_batch_test_105"
+          },
+          {
+            "event_sum": 2512.0,
+            "length": 12114,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_test_114.h5",
+            "positive_fraction": 0.07157008420009905,
+            "sequence_id": "sphere2_batch_test_114"
+          },
+          {
+            "event_sum": 519.0,
+            "length": 12381,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_test_116.h5",
+            "positive_fraction": 0.045795977707778046,
+            "sequence_id": "sphere2_batch_test_116"
+          },
+          {
+            "event_sum": 1157.0,
+            "length": 11981,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_test_128.h5",
+            "positive_fraction": 0.07236457724730824,
+            "sequence_id": "sphere2_batch_test_128"
+          },
+          {
+            "event_sum": 191.0,
+            "length": 9947,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_test_155.h5",
+            "positive_fraction": 0.11722127274555143,
+            "sequence_id": "sphere2_batch_test_155"
+          },
+          {
+            "event_sum": 459.0,
+            "length": 6080,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_test_2.h5",
+            "positive_fraction": 0.24111842105263157,
+            "sequence_id": "sphere2_batch_test_2"
+          },
+          {
+            "event_sum": 345.0,
+            "length": 7747,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_test_40.h5",
+            "positive_fraction": 0.19362333806634827,
+            "sequence_id": "sphere2_batch_test_40"
+          },
+          {
+            "event_sum": 1784.0,
+            "length": 8614,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_test_41.h5",
+            "positive_fraction": 0.17413512885999535,
+            "sequence_id": "sphere2_batch_test_41"
+          },
+          {
+            "event_sum": 2372.0,
+            "length": 11481,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_test_44.h5",
+            "positive_fraction": 0.11035624074557965,
+            "sequence_id": "sphere2_batch_test_44"
+          },
+          {
+            "event_sum": 1366.0,
+            "length": 8914,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_test_60.h5",
+            "positive_fraction": 0.16457258245456585,
+            "sequence_id": "sphere2_batch_test_60"
+          },
+          {
+            "event_sum": 100.0,
+            "length": 4881,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_test_66.h5",
+            "positive_fraction": 0.3280065560335997,
+            "sequence_id": "sphere2_batch_test_66"
+          },
+          {
+            "event_sum": 87.0,
+            "length": 5580,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_test_78.h5",
+            "positive_fraction": 0.2747311827956989,
+            "sequence_id": "sphere2_batch_test_78"
+          },
+          {
+            "event_sum": 2092.0,
+            "length": 12514,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_test_82.h5",
+            "positive_fraction": 0.08790155026370465,
+            "sequence_id": "sphere2_batch_test_82"
+          },
+          {
+            "event_sum": 2096.0,
+            "length": 10847,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_test_89.h5",
+            "positive_fraction": 0.11062966718908454,
+            "sequence_id": "sphere2_batch_test_89"
+          },
+          {
+            "event_sum": 1135.0,
+            "length": 10414,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_test_90.h5",
+            "positive_fraction": 0.11206068753600922,
+            "sequence_id": "sphere2_batch_test_90"
+          },
+          {
+            "event_sum": 2015.0,
+            "length": 9981,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere2_batch_test_94.h5",
+            "positive_fraction": 0.12022843402464684,
+            "sequence_id": "sphere2_batch_test_94"
+          },
+          {
+            "event_sum": 2500.0,
+            "length": 25981,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_1.h5",
+            "positive_fraction": 0.34771563835110275,
+            "sequence_id": "sphere_batch_1_1"
+          },
+          {
+            "event_sum": 2250.0,
+            "length": 33681,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_10.h5",
+            "positive_fraction": 0.15640865770018705,
+            "sequence_id": "sphere_batch_1_10"
+          },
+          {
+            "event_sum": 694.0,
+            "length": 19614,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_105.h5",
+            "positive_fraction": 0.28892627714897523,
+            "sequence_id": "sphere_batch_1_105"
+          },
+          {
+            "event_sum": 43.0,
+            "length": 2014,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_106.h5",
+            "positive_fraction": 0.0,
+            "sequence_id": "sphere_batch_1_106"
+          },
+          {
+            "event_sum": 1138.0,
+            "length": 23247,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_120.h5",
+            "positive_fraction": 0.3742418376564718,
+            "sequence_id": "sphere_batch_1_120"
+          },
+          {
+            "event_sum": 2880.0,
+            "length": 27347,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_127.h5",
+            "positive_fraction": 0.14626832925000915,
+            "sequence_id": "sphere_batch_1_127"
+          },
+          {
+            "event_sum": 5224.0,
+            "length": 27447,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_149.h5",
+            "positive_fraction": 0.3509673188326593,
+            "sequence_id": "sphere_batch_1_149"
+          },
+          {
+            "event_sum": 877.0,
+            "length": 22281,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_150.h5",
+            "positive_fraction": 0.42489116287419776,
+            "sequence_id": "sphere_batch_1_150"
+          },
+          {
+            "event_sum": 1441.0,
+            "length": 27247,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_151.h5",
+            "positive_fraction": 0.33644070906888834,
+            "sequence_id": "sphere_batch_1_151"
+          },
+          {
+            "event_sum": 2720.0,
+            "length": 37181,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_19.h5",
+            "positive_fraction": 0.19813883435087815,
+            "sequence_id": "sphere_batch_1_19"
+          },
+          {
+            "event_sum": 3136.0,
+            "length": 28714,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_2.h5",
+            "positive_fraction": 0.3122866894197952,
+            "sequence_id": "sphere_batch_1_2"
+          },
+          {
+            "event_sum": 6908.0,
+            "length": 30447,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_23.h5",
+            "positive_fraction": 0.3120176043616777,
+            "sequence_id": "sphere_batch_1_23"
+          },
+          {
+            "event_sum": 4224.0,
+            "length": 28714,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_24.h5",
+            "positive_fraction": 0.3215852894058647,
+            "sequence_id": "sphere_batch_1_24"
+          },
+          {
+            "event_sum": 7272.0,
+            "length": 33414,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_27.h5",
+            "positive_fraction": 0.28233674507691386,
+            "sequence_id": "sphere_batch_1_27"
+          },
+          {
+            "event_sum": 638.0,
+            "length": 30147,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_36.h5",
+            "positive_fraction": 0.15590274322486483,
+            "sequence_id": "sphere_batch_1_36"
+          },
+          {
+            "event_sum": 1438.0,
+            "length": 21781,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_48.h5",
+            "positive_fraction": 0.4377209494513567,
+            "sequence_id": "sphere_batch_1_48"
+          },
+          {
+            "event_sum": 662.0,
+            "length": 15247,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_50.h5",
+            "positive_fraction": 0.6537023676788877,
+            "sequence_id": "sphere_batch_1_50"
+          },
+          {
+            "event_sum": 2744.0,
+            "length": 30181,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_54.h5",
+            "positive_fraction": 0.27391405188694873,
+            "sequence_id": "sphere_batch_1_54"
+          },
+          {
+            "event_sum": 357.0,
+            "length": 19581,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_55.h5",
+            "positive_fraction": 0.5107502170471375,
+            "sequence_id": "sphere_batch_1_55"
+          },
+          {
+            "event_sum": 5752.0,
+            "length": 29614,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_56.h5",
+            "positive_fraction": 0.3264334436415209,
+            "sequence_id": "sphere_batch_1_56"
+          },
+          {
+            "event_sum": 1257.0,
+            "length": 24714,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_7.h5",
+            "positive_fraction": 0.1982681880715384,
+            "sequence_id": "sphere_batch_1_7"
+          },
+          {
+            "event_sum": 1536.0,
+            "length": 25314,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_70.h5",
+            "positive_fraction": 0.355534486845224,
+            "sequence_id": "sphere_batch_1_70"
+          },
+          {
+            "event_sum": 3868.0,
+            "length": 26681,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_77.h5",
+            "positive_fraction": 0.36734005472058767,
+            "sequence_id": "sphere_batch_1_77"
+          },
+          {
+            "event_sum": 256.0,
+            "length": 14381,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_78.h5",
+            "positive_fraction": 0.6953619358876295,
+            "sequence_id": "sphere_batch_1_78"
+          },
+          {
+            "event_sum": 3116.0,
+            "length": 25114,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_81.h5",
+            "positive_fraction": 0.3796288922513339,
+            "sequence_id": "sphere_batch_1_81"
+          },
+          {
+            "event_sum": 3182.0,
+            "length": 33947,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_82.h5",
+            "positive_fraction": 0.1502341885880932,
+            "sequence_id": "sphere_batch_1_82"
+          },
+          {
+            "event_sum": 3748.0,
+            "length": 31880,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_86.h5",
+            "positive_fraction": 0.2624215809284818,
+            "sequence_id": "sphere_batch_1_86"
+          },
+          {
+            "event_sum": 2448.0,
+            "length": 23647,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_89.h5",
+            "positive_fraction": 0.25237873726054044,
+            "sequence_id": "sphere_batch_1_89"
+          },
+          {
+            "event_sum": 1551.0,
+            "length": 27814,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_93.h5",
+            "positive_fraction": 0.3283957719134249,
+            "sequence_id": "sphere_batch_1_93"
+          },
+          {
+            "event_sum": 2492.0,
+            "length": 22514,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_95.h5",
+            "positive_fraction": 0.4352847117349205,
+            "sequence_id": "sphere_batch_1_95"
+          },
+          {
+            "event_sum": 1666.0,
+            "length": 24314,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_1_98.h5",
+            "positive_fraction": 0.33178415727564364,
+            "sequence_id": "sphere_batch_1_98"
+          },
+          {
+            "event_sum": 2508.0,
+            "length": 34714,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_108.h5",
+            "positive_fraction": 0.06337500720170536,
+            "sequence_id": "sphere_batch_2_108"
+          },
+          {
+            "event_sum": 1253.0,
+            "length": 17014,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_120.h5",
+            "positive_fraction": 0.593628776301869,
+            "sequence_id": "sphere_batch_2_120"
+          },
+          {
+            "event_sum": 3360.0,
+            "length": 24747,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_134.h5",
+            "positive_fraction": 0.2384531458358589,
+            "sequence_id": "sphere_batch_2_134"
+          },
+          {
+            "event_sum": 1819.0,
+            "length": 23081,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_142.h5",
+            "positive_fraction": 0.3870716173476019,
+            "sequence_id": "sphere_batch_2_142"
+          },
+          {
+            "event_sum": 2468.0,
+            "length": 20014,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_149.h5",
+            "positive_fraction": 0.18991705805935846,
+            "sequence_id": "sphere_batch_2_149"
+          },
+          {
+            "event_sum": 7576.0,
+            "length": 21981,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_151.h5",
+            "positive_fraction": 0.4488876757199399,
+            "sequence_id": "sphere_batch_2_151"
+          },
+          {
+            "event_sum": 195.0,
+            "length": 11414,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_154.h5",
+            "positive_fraction": 0.7184159803749781,
+            "sequence_id": "sphere_batch_2_154"
+          },
+          {
+            "event_sum": 9456.0,
+            "length": 31814,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_157.h5",
+            "positive_fraction": 0.1634500534355944,
+            "sequence_id": "sphere_batch_2_157"
+          },
+          {
+            "event_sum": 10088.0,
+            "length": 29947,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_168.h5",
+            "positive_fraction": 0.3161251544395098,
+            "sequence_id": "sphere_batch_2_168"
+          },
+          {
+            "event_sum": 1974.0,
+            "length": 26814,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_169.h5",
+            "positive_fraction": 0.0,
+            "sequence_id": "sphere_batch_2_169"
+          },
+          {
+            "event_sum": 1637.0,
+            "length": 17881,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_170.h5",
+            "positive_fraction": 0.24786085789385381,
+            "sequence_id": "sphere_batch_2_170"
+          },
+          {
+            "event_sum": 1941.0,
+            "length": 17714,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_175.h5",
+            "positive_fraction": 0.06029129502088743,
+            "sequence_id": "sphere_batch_2_175"
+          },
+          {
+            "event_sum": 1206.0,
+            "length": 18947,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_177.h5",
+            "positive_fraction": 0.5154905789834803,
+            "sequence_id": "sphere_batch_2_177"
+          },
+          {
+            "event_sum": 5560.0,
+            "length": 29814,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_19.h5",
+            "positive_fraction": 0.11514724626014625,
+            "sequence_id": "sphere_batch_2_19"
+          },
+          {
+            "event_sum": 531.0,
+            "length": 16547,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_29.h5",
+            "positive_fraction": 0.3685864507161419,
+            "sequence_id": "sphere_batch_2_29"
+          },
+          {
+            "event_sum": 405.0,
+            "length": 16047,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_39.h5",
+            "positive_fraction": 0.2222222222222222,
+            "sequence_id": "sphere_batch_2_39"
+          },
+          {
+            "event_sum": 3694.0,
+            "length": 20414,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_46.h5",
+            "positive_fraction": 0.4441559713921818,
+            "sequence_id": "sphere_batch_2_46"
+          },
+          {
+            "event_sum": 1690.0,
+            "length": 14247,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_53.h5",
+            "positive_fraction": 0.7136239208254369,
+            "sequence_id": "sphere_batch_2_53"
+          },
+          {
+            "event_sum": 82.0,
+            "length": 3647,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_61.h5",
+            "positive_fraction": 0.21935837674801206,
+            "sequence_id": "sphere_batch_2_61"
+          },
+          {
+            "event_sum": 904.0,
+            "length": 35014,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_74.h5",
+            "positive_fraction": 0.25132804021248645,
+            "sequence_id": "sphere_batch_2_74"
+          },
+          {
+            "event_sum": 3016.0,
+            "length": 29781,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_81.h5",
+            "positive_fraction": 0.1902555320506363,
+            "sequence_id": "sphere_batch_2_81"
+          },
+          {
+            "event_sum": 2756.0,
+            "length": 23914,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/sphere_batch_2_90.h5",
+            "positive_fraction": 0.1909759973237434,
+            "sequence_id": "sphere_batch_2_90"
+          }
+        ],
+        "built_sequences": 234,
+        "cache_dir": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val",
+        "cache_format": "sparse",
+        "cache_root": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse",
+        "chunk_steps": 512,
+        "clip_max": null,
+        "compression": "gzip",
+        "data_root": "/lamport/makkapakka/jiajunlu/TacSpike_Dataset/releases/hf_v1.0.0_ready/tacspike-slip-detection-1khz-v1.0.0",
+        "dtype": "float16",
+        "event_sum": 555829.0,
+        "num_sequences": 234,
+        "polarity_mode": "both",
+        "positive_fraction": 0.28575183853042174,
+        "reused": [],
+        "reused_sequences": 0,
+        "spatial_pool": 4,
+        "split": "val",
+        "total_bins": 4173170
+      },
+      "manifest": {
+        "event_sum": 555829.0,
+        "event_sum_per_bin": 0.13319107536956318,
+        "first_sequences": [
+          {
+            "event_sum": 1099.0,
+            "length": 18481,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_1.h5",
+            "positive_fraction": 0.5212921378713273,
+            "sequence_id": "flat_batch_1_1"
+          },
+          {
+            "event_sum": 682.0,
+            "length": 16514,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_19.h5",
+            "positive_fraction": 0.5551047595979169,
+            "sequence_id": "flat_batch_1_19"
+          },
+          {
+            "event_sum": 2168.0,
+            "length": 19181,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_2.h5",
+            "positive_fraction": 0.5092018142953965,
+            "sequence_id": "flat_batch_1_2"
+          },
+          {
+            "event_sum": 1828.0,
+            "length": 18981,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_22.h5",
+            "positive_fraction": 0.514567198777725,
+            "sequence_id": "flat_batch_1_22"
+          },
+          {
+            "event_sum": 2108.0,
+            "length": 21481,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_3.h5",
+            "positive_fraction": 0.3725152460313766,
+            "sequence_id": "flat_batch_1_3"
+          },
+          {
+            "event_sum": 2424.0,
+            "length": 28214,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_34.h5",
+            "positive_fraction": 0.17601190898135677,
+            "sequence_id": "flat_batch_1_34"
+          },
+          {
+            "event_sum": 579.0,
+            "length": 12881,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_4.h5",
+            "positive_fraction": 0.3494293921279404,
+            "sequence_id": "flat_batch_1_4"
+          },
+          {
+            "event_sum": 3116.0,
+            "length": 18347,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_40.h5",
+            "positive_fraction": 0.5268981304845479,
+            "sequence_id": "flat_batch_1_40"
+          },
+          {
+            "event_sum": 5012.0,
+            "length": 25681,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_45.h5",
+            "positive_fraction": 0.323235076515712,
+            "sequence_id": "flat_batch_1_45"
+          },
+          {
+            "event_sum": 3388.0,
+            "length": 17614,
+            "path": "/lamport/makkapakka/jiajunlu/cache/tacspike_stream_cache_v3_sparse/sparse_sp4_both_clipnone_float16/val/flat_batch_1_49.h5",
+            "positive_fraction": 0.569660497331668,
+            "sequence_id": "flat_batch_1_49"
+          }
+        ],
+        "length_max": 37181,
+        "length_mean": 17834.05982905983,
+        "length_min": 2014,
+        "num_sequences": 234,
+        "positive_fraction_mean": 0.27133095886343006,
+        "positive_fraction_weighted": 0.28575183853042174,
+        "split": "val",
+        "total_bins": 4173170
+      }
+    }
+  ]
+}
