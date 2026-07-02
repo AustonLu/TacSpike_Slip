@@ -527,6 +527,7 @@ def main() -> None:
     parser.add_argument("--scheduler", choices=("none", "cosine"), default="cosine")
     parser.add_argument("--max-train-batches", type=int, default=None)
     parser.add_argument("--max-val-batches", type=int, default=None)
+    parser.add_argument("--save-epoch-checkpoints", action="store_true")
     parser.add_argument("--target-accuracy", type=float, default=0.95)
     args = parser.parse_args()
 
@@ -648,6 +649,8 @@ def main() -> None:
         write_jsonl(log_path, record)
         metric = float(val_metrics.get(args.best_metric, val_metrics.get("accuracy", 0.0)))
         save_checkpoint(args.output_dir / "latest.pt", model, optimizer, epoch, best_metric, args, val_metrics)
+        if args.save_epoch_checkpoints:
+            save_checkpoint(args.output_dir / f"epoch_{epoch:03d}.pt", model, optimizer, epoch, best_metric, args, val_metrics)
         if metric > best_metric:
             best_metric = metric
             best_epoch = epoch
