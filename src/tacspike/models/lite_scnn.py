@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Dict, Tuple
+from typing import Dict, Iterable, Tuple
 
 import torch
 from torch import nn
@@ -232,6 +232,78 @@ class TacSpikeStreamingLiteSCNN(nn.Module):
         if return_state:
             return logit_seq, stats, state
         return logit_seq, stats
+
+
+class TacSpikeMultiTauStreamingSCNN(nn.Module):
+    """Multi-timescale streaming SCNN with parallel LIF branches."""
+
+    def __init__(
+        self,
+        input_channels: int = 2,
+        num_classes: int = 2,
+        betas: Iterable[float] = (0.65, 0.85, 0.95),
+        threshold: float = 0.1,
+        surrogate_alpha: float = 2.0,
+        hidden: int = 64,
+        conv1_channels: int = 16,
+        conv2_channels: int = 32,
+        dropout: float = 0.0,
+        fusion: str = "mean",
+    ) -> None:
+        super().__init__()
+        if fusion not in {"mean", "linear"}:
+            raise ValueError(f"Unsupported fusion={fusion!r}")
+        self.fusion = fusion
+        self.betas = tuple(float(beta) for beta in betas)
+        if not self.betas:
+            raise ValueError("betas must contain at least one value")
+        self.branches = nn.ModuleList(
+            [
+                TacSpikeStreamingLiteSCNN(
+                    input_channels=input_channels,
+                    num_classes=num_classes,
+                    beta=beta,
+                    threshold=threshold,
+                    surrogate_alpha=surrogate_alpha,
+                    hidden=hidden,
+                    conv1_channels=conv1_channels,
+                    conv2_channels=conv2_channels,
+                    dropout=dropout,
+                )
+                for beta in self.betas
+            ]
+        )
+        self.fusion_layer = nn.Linear(len(self.betas) * num_classes, num_classes) if fusion == "linear" else None
+
+    def forward(
+        self,
+        x: torch.Tensor,
+        state: Tuple[Tuple[LIFState | None, LIFState | None, LIFState | None] | None, ...] | None = None,
+        return_state: bool = False,
+    ) -> Tuple[torch.Tensor, Dict[str, torch.Tensor]] | Tuple[
+        torch.Tensor,
+        Dict[str, torch.Tensor],
+        Tuple[Tuple[LIFState, LIFState, LIFState], ...],
+    ]:
+        branch_logits = []
+        next_states = []
+        stats: Dict[str, torch.Tensor] = {}
+        if state is None:
+            state = tuple(None for _ in self.branches)
+        for idx, (branch, branch_state) in enumerate(zip(self.branches, state)):
+            logits_i, stats_i, state_i = branch(x, state=branch_state, return_state=True)
+            branch_logits.append(logits_i)
+            next_states.append(state_i)
+            for key, value in stats_i.items():
+                stats[f"branch{idx}_{key}"] = value
+        stacked = torch.stack(branch_logits, dim=2)
+        if self.fusion == "mean":
+            logits = stacked.mean(dim=2)
+        else:
+            logits = self.fusion_layer(stacked.flatten(2))
+        if return_state:
+            return logits, stats, tuple(next_states)
+        return logits, stats
 
 
 def count_parameters(model: nn.Module) -> int:

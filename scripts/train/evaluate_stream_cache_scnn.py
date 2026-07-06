@@ -25,8 +25,8 @@ from scripts.train.evaluate_sliding_detection import (
     score_method_record,
     transition_distances_per_sequence,
 )
-from tacspike.data import load_stream_cache_manifest, read_event_bins_slice
-from tacspike.models import TacSpikeStreamingLiteSCNN
+from tacspike.data import load_stream_cache_manifest, parse_feature_windows, read_stream_feature_slice
+from tacspike.models import TacSpikeMultiTauStreamingSCNN, TacSpikeStreamingLiteSCNN
 
 
 def json_default(value: Any) -> Any:
@@ -56,31 +56,63 @@ def select_sequence_indices(total: int, max_sequences: int, seed: int) -> np.nda
     return np.sort(rng.choice(np.arange(total, dtype=np.int64), size=max_sequences, replace=False))
 
 
-def build_model_from_checkpoint(checkpoint: Path, device: torch.device) -> Tuple[TacSpikeStreamingLiteSCNN, argparse.Namespace]:
+def input_channels_from_train_args(train_args: argparse.Namespace) -> int:
+    base_channels = 2 if getattr(train_args, "polarity_mode", "both") == "both" else 1
+    feature_mode = getattr(train_args, "feature_mode", "raw")
+    if feature_mode == "raw":
+        return base_channels
+    if feature_mode == "multiscale":
+        return base_channels * len(parse_feature_windows(getattr(train_args, "feature_windows", "1,20,50,100,200,400")))
+    raise ValueError(f"Unsupported feature_mode={feature_mode!r}")
+
+
+def build_model_from_checkpoint(
+    checkpoint: Path,
+    device: torch.device,
+) -> Tuple[torch.nn.Module, argparse.Namespace]:
     ckpt = torch.load(checkpoint, map_location="cpu")
     train_args = argparse.Namespace(**ckpt["args"])
-    input_channels = 2 if getattr(train_args, "polarity_mode", "both") == "both" else 1
-    model = TacSpikeStreamingLiteSCNN(
-        input_channels=input_channels,
-        beta=getattr(train_args, "beta", 0.85),
-        threshold=getattr(train_args, "threshold", 0.1),
-        surrogate_alpha=getattr(train_args, "surrogate_alpha", 2.0),
-        hidden=getattr(train_args, "hidden_dim", 64),
-        conv1_channels=getattr(train_args, "conv1_channels", 16),
-        conv2_channels=getattr(train_args, "conv2_channels", 32),
-        dropout=0.0,
-    ).to(device)
+    input_channels = input_channels_from_train_args(train_args)
+    model_type = getattr(train_args, "model_type", "lite")
+    if model_type == "lite":
+        model = TacSpikeStreamingLiteSCNN(
+            input_channels=input_channels,
+            beta=getattr(train_args, "beta", 0.85),
+            threshold=getattr(train_args, "threshold", 0.1),
+            surrogate_alpha=getattr(train_args, "surrogate_alpha", 2.0),
+            hidden=getattr(train_args, "hidden_dim", 64),
+            conv1_channels=getattr(train_args, "conv1_channels", 16),
+            conv2_channels=getattr(train_args, "conv2_channels", 32),
+            dropout=0.0,
+        ).to(device)
+    elif model_type == "multitau":
+        model = TacSpikeMultiTauStreamingSCNN(
+            input_channels=input_channels,
+            betas=parse_csv_floats(getattr(train_args, "multi_tau_betas", "0.65,0.85,0.95")),
+            threshold=getattr(train_args, "threshold", 0.1),
+            surrogate_alpha=getattr(train_args, "surrogate_alpha", 2.0),
+            hidden=getattr(train_args, "hidden_dim", 64),
+            conv1_channels=getattr(train_args, "conv1_channels", 16),
+            conv2_channels=getattr(train_args, "conv2_channels", 32),
+            dropout=0.0,
+            fusion=getattr(train_args, "multi_tau_fusion", "mean"),
+        ).to(device)
+    else:
+        raise ValueError(f"Unsupported model_type={model_type!r}")
     model.load_state_dict(ckpt["model"])
     model.eval()
     return model, train_args
 
 
 def sequence_scores_from_cache(
-    model: TacSpikeStreamingLiteSCNN,
+    model: torch.nn.Module,
     cache_path: Path,
     device: torch.device,
     chunk_steps: int,
     input_scale: float,
+    feature_mode: str,
+    feature_windows: str,
+    multiscale_normalization: str,
 ) -> Tuple[np.ndarray, np.ndarray]:
     with h5py.File(cache_path, "r") as h5:
         labels = h5["labels"][:].astype(np.int64, copy=False)
@@ -90,7 +122,14 @@ def sequence_scores_from_cache(
         with torch.no_grad():
             for start in range(0, length, int(chunk_steps)):
                 stop = min(start + int(chunk_steps), length)
-                x_np = read_event_bins_slice(h5, start, stop)
+                x_np = read_stream_feature_slice(
+                    h5,
+                    start,
+                    stop,
+                    feature_mode=feature_mode,
+                    feature_windows=parse_feature_windows(feature_windows),
+                    multiscale_normalization=multiscale_normalization,
+                )
                 if input_scale != 1.0:
                     x_np = x_np * float(input_scale)
                 x = torch.from_numpy(x_np).to(device=device, dtype=torch.float32)
@@ -149,6 +188,9 @@ def main() -> None:
             device=device,
             chunk_steps=args.chunk_steps,
             input_scale=float(getattr(train_args, "input_scale", 1.0)),
+            feature_mode=getattr(train_args, "feature_mode", "raw"),
+            feature_windows=getattr(train_args, "feature_windows", "1,20,50,100,200,400"),
+            multiscale_normalization=getattr(train_args, "multiscale_normalization", "sqrt"),
         )
         scores_parts.append(scores)
         labels_parts.append(labels)

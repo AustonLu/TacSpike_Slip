@@ -21,8 +21,14 @@ SRC_ROOT = REPO_ROOT / "src"
 if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
-from tacspike.data import load_stream_cache_manifest, onset_valid_mask, read_event_bins_slice, sample_stream_segments
-from tacspike.models import TacSpikeStreamingLiteSCNN, count_parameters
+from tacspike.data import (
+    load_stream_cache_manifest,
+    onset_valid_mask,
+    parse_feature_windows,
+    read_stream_feature_slice,
+    sample_stream_segments,
+)
+from tacspike.models import TacSpikeMultiTauStreamingSCNN, TacSpikeStreamingLiteSCNN, count_parameters
 from tacspike.training import binary_classification_metrics
 
 
@@ -64,6 +70,9 @@ class StreamCacheSegmentDataset(Dataset):
         cache_format: str = "dense",
         transition_ignore_steps: int = 0,
         input_scale: float = 1.0,
+        feature_mode: str = "raw",
+        feature_windows: str = "1,20,50,100,200,400",
+        multiscale_normalization: str = "sqrt",
     ) -> None:
         self.sequences = load_stream_cache_manifest(
             cache_root=cache_root,
@@ -79,6 +88,9 @@ class StreamCacheSegmentDataset(Dataset):
         self.segment_steps = int(segment_steps)
         self.transition_ignore_steps = int(transition_ignore_steps)
         self.input_scale = float(input_scale)
+        self.feature_mode = feature_mode
+        self.feature_windows = parse_feature_windows(feature_windows)
+        self.multiscale_normalization = multiscale_normalization
         self._open_path: Path | None = None
         self._h5: h5py.File | None = None
 
@@ -111,7 +123,14 @@ class StreamCacheSegmentDataset(Dataset):
         start = int(self.starts[index])
         stop = start + self.segment_steps
         h5 = self._open_h5(self.sequences[seq_idx].path)
-        x = read_event_bins_slice(h5, start, stop)
+        x = read_stream_feature_slice(
+            h5,
+            start,
+            stop,
+            feature_mode=self.feature_mode,
+            feature_windows=self.feature_windows,
+            multiscale_normalization=self.multiscale_normalization,
+        )
         if self.input_scale != 1.0:
             x = x * self.input_scale
         y = h5["labels"][start:stop].astype(np.float32, copy=False)
@@ -141,6 +160,9 @@ def make_loader(
         cache_format=args.cache_format,
         transition_ignore_steps=args.transition_ignore_steps,
         input_scale=args.input_scale,
+        feature_mode=args.feature_mode,
+        feature_windows=args.feature_windows,
+        multiscale_normalization=args.multiscale_normalization,
     )
     return DataLoader(
         dataset,
@@ -310,6 +332,49 @@ def save_checkpoint(
     )
 
 
+def parse_csv_floats(text: str) -> Tuple[float, ...]:
+    values = tuple(float(part) for part in text.split(",") if part.strip())
+    if not values:
+        raise ValueError("Expected at least one float")
+    return values
+
+
+def input_channels_from_args(args: argparse.Namespace) -> int:
+    base_channels = 2 if args.polarity_mode == "both" else 1
+    if args.feature_mode == "raw":
+        return base_channels
+    if args.feature_mode == "multiscale":
+        return base_channels * len(parse_feature_windows(args.feature_windows))
+    raise ValueError(f"Unsupported feature_mode={args.feature_mode!r}")
+
+
+def build_stream_model(args: argparse.Namespace, input_channels: int) -> nn.Module:
+    if args.model_type == "lite":
+        return TacSpikeStreamingLiteSCNN(
+            input_channels=input_channels,
+            beta=args.beta,
+            threshold=args.threshold,
+            surrogate_alpha=args.surrogate_alpha,
+            hidden=args.hidden_dim,
+            conv1_channels=args.conv1_channels,
+            conv2_channels=args.conv2_channels,
+            dropout=args.dropout,
+        )
+    if args.model_type == "multitau":
+        return TacSpikeMultiTauStreamingSCNN(
+            input_channels=input_channels,
+            betas=parse_csv_floats(args.multi_tau_betas),
+            threshold=args.threshold,
+            surrogate_alpha=args.surrogate_alpha,
+            hidden=args.hidden_dim,
+            conv1_channels=args.conv1_channels,
+            conv2_channels=args.conv2_channels,
+            dropout=args.dropout,
+            fusion=args.multi_tau_fusion,
+        )
+    raise ValueError(f"Unsupported model_type={args.model_type!r}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Train stateful SNN from TacSpike stream cache.")
     parser.add_argument("--stream-cache-root", required=True, type=Path)
@@ -327,6 +392,9 @@ def main() -> None:
     parser.add_argument("--beta", type=float, default=0.85)
     parser.add_argument("--threshold", type=float, default=0.1)
     parser.add_argument("--surrogate-alpha", type=float, default=2.0)
+    parser.add_argument("--model-type", choices=("lite", "multitau"), default="lite")
+    parser.add_argument("--multi-tau-betas", default="0.65,0.85,0.95")
+    parser.add_argument("--multi-tau-fusion", choices=("mean", "linear"), default="mean")
     parser.add_argument("--conv1-channels", type=int, default=32)
     parser.add_argument("--conv2-channels", type=int, default=64)
     parser.add_argument("--hidden-dim", type=int, default=128)
@@ -337,6 +405,9 @@ def main() -> None:
     parser.add_argument("--cache-format", choices=("dense", "sparse"), default="dense")
     parser.add_argument("--polarity-mode", choices=("both", "positive", "negative", "sum"), default="both")
     parser.add_argument("--input-scale", type=float, default=1.0)
+    parser.add_argument("--feature-mode", choices=("raw", "multiscale"), default="raw")
+    parser.add_argument("--feature-windows", default="1,20,50,100,200,400")
+    parser.add_argument("--multiscale-normalization", choices=("sqrt", "mean", "none"), default="sqrt")
     parser.add_argument("--sampling", choices=("balanced", "random", "end_balanced", "state_balanced", "transition_mix"), default="transition_mix")
     parser.add_argument("--loss-mode", choices=("all", "last"), default="all")
     parser.add_argument("--warmup-steps", type=int, default=50)
@@ -360,17 +431,8 @@ def main() -> None:
     summary_path = args.output_dir / "summary.json"
 
     device = torch.device(args.device if torch.cuda.is_available() or args.device == "cpu" else "cpu")
-    input_channels = 2 if args.polarity_mode == "both" else 1
-    model = TacSpikeStreamingLiteSCNN(
-        input_channels=input_channels,
-        beta=args.beta,
-        threshold=args.threshold,
-        surrogate_alpha=args.surrogate_alpha,
-        hidden=args.hidden_dim,
-        conv1_channels=args.conv1_channels,
-        conv2_channels=args.conv2_channels,
-        dropout=args.dropout,
-    ).to(device)
+    input_channels = input_channels_from_args(args)
+    model = build_stream_model(args, input_channels).to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
     scheduler = (
         torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=max(args.epochs, 1), eta_min=args.lr * 0.05)

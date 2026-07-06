@@ -586,6 +586,72 @@ def read_event_bins_slice(h5: Any, start: int, stop: int) -> np.ndarray:
     return out
 
 
+def parse_feature_windows(text: str) -> Tuple[int, ...]:
+    windows = tuple(int(part) for part in text.split(",") if part.strip())
+    if not windows:
+        raise ValueError("feature windows must contain at least one integer")
+    if any(window <= 0 for window in windows):
+        raise ValueError(f"feature windows must be positive, got {windows}")
+    return windows
+
+
+def causal_multiscale_features(
+    event_bins: np.ndarray,
+    windows: Tuple[int, ...],
+    normalization: str = "sqrt",
+) -> np.ndarray:
+    """Build causal multi-scale event features from dense 1 ms bins.
+
+    The output concatenates one causal sum per window along the channel axis.
+    """
+
+    if normalization not in {"sqrt", "mean", "none"}:
+        raise ValueError(f"Unsupported multiscale normalization={normalization!r}")
+    x = np.asarray(event_bins, dtype=np.float32)
+    if x.ndim != 4:
+        raise ValueError(f"Expected event_bins shape [T,C,H,W], got {x.shape}")
+    cumsum = np.cumsum(x, axis=0, dtype=np.float32)
+    padded = np.concatenate([np.zeros_like(cumsum[:1]), cumsum], axis=0)
+    steps = x.shape[0]
+    positions = np.arange(steps, dtype=np.int64)
+    features = []
+    for window in windows:
+        left = np.maximum(0, positions + 1 - int(window))
+        summed = padded[positions + 1] - padded[left]
+        if normalization == "sqrt":
+            summed = summed / np.sqrt(float(window))
+        elif normalization == "mean":
+            denom = np.minimum(positions + 1, int(window)).astype(np.float32)
+            summed = summed / denom[:, None, None, None]
+        features.append(summed.astype(np.float32, copy=False))
+    return np.concatenate(features, axis=1)
+
+
+def read_stream_feature_slice(
+    h5: Any,
+    start: int,
+    stop: int,
+    feature_mode: str = "raw",
+    feature_windows: Tuple[int, ...] = (1, 20, 50, 100, 200, 400),
+    multiscale_normalization: str = "sqrt",
+) -> np.ndarray:
+    """Read raw or causal multi-scale stream features for [start:stop]."""
+
+    if feature_mode == "raw":
+        return read_event_bins_slice(h5, start, stop)
+    if feature_mode != "multiscale":
+        raise ValueError(f"Unsupported feature_mode={feature_mode!r}")
+    lookback = max(int(window) for window in feature_windows) - 1
+    context_start = max(0, int(start) - lookback)
+    raw = read_event_bins_slice(h5, context_start, stop)
+    features = causal_multiscale_features(
+        raw,
+        windows=feature_windows,
+        normalization=multiscale_normalization,
+    )
+    return features[int(start) - context_start :]
+
+
 def iter_batches(items: Iterable[Any], batch_size: int) -> Iterable[List[Any]]:
     batch: List[Any] = []
     for item in items:
